@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="11762" systemVersion="15F34" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11762"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="NSApplication">
+            <connections>
+                <outlet property="delegate" destination="Voe-Tx-rLC" id="GzC-gU-4Uq"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="Hint" customModuleProvider="target">
+            <connections>
+                <outlet property="menu" destination="D4b-5A-cF7" id="0oM-Rr-udS"/>
+            </connections>
+        </customObject>
+        <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
+        <menu id="D4b-5A-cF7">
+            <items>
+                <menuItem title="About Hint" id="Sfw-dS-EJy">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                </menuItem>
+                <menuItem isSeparatorItem="YES" id="Zlo-r9-dsR"/>
+                <menuItem title="Interval" id="cb5-JA-WOr">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <menu key="submenu" title="Interval" id="er2-Bg-sWo">
+                        <items>
+                            <menuItem title="2 Minutes" tag="120" id="MBu-JM-cZF">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="actionChangeInterval:" target="Voe-Tx-rLC" id="cVQ-Il-aLG"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="5 Minutes" tag="300" id="c2N-wc-HV8">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="actionChangeInterval:" target="Voe-Tx-rLC" id="Qtl-Wn-0np"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="10 Minutes" tag="600" id="nrY-4V-lzK">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="actionChangeInterval:" target="Voe-Tx-rLC" id="pdg-B6-JUT"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="20 Minutes" tag="1200" id="RBI-78-8ks">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="actionChangeInterval:" target="Voe-Tx-rLC" id="U1o-an-1Va"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="30 Minutes" tag="1800" id="kgD-IC-hrX">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="actionChangeInterval:" target="Voe-Tx-rLC" id="sNo-pa-Yv6"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="1 Hour" tag="3600" id="VKE-Bp-4pm">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="actionChangeInterval:" target="Voe-Tx-rLC" id="4UV-6D-QVc"/>
+                                </connections>
+                            </menuItem>
+                        </items>
+                    </menu>
+                </menuItem>
+                <menuItem title="Text" id="lmM-1g-5P0">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <menu key="submenu" title="Text" id="dTy-sM-hHd">
+                        <items>
+                            <menuItem title="Reminder" id="B89-cJ-iME">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="actionChangeText:" target="Voe-Tx-rLC" id="ujI-Vv-Ntz"/>
+                                </connections>
+                            </menuItem>
+                        </items>
+                    </menu>
+                </menuItem>
+                <menuItem title="Sound" id="QOe-05-UqR">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <menu key="submenu" title="Sound" id="Swe-m8-ibl">
+                        <items>
+                            <menuItem title="Silent" id="FSd-8G-FoS">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="actionChangeText:" target="Voe-Tx-rLC" id="Yha-EM-4Mc"/>
+                                </connections>
+                            </menuItem>
+                        </items>
+                    </menu>
+                </menuItem>
+                <menuItem title="Pause" id="Ni4-op-pvg">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <menu key="submenu" title="Pause" id="JBF-6V-hJW">
+                        <items>
+                            <menuItem title="20 Minutes" tag="1200" id="upR-9I-Umn">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="actionPause:" target="Voe-Tx-rLC" id="XZT-N2-ycp"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="1 Hour" tag="3600" id="VBM-XO-K4T">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="actionPause:" target="Voe-Tx-rLC" id="XxA-Gy-1U3"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Until Resumed" id="lnR-h8-eNP">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="actionPause:" target="Voe-Tx-rLC" id="bfD-uh-Gf5"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem isSeparatorItem="YES" id="qz4-FW-BAk"/>
+                            <menuItem title="Resume" enabled="NO" id="Foj-gE-bg4">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="actionResume:" target="Voe-Tx-rLC" id="8Jt-Cg-KMO"/>
+                                </connections>
+                            </menuItem>
+                        </items>
+                    </menu>
+                </menuItem>
+                <menuItem isSeparatorItem="YES" id="2gG-mi-hjj"/>
+                <menuItem title="Quit" id="8zN-TD-C5d">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="actionQuit:" target="Voe-Tx-rLC" id="S7y-wj-5Em"/>
+                    </connections>
+                </menuItem>
+            </items>
+            <point key="canvasLocation" x="10" y="-105"/>
+        </menu>
+    </objects>
+</document>
