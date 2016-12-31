@@ -141,10 +141,10 @@
             </items>
             <point key="canvasLocation" x="-306" y="-315"/>
         </menu>
-        <window allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" hidesOnDeactivate="YES" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" frameAutosaveName="" animationBehavior="default" id="dQ4-5x-eTX" customClass="NSPanel">
+        <window allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" hidesOnDeactivate="YES" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="dQ4-5x-eTX" customClass="NSPanel">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" utility="YES" unifiedTitleAndToolbar="YES"/>
-            <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="167" y="107" width="276" height="223"/>
+            <windowPositionMask key="initialPositionMask" topStrut="YES"/>
+            <rect key="contentRect" x="744" y="637" width="276" height="223"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
             <view key="contentView" id="9Jv-Ho-2Pt">
                 <rect key="frame" x="0.0" y="0.0" width="276" height="223"/>
@@ -169,7 +169,7 @@
                         </textFieldCell>
                     </textField>
                     <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tRY-Db-lQO">
-                        <rect key="frame" x="56" y="39" width="165" height="21"/>
+                        <rect key="frame" x="63" y="39" width="165" height="21"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <buttonCell key="cell" type="bevel" title="github.com/crsmithdev/hint" bezelStyle="rounded" alignment="center" imageScaling="proportionallyDown" inset="2" id="t8j-PS-KFn">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -180,7 +180,7 @@
                         </connections>
                     </button>
                     <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HgU-AM-rpQ">
-                        <rect key="frame" x="99" y="126" width="78" height="70"/>
+                        <rect key="frame" x="99" y="125" width="78" height="70"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="Images/About" id="7fM-Sa-dX8"/>
                     </imageView>

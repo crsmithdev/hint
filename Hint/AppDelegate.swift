@@ -24,7 +24,7 @@ func linkFromString(_ string: String) -> NSAttributedString {
     attr.addAttribute(NSLinkAttributeName, value: "https://github.com/crsmithdev/hint", range: range)
     attr.addAttribute(NSForegroundColorAttributeName, value: NSColor.blue, range: range)
     attr.addAttribute(NSUnderlineStyleAttributeName, value: 1, range: range)
-    attr.addAttribute(NSFontAttributeName, value: NSFont(name: "Helvetica Neue", size: 13), range: range)
+    //attr.addAttribute(NSFontAttributeName, value: NSFont(name: "Helvetica Neue", size: 13), range: range)
     attr.endEditing()
     
     return attr
@@ -76,7 +76,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     /* Actions */
     
     @IBAction func actionLinkClick(_ sender: NSButton) {
-        NSWorkspace.shared().open(URL(string: "https://www.google.com")!)
+        NSWorkspace.shared().open(URL(string: "https://github.com/crsmithdev/hint")!)
     }
     
     @IBAction func actionAbout(_ sender: NSMenuItem) {
