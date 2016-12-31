@@ -12,12 +12,38 @@ enum TextType: Int {
     case reminder = 0
 }
 
+enum SoundType: Int {
+    case silent = 0
+}
+
+func linkFromString(_ string: String) -> NSAttributedString {
+    let attr = NSMutableAttributedString(string: string)
+    let range = NSMakeRange(0, attr.length)
+    
+    attr.beginEditing()
+    attr.addAttribute(NSLinkAttributeName, value: "https://github.com/crsmithdev/hint", range: range)
+    attr.addAttribute(NSForegroundColorAttributeName, value: NSColor.blue, range: range)
+    attr.addAttribute(NSUnderlineStyleAttributeName, value: 1, range: range)
+    attr.addAttribute(NSFontAttributeName, value: NSFont(name: "Helvetica Neue", size: 13), range: range)
+    attr.endEditing()
+    
+    return attr
+}
+
+class SubTextView: NSTextView {
+    override func resetCursorRects() {
+        addCursorRect(bounds, cursor: NSCursor.arrow())
+    }
+}
+
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
     
     @IBOutlet weak var window: NSWindow!
+    @IBOutlet var aboutPanel: NSPanel!
     @IBOutlet var menu: NSMenu!
-    
+    @IBOutlet var button: NSButton!
+
     let statusItem = NSStatusBar.system().statusItem(withLength: NSSquareStatusItemLength)
     
     var notifyTimer: Timer?
@@ -36,13 +62,27 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         statusItem.button?.image = NSImage(named: "MenuBarIcon")
         statusItem.menu = menu!
         
+        let str = linkFromString("github.com/crsmithdev/hint")
+        button.attributedStringValue = str
+        button.attributedTitle = str
+
         load(text: textType)
         schedule(seconds: notifyInterval)
+        //play()
     }
     
     func applicationWillTerminate(_ aNotification: Notification) { }
     
     /* Actions */
+    
+    @IBAction func actionLinkClick(_ sender: NSButton) {
+        NSWorkspace.shared().open(URL(string: "https://www.google.com")!)
+    }
+    
+    @IBAction func actionAbout(_ sender: NSMenuItem) {
+        NSApplication.shared().activate(ignoringOtherApps: true)
+        aboutPanel.orderFront(self)
+    }
     
     @IBAction func actionChangeInterval(_ sender: NSMenuItem) {
         schedule(seconds: sender.tag)
@@ -152,6 +192,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         let text = textSource.next()
         Notifier.shared.notify(text: text)
+        //play()
         
         DLog("notified '\(text)'")
     }
@@ -160,7 +201,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         // TODO error handling
         
         let path = Bundle.main.path(forResource: "\(text)", ofType: "txt")!
-        textSource = try? TextSource.fromFile(path: path)
+        textSource = try? TextSource.fromAsset(name: "Text/Reminder")
+    }
+    
+    func play() {
+        if let sound = NSDataAsset(name: "SingingBowlLow") {
+            let s = NSSound(data: sound.data)
+            s?.play()
+        }
     }
 }
 

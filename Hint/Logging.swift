@@ -7,9 +7,12 @@
 //
 
 import Foundation
+import Cocoa
 
 func DLog(_ message: String, _ function: String = #function) {
     #if DEBUG
         NSLog("\(function): \(message)")
     #endif
 }
+
+
