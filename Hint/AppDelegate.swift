@@ -8,6 +8,7 @@
 
 import Foundation
 import Cocoa
+import ServiceManagement
 
 enum NotificationText: String {
     case hints = "Hints"
@@ -36,6 +37,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     let statusItem = NSStatusBar.system().statusItem(withLength: NSSquareStatusItemLength)
     
     var textSource: TextSource!
+    var autoLaunch: Bool = false
     
     var notificationText = NotificationText.hints
     var notificationSound = NotificationSound.silent
@@ -88,6 +90,27 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         loadText(text: notificationTextOptions[sender.tag]!)
     }
     
+    @IBAction func actionChangeAutoLaunch(_ sender: NSMenuItem) {
+        
+        autoLaunch = !autoLaunch
+        
+        let appBundleIdentifier = "com.crsmithdev.HintLauncher"
+        var helperURL = Bundle.main.bundleURL
+        helperURL.appendPathComponent("Contents/Library/LoginItems/HintLauncher.app")
+        let ret = LSRegisterURL(helperURL as CFURL, true)
+        
+        if SMLoginItemSetEnabled(appBundleIdentifier as CFString, autoLaunch) {
+            if autoLaunch {
+                NSLog("Successfully add login item.")
+            } else {
+                NSLog("Successfully remove login item.")
+            }
+            
+        } else {
+            NSLog("Failed to add login item.")
+        }
+    }
+    
     @IBAction func actionQuit(_ sender: AnyObject) {
         NSApplication.shared().terminate(self)
     }
@@ -113,6 +136,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         if menuItem.action == #selector(self.actionResume) {
             return paused
+        }
+        
+        if menuItem.action == #selector(self.actionChangeAutoLaunch) {
+            menuItem.state = autoLaunch ? 1 : 0
+            return true
         }
         
         return true

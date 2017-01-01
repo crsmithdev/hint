@@ -17,8 +17,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let launcherPath = Bundle.main.bundlePath as NSString
         var components = launcherPath.pathComponents
         components.removeLast()
-        components.append("Hint.app")
-        components.append("Contents")
+        components.removeLast()
+        components.removeLast()
         components.append("MacOS")
         components.append("Hint")
         

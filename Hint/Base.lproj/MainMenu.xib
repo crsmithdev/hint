@@ -185,6 +185,13 @@
                     </menu>
                 </menuItem>
                 <menuItem isSeparatorItem="YES" id="2gG-mi-hjj"/>
+                <menuItem title="Auto Launch" id="FPD-xc-baW">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="actionChangeAutoLaunch:" target="Voe-Tx-rLC" id="74W-vT-A2V"/>
+                    </connections>
+                </menuItem>
+                <menuItem isSeparatorItem="YES" id="2jH-Qm-Bxv"/>
                 <menuItem title="Quit" id="8zN-TD-C5d">
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <connections>
