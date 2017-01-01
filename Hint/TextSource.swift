@@ -11,18 +11,6 @@ import Cocoa
 
 class TextSource {
     
-    static func fromAsset(name: String) throws -> TextSource {
-        
-        let asset = NSDataAsset(name: name)! // TODO handle
-        let contents = String(data: asset.data, encoding: String.Encoding.utf8)! // TODO handle
-        let trimmed = contents.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
-        let lines = trimmed.components(separatedBy: "\n")
-        
-        DLog("loaded text from asset: \(asset.name), lines: \(lines)")
-        
-        return TextSource(lines: lines)
-    }
-    
     static func fromFile(path: String) throws -> TextSource {
         
         let contents = try String(contentsOfFile: path)

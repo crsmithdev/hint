@@ -7,14 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4BA9F3AF1E188A06007D1506 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA9F3AE1E188A06007D1506 /* Constants.swift */; };
+		4BA9F3B11E189E96007D1506 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4BA9F3B01E189E96007D1506 /* Assets.xcassets */; };
 		4BD7DC531E1383E500237385 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD7DC521E1383E500237385 /* AppDelegate.swift */; };
-		4BD7DC551E1383E500237385 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4BD7DC541E1383E500237385 /* Assets.xcassets */; };
 		4BD7DC581E1383E500237385 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4BD7DC561E1383E500237385 /* MainMenu.xib */; };
 		4BD7DC631E1383E500237385 /* HintTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD7DC621E1383E500237385 /* HintTests.swift */; };
-		4BD7DC711E13847800237385 /* reminder.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4BD7DC6F1E13847800237385 /* reminder.txt */; };
+		4BD7DC711E13847800237385 /* Hints.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4BD7DC6F1E13847800237385 /* Hints.txt */; };
 		4BD7DC731E15B82200237385 /* Notifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD7DC721E15B82200237385 /* Notifier.swift */; };
 		4BD7DC751E15B85E00237385 /* TextSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD7DC741E15B85E00237385 /* TextSource.swift */; };
-		4BD7DC771E15BAE600237385 /* Logging.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD7DC761E15BAE600237385 /* Logging.swift */; };
+		4BD7DC771E15BAE600237385 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD7DC761E15BAE600237385 /* Util.swift */; };
+		4BF620A61E187D3000C946AC /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF620A51E187D3000C946AC /* AboutViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,18 +30,20 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4BA9F3AE1E188A06007D1506 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		4BA9F3B01E189E96007D1506 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4BD7DC4F1E1383E500237385 /* Hint.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hint.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4BD7DC521E1383E500237385 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		4BD7DC541E1383E500237385 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4BD7DC571E1383E500237385 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		4BD7DC591E1383E500237385 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4BD7DC5E1E1383E500237385 /* HintTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HintTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4BD7DC621E1383E500237385 /* HintTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HintTests.swift; sourceTree = "<group>"; };
 		4BD7DC641E1383E500237385 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4BD7DC6F1E13847800237385 /* reminder.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = reminder.txt; sourceTree = "<group>"; };
+		4BD7DC6F1E13847800237385 /* Hints.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Hints.txt; sourceTree = "<group>"; };
 		4BD7DC721E15B82200237385 /* Notifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notifier.swift; sourceTree = "<group>"; };
 		4BD7DC741E15B85E00237385 /* TextSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextSource.swift; sourceTree = "<group>"; };
-		4BD7DC761E15BAE600237385 /* Logging.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logging.swift; sourceTree = "<group>"; };
+		4BD7DC761E15BAE600237385 /* Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
+		4BF620A51E187D3000C946AC /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,13 +86,15 @@
 		4BD7DC511E1383E500237385 /* Hint */ = {
 			isa = PBXGroup;
 			children = (
+				4BA9F3B01E189E96007D1506 /* Assets.xcassets */,
 				4BD7DC591E1383E500237385 /* Info.plist */,
+				4BF620A51E187D3000C946AC /* AboutViewController.swift */,
 				4BD7DC521E1383E500237385 /* AppDelegate.swift */,
+				4BA9F3AE1E188A06007D1506 /* Constants.swift */,
 				4BD7DC721E15B82200237385 /* Notifier.swift */,
 				4BD7DC741E15B85E00237385 /* TextSource.swift */,
-				4BD7DC541E1383E500237385 /* Assets.xcassets */,
+				4BD7DC761E15BAE600237385 /* Util.swift */,
 				4BD7DC561E1383E500237385 /* MainMenu.xib */,
-				4BD7DC761E15BAE600237385 /* Logging.swift */,
 			);
 			path = Hint;
 			sourceTree = "<group>";
@@ -105,7 +111,7 @@
 		4BD7DC6D1E13846400237385 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				4BD7DC6F1E13847800237385 /* reminder.txt */,
+				4BD7DC6F1E13847800237385 /* Hints.txt */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -193,8 +199,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4BD7DC711E13847800237385 /* reminder.txt in Resources */,
-				4BD7DC551E1383E500237385 /* Assets.xcassets in Resources */,
+				4BD7DC711E13847800237385 /* Hints.txt in Resources */,
+				4BA9F3B11E189E96007D1506 /* Assets.xcassets in Resources */,
 				4BD7DC581E1383E500237385 /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -213,10 +219,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4BA9F3AF1E188A06007D1506 /* Constants.swift in Sources */,
 				4BD7DC531E1383E500237385 /* AppDelegate.swift in Sources */,
 				4BD7DC731E15B82200237385 /* Notifier.swift in Sources */,
 				4BD7DC751E15B85E00237385 /* TextSource.swift in Sources */,
-				4BD7DC771E15BAE600237385 /* Logging.swift in Sources */,
+				4BD7DC771E15BAE600237385 /* Util.swift in Sources */,
+				4BF620A61E187D3000C946AC /* AboutViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -344,6 +352,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = NO;
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = Hint/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
@@ -358,6 +367,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = NO;
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = Hint/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";

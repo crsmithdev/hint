@@ -6,82 +6,66 @@
 //  Copyright © 2016 Chris Smith. All rights reserved.
 //
 
+import Foundation
 import Cocoa
 
-enum TextType: Int {
-    case reminder = 0
+enum NotificationText: String {
+    case hints = "Hints"
 }
 
-enum SoundType: Int {
-    case silent = 0
+let notificationTextOptions = [
+    0: NotificationText.hints
+]
+
+enum NotificationSound: String {
+    case silent = ""
+    case singingBowlLow = "SingingBowlLow"
 }
 
-func linkFromString(_ string: String) -> NSAttributedString {
-    let attr = NSMutableAttributedString(string: string)
-    let range = NSMakeRange(0, attr.length)
-    
-    attr.beginEditing()
-    attr.addAttribute(NSLinkAttributeName, value: "https://github.com/crsmithdev/hint", range: range)
-    attr.addAttribute(NSForegroundColorAttributeName, value: NSColor.blue, range: range)
-    attr.addAttribute(NSUnderlineStyleAttributeName, value: 1, range: range)
-    //attr.addAttribute(NSFontAttributeName, value: NSFont(name: "Helvetica Neue", size: 13), range: range)
-    attr.endEditing()
-    
-    return attr
-}
-
-class SubTextView: NSTextView {
-    override func resetCursorRects() {
-        addCursorRect(bounds, cursor: NSCursor.arrow())
-    }
-}
+let notificationSoundTags = [
+    0: NotificationSound.silent,
+    1: NotificationSound.singingBowlLow
+]
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
     
-    @IBOutlet weak var window: NSWindow!
     @IBOutlet var aboutPanel: NSPanel!
-    @IBOutlet var menu: NSMenu!
-    @IBOutlet var button: NSButton!
-
+    @IBOutlet var statusMenu: NSMenu!
+    
     let statusItem = NSStatusBar.system().statusItem(withLength: NSSquareStatusItemLength)
     
-    var notifyTimer: Timer?
-    var notifyInterval: Int = 300
+    var textSource: TextSource!
+    
+    var notificationText = NotificationText.hints
+    var notificationSound = NotificationSound.silent
+    var notificationTimer: Timer?
+    var notificationInterval: Int = 300
+    
     var pauseTimer: Timer?
     var pauseInterval: Int = 0
     var paused: Bool = false
     
-    var textType = TextType.reminder
-    var textSource: TextSource!
-    
     /* Lifecycle */
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {
-        
-        statusItem.button?.image = NSImage(named: "MenuBarIcon")
-        statusItem.menu = menu!
-        
-        let str = linkFromString("github.com/crsmithdev/hint")
-        button.attributedStringValue = str
-        button.attributedTitle = str
 
-        load(text: textType)
-        schedule(seconds: notifyInterval)
-        //play()
+        statusItem.button?.image = NSImage(named: "MenuBarIcon")
+        statusItem.menu = statusMenu!
+        
+        loadSettings()
+        loadText(text: notificationText)
+        schedule(seconds: notificationInterval)
     }
     
     func applicationWillTerminate(_ aNotification: Notification) { }
     
     /* Actions */
     
-    @IBAction func actionLinkClick(_ sender: NSButton) {
-        NSWorkspace.shared().open(URL(string: "https://github.com/crsmithdev/hint")!)
-    }
-    
     @IBAction func actionAbout(_ sender: NSMenuItem) {
         NSApplication.shared().activate(ignoringOtherApps: true)
         aboutPanel.orderFront(self)
+        aboutPanel.makeKey()
     }
     
     @IBAction func actionChangeInterval(_ sender: NSMenuItem) {
@@ -101,8 +85,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     @IBAction func actionChangeText(_ sender: NSMenuItem) {
-        textType = TextType.init(rawValue: sender.tag)!
-        load(text: textType)
+        loadText(text: notificationTextOptions[sender.tag]!)
     }
     
     @IBAction func actionQuit(_ sender: AnyObject) {
@@ -114,7 +97,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     override func validateMenuItem(_ menuItem: NSMenuItem) -> Bool {
         
         if menuItem.action == #selector(self.actionChangeInterval) {
-            menuItem.state = menuItem.tag == notifyInterval ? 1 : 0
+            menuItem.state = menuItem.tag == notificationInterval ? 1 : 0
             return true
         }
         
@@ -124,7 +107,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
         
         if menuItem.action == #selector(self.actionChangeText) {
-            menuItem.state = menuItem.tag == textType.rawValue ? 1 : 0
+            menuItem.state = notificationTextOptions[menuItem.tag] == notificationText ? 1 : 0
             return true
         }
         
@@ -137,12 +120,26 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     /* Logic */
     
+    func loadSettings() {
+        
+        let str = UserDefaults().string(forKey: Constants.notificationTextKey) ??
+            Constants.defaultNotificationText
+        notificationText = NotificationText.init(rawValue: str)!
+        
+        let int = UserDefaults().integer(forKey: Constants.notificationIntervalKey)
+        notificationInterval = int > 0 ? int : Constants.defaultNotificationInterval
+        
+        statusItem.button?.image = NSImage(named: "MenuBarIcon")
+        statusItem.menu = statusMenu!
+    }
+    
     func schedule(seconds: Int) {
         
-        notifyInterval = Int(seconds)
+        notificationInterval = Int(seconds)
+        UserDefaults().set(notificationInterval, forKey: Constants.notificationIntervalKey)
         
-        notifyTimer?.invalidate()
-        notifyTimer = Timer.scheduledTimer(
+        notificationTimer?.invalidate()
+        notificationTimer = Timer.scheduledTimer(
             timeInterval: TimeInterval(seconds),
             target: self,
             selector: #selector(self.notify),
@@ -192,19 +189,24 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         let text = textSource.next()
         Notifier.shared.notify(text: text)
-        //play()
+        playSound()
         
         DLog("notified '\(text)'")
     }
     
-    func load(text: TextType) {
+    func loadText(text: NotificationText) {
         // TODO error handling
-        
-        let path = Bundle.main.path(forResource: "\(text)", ofType: "txt")!
-        textSource = try? TextSource.fromAsset(name: "Text/Reminder")
+        notificationText = text
+        let path = Bundle.main.path(forResource: text.rawValue, ofType: "txt")!
+        textSource = try? TextSource.fromFile(path: path)
     }
     
-    func play() {
+    func playSound() {
+        
+        if notificationSound == .silent {
+            return
+        }
+        
         if let sound = NSDataAsset(name: "SingingBowlLow") {
             let s = NSSound(data: sound.data)
             s?.play()
