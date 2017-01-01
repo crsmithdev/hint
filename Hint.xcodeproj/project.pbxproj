@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		4BA9F3AF1E188A06007D1506 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA9F3AE1E188A06007D1506 /* Constants.swift */; };
 		4BA9F3B11E189E96007D1506 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4BA9F3B01E189E96007D1506 /* Assets.xcassets */; };
+		4BA9F3B91E18B34D007D1506 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA9F3B81E18B34D007D1506 /* AppDelegate.swift */; };
+		4BA9F3BB1E18B34D007D1506 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4BA9F3BA1E18B34D007D1506 /* Assets.xcassets */; };
+		4BA9F3BE1E18B34D007D1506 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4BA9F3BC1E18B34D007D1506 /* MainMenu.xib */; };
+		4BA9F3C51E18B4C1007D1506 /* HintLauncher.app in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4BA9F3B61E18B34D007D1506 /* HintLauncher.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		4BA9F3C81E18B540007D1506 /* ServiceManagement.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BA9F3C71E18B540007D1506 /* ServiceManagement.framework */; };
 		4BD7DC531E1383E500237385 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD7DC521E1383E500237385 /* AppDelegate.swift */; };
 		4BD7DC581E1383E500237385 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4BD7DC561E1383E500237385 /* MainMenu.xib */; };
 		4BD7DC631E1383E500237385 /* HintTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD7DC621E1383E500237385 /* HintTests.swift */; };
@@ -29,9 +34,30 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		4BA9F3C41E18B4A8007D1506 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = Contents/Library/LoginItems;
+			dstSubfolderSpec = 1;
+			files = (
+				4BA9F3C51E18B4C1007D1506 /* HintLauncher.app in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		4BA9F3AE1E188A06007D1506 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		4BA9F3B01E189E96007D1506 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		4BA9F3B61E18B34D007D1506 /* HintLauncher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HintLauncher.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4BA9F3B81E18B34D007D1506 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		4BA9F3BA1E18B34D007D1506 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		4BA9F3BD1E18B34D007D1506 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		4BA9F3BF1E18B34D007D1506 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4BA9F3C31E18B3A2007D1506 /* HintLauncher.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HintLauncher.entitlements; sourceTree = "<group>"; };
+		4BA9F3C71E18B540007D1506 /* ServiceManagement.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ServiceManagement.framework; path = System/Library/Frameworks/ServiceManagement.framework; sourceTree = SDKROOT; };
+		4BA9F3C91E18C296007D1506 /* Hint.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Hint.entitlements; sourceTree = "<group>"; };
 		4BD7DC4F1E1383E500237385 /* Hint.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hint.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4BD7DC521E1383E500237385 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4BD7DC571E1383E500237385 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
@@ -47,10 +73,18 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		4BA9F3B31E18B34D007D1506 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		4BD7DC4C1E1383E500237385 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4BA9F3C81E18B540007D1506 /* ServiceManagement.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -64,13 +98,35 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4BA9F3B71E18B34D007D1506 /* HintLauncher */ = {
+			isa = PBXGroup;
+			children = (
+				4BA9F3C31E18B3A2007D1506 /* HintLauncher.entitlements */,
+				4BA9F3B81E18B34D007D1506 /* AppDelegate.swift */,
+				4BA9F3BA1E18B34D007D1506 /* Assets.xcassets */,
+				4BA9F3BC1E18B34D007D1506 /* MainMenu.xib */,
+				4BA9F3BF1E18B34D007D1506 /* Info.plist */,
+			);
+			path = HintLauncher;
+			sourceTree = "<group>";
+		};
+		4BA9F3C61E18B540007D1506 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4BA9F3C71E18B540007D1506 /* ServiceManagement.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		4BD7DC461E1383E500237385 = {
 			isa = PBXGroup;
 			children = (
 				4BD7DC6D1E13846400237385 /* Resources */,
 				4BD7DC511E1383E500237385 /* Hint */,
 				4BD7DC611E1383E500237385 /* HintTests */,
+				4BA9F3B71E18B34D007D1506 /* HintLauncher */,
 				4BD7DC501E1383E500237385 /* Products */,
+				4BA9F3C61E18B540007D1506 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -79,6 +135,7 @@
 			children = (
 				4BD7DC4F1E1383E500237385 /* Hint.app */,
 				4BD7DC5E1E1383E500237385 /* HintTests.xctest */,
+				4BA9F3B61E18B34D007D1506 /* HintLauncher.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -86,6 +143,7 @@
 		4BD7DC511E1383E500237385 /* Hint */ = {
 			isa = PBXGroup;
 			children = (
+				4BA9F3C91E18C296007D1506 /* Hint.entitlements */,
 				4BA9F3B01E189E96007D1506 /* Assets.xcassets */,
 				4BD7DC591E1383E500237385 /* Info.plist */,
 				4BF620A51E187D3000C946AC /* AboutViewController.swift */,
@@ -119,6 +177,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		4BA9F3B51E18B34D007D1506 /* HintLauncher */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4BA9F3C01E18B34D007D1506 /* Build configuration list for PBXNativeTarget "HintLauncher" */;
+			buildPhases = (
+				4BA9F3B21E18B34D007D1506 /* Sources */,
+				4BA9F3B31E18B34D007D1506 /* Frameworks */,
+				4BA9F3B41E18B34D007D1506 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = HintLauncher;
+			productName = HintLauncher;
+			productReference = 4BA9F3B61E18B34D007D1506 /* HintLauncher.app */;
+			productType = "com.apple.product-type.application";
+		};
 		4BD7DC4E1E1383E500237385 /* Hint */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4BD7DC671E1383E500237385 /* Build configuration list for PBXNativeTarget "Hint" */;
@@ -126,6 +201,7 @@
 				4BD7DC4B1E1383E500237385 /* Sources */,
 				4BD7DC4C1E1383E500237385 /* Frameworks */,
 				4BD7DC4D1E1383E500237385 /* Resources */,
+				4BA9F3C41E18B4A8007D1506 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -164,9 +240,23 @@
 				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = "Chris Smith";
 				TargetAttributes = {
+					4BA9F3B51E18B34D007D1506 = {
+						CreatedOnToolsVersion = 8.2.1;
+						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Sandbox = {
+								enabled = 1;
+							};
+						};
+					};
 					4BD7DC4E1E1383E500237385 = {
 						CreatedOnToolsVersion = 8.2.1;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Sandbox = {
+								enabled = 1;
+							};
+						};
 					};
 					4BD7DC5D1E1383E500237385 = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -190,11 +280,21 @@
 			targets = (
 				4BD7DC4E1E1383E500237385 /* Hint */,
 				4BD7DC5D1E1383E500237385 /* HintTests */,
+				4BA9F3B51E18B34D007D1506 /* HintLauncher */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		4BA9F3B41E18B34D007D1506 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4BA9F3BB1E18B34D007D1506 /* Assets.xcassets in Resources */,
+				4BA9F3BE1E18B34D007D1506 /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		4BD7DC4D1E1383E500237385 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -215,6 +315,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		4BA9F3B21E18B34D007D1506 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4BA9F3B91E18B34D007D1506 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		4BD7DC4B1E1383E500237385 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -247,6 +355,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		4BA9F3BC1E18B34D007D1506 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4BA9F3BD1E18B34D007D1506 /* Base */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
 		4BD7DC561E1383E500237385 /* MainMenu.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -258,6 +374,38 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		4BA9F3C11E18B34D007D1506 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = HintLauncher/HintLauncher.entitlements;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = HintLauncher/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				PRODUCT_BUNDLE_IDENTIFIER = com.crsmithdev.HintLauncher;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		4BA9F3C21E18B34D007D1506 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = HintLauncher/HintLauncher.entitlements;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = HintLauncher/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				PRODUCT_BUNDLE_IDENTIFIER = com.crsmithdev.HintLauncher;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
 		4BD7DC651E1383E500237385 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -353,6 +501,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = NO;
+				CODE_SIGN_ENTITLEMENTS = Hint/Hint.entitlements;
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = Hint/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
@@ -368,6 +517,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = NO;
+				CODE_SIGN_ENTITLEMENTS = Hint/Hint.entitlements;
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = Hint/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
@@ -410,6 +560,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		4BA9F3C01E18B34D007D1506 /* Build configuration list for PBXNativeTarget "HintLauncher" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4BA9F3C11E18B34D007D1506 /* Debug */,
+				4BA9F3C21E18B34D007D1506 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		4BD7DC4A1E1383E500237385 /* Build configuration list for PBXProject "Hint" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
