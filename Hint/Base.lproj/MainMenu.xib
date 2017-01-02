@@ -146,7 +146,19 @@
                             <menuItem title="Silent" id="FSd-8G-FoS">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <connections>
-                                    <action selector="actionChangeText:" target="Voe-Tx-rLC" id="Yha-EM-4Mc"/>
+                                    <action selector="actionChangeSound:" target="Voe-Tx-rLC" id="0eR-zs-KZl"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Singing Bowl (High)" tag="1" id="6sg-do-eTv">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="actionChangeSound:" target="Voe-Tx-rLC" id="39R-Rk-oIH"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Singing Bowl (Low)" tag="2" id="lOi-KS-WX2">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="actionChangeSound:" target="Voe-Tx-rLC" id="kEe-eD-QUy"/>
                                 </connections>
                             </menuItem>
                         </items>

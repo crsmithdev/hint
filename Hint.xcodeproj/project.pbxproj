@@ -14,7 +14,6 @@
 		4BA9F3BE1E18B34D007D1506 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4BA9F3BC1E18B34D007D1506 /* MainMenu.xib */; };
 		4BA9F3C51E18B4C1007D1506 /* HintLauncher.app in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4BA9F3B61E18B34D007D1506 /* HintLauncher.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		4BA9F3C81E18B540007D1506 /* ServiceManagement.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BA9F3C71E18B540007D1506 /* ServiceManagement.framework */; };
-		4BA9F3CB1E18D162007D1506 /* Scheduler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA9F3CA1E18D162007D1506 /* Scheduler.swift */; };
 		4BD7DC531E1383E500237385 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD7DC521E1383E500237385 /* AppDelegate.swift */; };
 		4BD7DC581E1383E500237385 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4BD7DC561E1383E500237385 /* MainMenu.xib */; };
 		4BD7DC631E1383E500237385 /* HintTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD7DC621E1383E500237385 /* HintTests.swift */; };
@@ -59,7 +58,6 @@
 		4BA9F3C31E18B3A2007D1506 /* HintLauncher.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HintLauncher.entitlements; sourceTree = "<group>"; };
 		4BA9F3C71E18B540007D1506 /* ServiceManagement.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ServiceManagement.framework; path = System/Library/Frameworks/ServiceManagement.framework; sourceTree = SDKROOT; };
 		4BA9F3C91E18C296007D1506 /* Hint.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Hint.entitlements; sourceTree = "<group>"; };
-		4BA9F3CA1E18D162007D1506 /* Scheduler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Scheduler.swift; sourceTree = "<group>"; };
 		4BD7DC4F1E1383E500237385 /* Hint.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hint.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4BD7DC521E1383E500237385 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4BD7DC571E1383E500237385 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
@@ -155,7 +153,6 @@
 				4BD7DC741E15B85E00237385 /* TextSource.swift */,
 				4BD7DC761E15BAE600237385 /* Util.swift */,
 				4BD7DC561E1383E500237385 /* MainMenu.xib */,
-				4BA9F3CA1E18D162007D1506 /* Scheduler.swift */,
 			);
 			path = Hint;
 			sourceTree = "<group>";
@@ -333,7 +330,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				4BA9F3AF1E188A06007D1506 /* Constants.swift in Sources */,
-				4BA9F3CB1E18D162007D1506 /* Scheduler.swift in Sources */,
 				4BD7DC531E1383E500237385 /* AppDelegate.swift in Sources */,
 				4BD7DC731E15B82200237385 /* Notifier.swift in Sources */,
 				4BD7DC751E15B85E00237385 /* TextSource.swift in Sources */,

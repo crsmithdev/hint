@@ -21,11 +21,13 @@ let notificationTextOptions = [
 enum NotificationSound: String {
     case silent = ""
     case singingBowlLow = "SingingBowlLow"
+    case singingBowlHigh = "SingingBowlHigh"
 }
 
 let notificationSoundTags = [
     0: NotificationSound.silent,
-    1: NotificationSound.singingBowlLow
+    1: NotificationSound.singingBowlLow,
+    2: NotificationSound.singingBowlHigh,
 ]
 
 @NSApplicationMain
@@ -47,6 +49,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var pauseTimer: Timer?
     var pauseInterval: Int = 0
     var paused: Bool = false
+    
+    var sound: NSSound?
     
     /* Lifecycle */
     
@@ -90,6 +94,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         loadText(text: notificationTextOptions[sender.tag]!)
     }
     
+    @IBAction func actionChangeSound(_ sender: NSMenuItem) {
+        loadSound(sound: notificationSoundTags[sender.tag]!)
+    }
+    
     @IBAction func actionChangeAutoLaunch(_ sender: NSMenuItem) {
         
         autoLaunch = !autoLaunch
@@ -97,7 +105,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let appBundleIdentifier = "com.crsmithdev.HintLauncher"
         var helperURL = Bundle.main.bundleURL
         helperURL.appendPathComponent("Contents/Library/LoginItems/HintLauncher.app")
-        let ret = LSRegisterURL(helperURL as CFURL, true)
         
         if SMLoginItemSetEnabled(appBundleIdentifier as CFString, autoLaunch) {
             if autoLaunch {
@@ -134,6 +141,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             return true
         }
         
+        if menuItem.action == #selector(self.actionChangeSound) {
+            menuItem.state = notificationSoundTags[menuItem.tag] == notificationSound ? 1 : 0
+            return true
+        }
+        
         if menuItem.action == #selector(self.actionResume) {
             return paused
         }
@@ -155,7 +167,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         notificationText = NotificationText.init(rawValue: str)!
         
         let int = UserDefaults().integer(forKey: Constants.notificationIntervalKey)
-        notificationInterval = int > 0 ? int : Constants.defaultNotificationInterval
+        notificationInterval = 15 //int > 0 ? int : Constants.defaultNotificationInterval
+        
+        let str2 = UserDefaults().string(forKey: Constants.notificationSoundKey) ??
+            Constants.defaultNotificationSound
+        notificationSound = NotificationSound.init(rawValue: str2)!
+        loadSound(sound: notificationSound)
         
         statusItem.button?.image = NSImage(named: "MenuBarIcon")
         statusItem.menu = statusMenu!
@@ -229,16 +246,26 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         textSource = try? TextSource.fromFile(path: path)
     }
     
+    func loadSound(sound: NotificationSound) {
+        
+        notificationSound = sound
+        UserDefaults().set(notificationSound.rawValue, forKey: Constants.notificationSoundKey)
+        
+        if sound == .silent {
+            self.sound = nil
+        } else {
+            let data = NSDataAsset(name: "Sounds/\(notificationSound.rawValue)")!
+            self.sound = NSSound(data: data.data)
+        }
+    }
+    
     func playSound() {
         
         if notificationSound == .silent {
             return
         }
         
-        if let sound = NSDataAsset(name: "SingingBowlLow") {
-            let s = NSSound(data: sound.data)
-            s?.play()
-        }
+        sound!.play()
     }
 }
 

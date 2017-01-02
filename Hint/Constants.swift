@@ -9,9 +9,15 @@
 import Foundation
 
 class Constants {
+    
     static let sourceURL = URL(string: "https://github.com/crsmithdev/hint")!
-    static let defaultNotificationInterval = 300
+    
     static let notificationIntervalKey = "NotificationInterval"
-    static let defaultNotificationText = "Hints"
+    static let defaultNotificationInterval = 300
+    
     static let notificationTextKey = "NotificationText"
+    static let defaultNotificationText = "Hints"
+    
+    static let notificationSoundKey = "NotificationSound"
+    static let defaultNotificationSound = ""
 }
