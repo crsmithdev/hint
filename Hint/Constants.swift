@@ -20,4 +20,7 @@ class Constants {
     
     static let notificationSoundKey = "NotificationSound"
     static let defaultNotificationSound = ""
+    
+    static let autoLaunchKey = "AutoLaunch"
+    static let defaultAutoLaunch = false
 }

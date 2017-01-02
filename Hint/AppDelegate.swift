@@ -116,6 +116,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         } else {
             NSLog("Failed to add login item.")
         }
+        
+        UserDefaults().set(autoLaunch, forKey: Constants.autoLaunchKey)
     }
     
     @IBAction func actionQuit(_ sender: AnyObject) {
@@ -167,12 +169,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         notificationText = NotificationText.init(rawValue: str)!
         
         let int = UserDefaults().integer(forKey: Constants.notificationIntervalKey)
-        notificationInterval = 15 //int > 0 ? int : Constants.defaultNotificationInterval
+        notificationInterval = int > 0 ? int : Constants.defaultNotificationInterval
         
         let str2 = UserDefaults().string(forKey: Constants.notificationSoundKey) ??
             Constants.defaultNotificationSound
         notificationSound = NotificationSound.init(rawValue: str2)!
         loadSound(sound: notificationSound)
+        
+        autoLaunch = UserDefaults().bool(forKey: Constants.autoLaunchKey)
         
         statusItem.button?.image = NSImage(named: "MenuBarIcon")
         statusItem.menu = statusMenu!

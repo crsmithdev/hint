@@ -126,9 +126,9 @@
                         </items>
                     </menu>
                 </menuItem>
-                <menuItem title="Text" id="lmM-1g-5P0">
+                <menuItem title="Messages" id="lmM-1g-5P0">
                     <modifierMask key="keyEquivalentModifierMask"/>
-                    <menu key="submenu" title="Text" id="dTy-sM-hHd">
+                    <menu key="submenu" title="Messages" id="dTy-sM-hHd">
                         <items>
                             <menuItem title="Reminder" id="B89-cJ-iME">
                                 <modifierMask key="keyEquivalentModifierMask"/>
