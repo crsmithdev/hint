@@ -10,25 +10,6 @@ import Foundation
 import Cocoa
 import ServiceManagement
 
-enum NotificationText: String {
-    case hints = "Hints"
-}
-
-let notificationTextOptions = [
-    0: NotificationText.hints
-]
-
-enum NotificationSound: String {
-    case silent = ""
-    case singingBowlLow = "SingingBowlLow"
-    case singingBowlHigh = "SingingBowlHigh"
-}
-
-let notificationSoundTags = [
-    0: NotificationSound.silent,
-    1: NotificationSound.singingBowlLow,
-    2: NotificationSound.singingBowlHigh,
-]
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
@@ -39,18 +20,17 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     let statusItem = NSStatusBar.system().statusItem(withLength: NSSquareStatusItemLength)
     
     let scheduler = Scheduler()
+
+    var messageType = MessageType.hints
     var textSource: TextSource!
-    var autoLaunch: Bool = false
+
+    var interval: Int = 300  // TODO no default here
+    var pauseInterval: Int = 0 // TODO no default here
     
-    
-    
-    var notificationText = NotificationText.hints
-    var notificationSound = NotificationSound.silent
-    var notificationInterval: Int = 300
-    
-    var pauseInterval: Int = 0
-    
+    var soundType = SoundType.silent
     var sound: NSSound?
+    
+    var autoLaunch: Bool = false
     
     /* Lifecycle */
     
@@ -60,9 +40,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         statusItem.menu = statusMenu!
         
         loadSettings()
-        loadText(text: notificationText)
-        
-        scheduler.schedule(notificationInterval, block: self.notify)
+        loadText(messageType)
+        loadSound(soundType)
+        scheduler.schedule(interval, block: self.notify)
     }
     
     func applicationWillTerminate(_ aNotification: Notification) { }
@@ -71,12 +51,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     @IBAction func actionAbout(_ sender: NSMenuItem) {
         NSApplication.shared().activate(ignoringOtherApps: true)
-        aboutPanel.orderFront(self)
-        aboutPanel.makeKey()
+        aboutPanel.makeKeyAndOrderFront(self)
     }
     
     @IBAction func actionChangeInterval(_ sender: NSMenuItem) {
-        scheduler.schedule(sender.tag, block: self.notify)
+        changeInterval(sender.tag)
     }
     
     @IBAction func actionPause(_ sender: NSMenuItem) {
@@ -88,20 +67,15 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     @IBAction func actionChangeText(_ sender: NSMenuItem) {
-        loadText(text: notificationTextOptions[sender.tag]!)
+        loadText(MessageType(tag: sender.tag)!)  // TODO error handling
     }
     
     @IBAction func actionChangeSound(_ sender: NSMenuItem) {
-        loadSound(sound: notificationSoundTags[sender.tag]!)
+        loadSound(SoundType(tag: sender.tag)!)  // TODO error handling
     }
     
     @IBAction func actionChangeAutoLaunch(_ sender: NSMenuItem) {
-        
-        autoLaunch = !autoLaunch
-        SMLoginItemSetEnabled(Constants.launcherBundleIdentifier as CFString, autoLaunch)
-        UserDefaults().set(autoLaunch, forKey: Constants.autoLaunchKey)
-        
-        DLog("Set autolaunch: \(autoLaunch)")
+        toggleAutoLaunch()
     }
     
     @IBAction func actionQuit(_ sender: AnyObject) {
@@ -114,31 +88,21 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         if menuItem.action == #selector(self.actionChangeInterval) {
             menuItem.state = menuItem.tag == scheduler.interval ? 1 : 0
-            return true
-        }
-        
-        if menuItem.action == #selector(self.actionChangeText) {
-            menuItem.state = notificationTextOptions[menuItem.tag] == notificationText ? 1 : 0
-            return true
-        }
-        
-        if menuItem.action == #selector(self.actionChangeSound) {
-            menuItem.state = notificationSoundTags[menuItem.tag] == notificationSound ? 1 : 0
-            return true
-        }
-        
-        if menuItem.action == #selector(self.actionPause) {
-            menuItem.state = scheduler.paused && menuItem.tag == pauseInterval ? 1 : 0
-            return true
-        }
-        
-        if menuItem.action == #selector(self.actionResume) {
-            return scheduler.paused
-        }
-        
-        if menuItem.action == #selector(self.actionChangeAutoLaunch) {
+            
+        } else if menuItem.action == #selector(self.actionChangeText) {
+            menuItem.state = messageType.tag() == menuItem.tag ? 1 : 0
+            
+        } else if menuItem.action == #selector(self.actionChangeSound) {
+            menuItem.state = soundType.tag() == menuItem.tag ? 1 : 0
+            
+        } else if menuItem.action == #selector(self.actionChangeAutoLaunch) {
             menuItem.state = autoLaunch ? 1 : 0
-            return true
+            
+        } else if menuItem.action == #selector(self.actionPause) {
+            menuItem.state = scheduler.paused && menuItem.tag == pauseInterval ? 1 : 0
+            
+        } else if menuItem.action == #selector(self.actionResume) {
+            return scheduler.paused
         }
         
         return true
@@ -148,42 +112,55 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     func loadSettings() {
         
-        let str = UserDefaults().string(forKey: Constants.notificationTextKey) ??
-            Constants.defaultNotificationText
-        notificationText = NotificationText.init(rawValue: str)!
+        let defaults = UserDefaults()
         
-        let int = UserDefaults().integer(forKey: Constants.notificationIntervalKey)
-        notificationInterval = int > 0 ? int : Constants.defaultNotificationInterval
+        let intervalValue = defaults.integer(forKey: Constants.intervalKey)
+        interval = intervalValue > 0 ? intervalValue : Constants.intervalDefault
         
-        let str2 = UserDefaults().string(forKey: Constants.notificationSoundKey) ??
-            Constants.defaultNotificationSound
-        notificationSound = NotificationSound.init(rawValue: str2)!
-        loadSound(sound: notificationSound)
-        
+        messageType = MessageType(saved: defaults.string(forKey: Constants.messageTypeKey))
+        soundType = SoundType(saved: defaults.string(forKey: Constants.soundTypeKey))
         autoLaunch = UserDefaults().bool(forKey: Constants.autoLaunchKey)
+    }
+    
+    func changeInterval(_ seconds: Int) {
+        interval = seconds
+        UserDefaults().set(interval, forKey: Constants.intervalKey)
+        scheduler.schedule(interval, block: self.notify)
+    }
+    
+    func toggleAutoLaunch() {
+        autoLaunch = !autoLaunch
+        SMLoginItemSetEnabled(Constants.launcherBundleIdentifier as CFString, autoLaunch)
+        UserDefaults().set(autoLaunch, forKey: Constants.autoLaunchKey)
+        DLog("set autolaunch: \(autoLaunch)")
+    }
+    
+    func loadText(_ type: MessageType) {
+        messageType = type
+        UserDefaults().set(messageType.rawValue, forKey: Constants.messageTypeKey)
+        
+        // TODO combine + error handling
+        let path = Bundle.main.path(forResource: type.rawValue, ofType: "txt")!
+        textSource = try? TextSource.fromFile(path: path)
+    }
+    
+    func loadSound(_ type: SoundType) {
+        soundType = type
+        UserDefaults().set(soundType.rawValue, forKey: Constants.soundTypeKey)
+        
+        switch soundType {
+        case .silent:
+            sound = nil
+        default:
+            // TODO error handling
+            let data = NSDataAsset(name: "Sounds/\(soundType.rawValue)")!
+            self.sound = NSSound(data: data.data)
+        }
+        
+        DLog("loaded type: \(type), sound: \(sound)")
     }
     
     func notify() {
         Notifier.shared.send(textSource.next(), sound: sound)
-    }
-    
-    func loadText(text: NotificationText) {
-        // TODO error handling
-        notificationText = text
-        let path = Bundle.main.path(forResource: text.rawValue, ofType: "txt")!
-        textSource = try? TextSource.fromFile(path: path)
-    }
-    
-    func loadSound(sound: NotificationSound) {
-        
-        notificationSound = sound
-        UserDefaults().set(notificationSound.rawValue, forKey: Constants.notificationSoundKey)
-        
-        if sound == .silent {
-            self.sound = nil
-        } else {
-            let data = NSDataAsset(name: "Sounds/\(notificationSound.rawValue)")!
-            self.sound = NSSound(data: data.data)
-        }
     }
 }

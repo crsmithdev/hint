@@ -24,6 +24,10 @@ class Notifier {
         
         sound?.play()
         
+        if sound != nil {
+            DLog("\(sound!.volume)")
+        }
+        
         DLog("sent notification, message: '\(text)', sound: \(sound?.name)")
     }
 }
