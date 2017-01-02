@@ -11,6 +11,7 @@ import Foundation
 class Constants {
     
     static let sourceURL = URL(string: "https://github.com/crsmithdev/hint")!
+    static let launcherBundleIdentifier = "com.crsmithdev.HintLauncher"
     
     static let notificationIntervalKey = "NotificationInterval"
     static let defaultNotificationInterval = 300

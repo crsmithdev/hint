@@ -38,30 +38,31 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     let statusItem = NSStatusBar.system().statusItem(withLength: NSSquareStatusItemLength)
     
+    let scheduler = Scheduler()
     var textSource: TextSource!
     var autoLaunch: Bool = false
     
+    
+    
     var notificationText = NotificationText.hints
     var notificationSound = NotificationSound.silent
-    var notificationTimer: Timer?
     var notificationInterval: Int = 300
     
-    var pauseTimer: Timer?
     var pauseInterval: Int = 0
-    var paused: Bool = false
     
     var sound: NSSound?
     
     /* Lifecycle */
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {
-
+        
         statusItem.button?.image = NSImage(named: "MenuBarIcon")
         statusItem.menu = statusMenu!
         
         loadSettings()
         loadText(text: notificationText)
-        schedule(seconds: notificationInterval)
+        
+        scheduler.schedule(notificationInterval, block: self.notify)
     }
     
     func applicationWillTerminate(_ aNotification: Notification) { }
@@ -75,19 +76,15 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     @IBAction func actionChangeInterval(_ sender: NSMenuItem) {
-        schedule(seconds: sender.tag)
+        scheduler.schedule(sender.tag, block: self.notify)
     }
     
     @IBAction func actionPause(_ sender: NSMenuItem) {
-        if sender.tag > 0 {
-            pause(seconds: sender.tag)
-        } else {
-            pause()
-        }
+        scheduler.pause(sender.tag)
     }
     
     @IBAction func actionResume(_ sender: NSMenuItem) {
-        resume()
+        scheduler.resume()
     }
     
     @IBAction func actionChangeText(_ sender: NSMenuItem) {
@@ -101,23 +98,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     @IBAction func actionChangeAutoLaunch(_ sender: NSMenuItem) {
         
         autoLaunch = !autoLaunch
-        
-        let appBundleIdentifier = "com.crsmithdev.HintLauncher"
-        var helperURL = Bundle.main.bundleURL
-        helperURL.appendPathComponent("Contents/Library/LoginItems/HintLauncher.app")
-        
-        if SMLoginItemSetEnabled(appBundleIdentifier as CFString, autoLaunch) {
-            if autoLaunch {
-                NSLog("Successfully add login item.")
-            } else {
-                NSLog("Successfully remove login item.")
-            }
-            
-        } else {
-            NSLog("Failed to add login item.")
-        }
-        
+        SMLoginItemSetEnabled(Constants.launcherBundleIdentifier as CFString, autoLaunch)
         UserDefaults().set(autoLaunch, forKey: Constants.autoLaunchKey)
+        
+        DLog("Set autolaunch: \(autoLaunch)")
     }
     
     @IBAction func actionQuit(_ sender: AnyObject) {
@@ -129,12 +113,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     override func validateMenuItem(_ menuItem: NSMenuItem) -> Bool {
         
         if menuItem.action == #selector(self.actionChangeInterval) {
-            menuItem.state = menuItem.tag == notificationInterval ? 1 : 0
-            return true
-        }
-        
-        if menuItem.action == #selector(self.actionPause) {
-            menuItem.state = paused && menuItem.tag == pauseInterval ? 1 : 0
+            menuItem.state = menuItem.tag == scheduler.interval ? 1 : 0
             return true
         }
         
@@ -148,8 +127,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             return true
         }
         
+        if menuItem.action == #selector(self.actionPause) {
+            menuItem.state = scheduler.paused && menuItem.tag == pauseInterval ? 1 : 0
+            return true
+        }
+        
         if menuItem.action == #selector(self.actionResume) {
-            return paused
+            return scheduler.paused
         }
         
         if menuItem.action == #selector(self.actionChangeAutoLaunch) {
@@ -177,70 +161,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         loadSound(sound: notificationSound)
         
         autoLaunch = UserDefaults().bool(forKey: Constants.autoLaunchKey)
-        
-        statusItem.button?.image = NSImage(named: "MenuBarIcon")
-        statusItem.menu = statusMenu!
-    }
-    
-    func schedule(seconds: Int) {
-        
-        notificationInterval = Int(seconds)
-        UserDefaults().set(notificationInterval, forKey: Constants.notificationIntervalKey)
-        
-        notificationTimer?.invalidate()
-        notificationTimer = Timer.scheduledTimer(
-            timeInterval: TimeInterval(seconds),
-            target: self,
-            selector: #selector(self.notify),
-            userInfo: nil,
-            repeats: true
-        )
-        
-        DLog("scheduled for \(seconds)s")
-    }
-    
-    func pause() {
-        
-        pauseInterval = 0
-        pauseTimer?.invalidate()
-        paused = true
-    }
-    
-    func pause(seconds: Int) {
-        
-        paused = true
-        pauseInterval = seconds
-        
-        pauseTimer?.invalidate()
-        pauseTimer = Timer.scheduledTimer(
-            timeInterval: TimeInterval(seconds),
-            target: self,
-            selector: #selector(self.resume),
-            userInfo: nil,
-            repeats: false
-        )
-        
-        DLog("paused for \(pauseInterval)s")
-    }
-    
-    func resume() {
-        pauseInterval = 0
-        paused = false
-        DLog("resumed")
     }
     
     func notify() {
-        
-        if paused {
-            DLog("skipping notification, paused")
-            return
-        }
-        
-        let text = textSource.next()
-        Notifier.shared.notify(text: text)
-        playSound()
-        
-        DLog("notified '\(text)'")
+        Notifier.shared.send(textSource.next(), sound: sound)
     }
     
     func loadText(text: NotificationText) {
@@ -262,19 +186,4 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             self.sound = NSSound(data: data.data)
         }
     }
-    
-    func playSound() {
-        
-        if notificationSound == .silent {
-            return
-        }
-        
-        sound!.play()
-    }
 }
-
-
-
-
-
-

@@ -7,12 +7,13 @@
 //
 
 import Foundation
+import Cocoa
 
 class Notifier {
     
     static let shared = Notifier()
     
-    func notify(text: String) -> Void {
+    func send(_ text: String, sound: NSSound?) {
         
         let notification = NSUserNotification()
         notification.title = "Hint"
@@ -20,5 +21,9 @@ class Notifier {
         
         NSUserNotificationCenter.default.removeAllDeliveredNotifications()
         NSUserNotificationCenter.default.deliver(notification)
+        
+        sound?.play()
+        
+        DLog("sent notification, message: '\(text)', sound: \(sound?.name)")
     }
 }
