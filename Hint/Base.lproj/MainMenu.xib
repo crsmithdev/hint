@@ -130,7 +130,7 @@
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <menu key="submenu" title="Messages" id="dTy-sM-hHd">
                         <items>
-                            <menuItem title="Reminder" id="B89-cJ-iME">
+                            <menuItem title="Hints" id="B89-cJ-iME">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <connections>
                                     <action selector="actionChangeText:" target="Voe-Tx-rLC" id="ujI-Vv-Ntz"/>
