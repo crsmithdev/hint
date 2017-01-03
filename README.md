@@ -49,3 +49,4 @@ $ open "hint/Hint.xcworkspace"
 - Higher-quality sounds
 - More sounds
 - Settings UI
+- Travis CI
