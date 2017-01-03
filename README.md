@@ -50,4 +50,5 @@ $ open "hint/Hint.xcworkspace"
 - More sounds
 - Settings UI
 - Travis CI
+- Target earlier version of macOS
 - Tests
