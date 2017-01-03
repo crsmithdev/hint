@@ -50,3 +50,4 @@ $ open "hint/Hint.xcworkspace"
 - More sounds
 - Settings UI
 - Travis CI
+- Tests
