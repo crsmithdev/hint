@@ -13,17 +13,24 @@ import Foundation
 class AppDelegate: NSObject, NSApplicationDelegate {
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {
-
-        let launcherPath = Bundle.main.bundlePath as NSString
-        var components = launcherPath.pathComponents
-        components.removeLast()
-        components.removeLast()
-        components.removeLast()
-        components.append("MacOS")
-        components.append("Hint")
+    
+        let applications = NSWorkspace.shared().runningApplications
+        let running = applications.filter({$0.bundleIdentifier == "com.crsmithdev.Hint"}).count > 0
         
-        let appPath = NSString.path(withComponents: components)
-        NSWorkspace.shared().launchApplication(appPath)
+        if !running {
+            
+            let launcherPath = Bundle.main.bundlePath as NSString
+            var components = launcherPath.pathComponents
+            components.removeLast()
+            components.removeLast()
+            components.removeLast()
+            components.append("MacOS")
+            components.append("Hint")
+            
+            let appPath = NSString.path(withComponents: components)
+            NSWorkspace.shared().launchApplication(appPath)
+        }
+
         NSApp.terminate(nil)
     }
 }
