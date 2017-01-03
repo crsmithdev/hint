@@ -45,6 +45,7 @@ $ open "hint/Hint.xcworkspace"
 - Additional default quotes
 - More, differently-focused quote sets
 - User-loaded quote sets & custom messages
+- User-defined interval option
 - Quote shuffle
 - Higher-quality sounds
 - More sounds
