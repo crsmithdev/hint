@@ -39,7 +39,7 @@ class Scheduler: NSObject {
         
         paused = true
         
-        if seconds == nil {
+        if seconds == nil || seconds! == 0 {
             DLog("paused until resumed")
             return
         }

@@ -63,6 +63,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     @IBAction func actionResume(_ sender: NSMenuItem) {
+        pauseInterval = 0
         scheduler.resume()
     }
     
