@@ -16,6 +16,11 @@ A simple mindfulness reminder for macOS
 - Pause for preset intervals, or until resumed
 - Auto-launch on startup
 
+## Screenshots
+
+![Menu](https://raw.githubusercontent.com/crsmithdev/hint/master/Screenshots/menu.png)
+![Notification](https://raw.githubusercontent.com/crsmithdev/hint/master/Screenshots/notification.png)
+
 ## Building
 
 1) Clone the repository
