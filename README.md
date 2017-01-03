@@ -23,16 +23,6 @@ Hint is a simple mindfulness reminder for macOS
 ![Menu](https://raw.githubusercontent.com/crsmithdev/hint/master/Screenshots/menu.png)
 ![Notification](https://raw.githubusercontent.com/crsmithdev/hint/master/Screenshots/notification.png)
 
-## TODO
-
-- Additional default quotes
-- More, differently-focused quote sets
-- User-loaded quote sets & custom messages
-- Quote shuffle
-- Higher-quality sounds
-- More sounds
-- Settings UI
-
 ## Building
 
 1) Clone the repository
@@ -48,3 +38,14 @@ $ open "hint/Hint.xcworkspace"
 ```
 
 3) Compile and run the app
+
+## TODO
+
+- Better, larger (non-notification) reminder display, if possible
+- Additional default quotes
+- More, differently-focused quote sets
+- User-loaded quote sets & custom messages
+- Quote shuffle
+- Higher-quality sounds
+- More sounds
+- Settings UI
