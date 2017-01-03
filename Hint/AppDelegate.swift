@@ -59,6 +59,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     @IBAction func actionPause(_ sender: NSMenuItem) {
+        pauseInterval = sender.tag
         scheduler.pause(sender.tag)
     }
     
