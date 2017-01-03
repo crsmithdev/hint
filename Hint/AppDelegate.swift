@@ -22,7 +22,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     let scheduler = Scheduler()
 
     var messageType = MessageType.hints
-    var textSource: TextSource!
+    var messages: MessageIterator!
 
     var interval: Int = 300  // TODO no default here
     var pauseInterval: Int = 0 // TODO no default here
@@ -138,10 +138,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func loadText(_ type: MessageType) {
         messageType = type
         UserDefaults().set(messageType.rawValue, forKey: Constants.messageTypeKey)
-        
-        // TODO combine + error handling
-        let path = Bundle.main.path(forResource: type.rawValue, ofType: "txt")!
-        textSource = try? TextSource.fromFile(path: path)
+        messages = try? MessageIterator.fromFile(name: messageType.rawValue) // TODO error handling
     }
     
     func loadSound(_ type: SoundType) {
@@ -161,6 +158,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     func notify() {
-        Notifier.shared.send(textSource.next(), sound: sound)
+        Notifier.shared.send(messages.next(), sound: sound)
     }
 }

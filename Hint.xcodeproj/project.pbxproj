@@ -21,7 +21,7 @@
 		4BD7DC631E1383E500237385 /* HintTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD7DC621E1383E500237385 /* HintTests.swift */; };
 		4BD7DC711E13847800237385 /* Hints.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4BD7DC6F1E13847800237385 /* Hints.txt */; };
 		4BD7DC731E15B82200237385 /* Notifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD7DC721E15B82200237385 /* Notifier.swift */; };
-		4BD7DC751E15B85E00237385 /* TextSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD7DC741E15B85E00237385 /* TextSource.swift */; };
+		4BD7DC751E15B85E00237385 /* MessageIterator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD7DC741E15B85E00237385 /* MessageIterator.swift */; };
 		4BD7DC771E15BAE600237385 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD7DC761E15BAE600237385 /* Util.swift */; };
 		4BF620A61E187D3000C946AC /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF620A51E187D3000C946AC /* AboutViewController.swift */; };
 /* End PBXBuildFile section */
@@ -71,7 +71,7 @@
 		4BD7DC641E1383E500237385 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4BD7DC6F1E13847800237385 /* Hints.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Hints.txt; sourceTree = "<group>"; };
 		4BD7DC721E15B82200237385 /* Notifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notifier.swift; sourceTree = "<group>"; };
-		4BD7DC741E15B85E00237385 /* TextSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextSource.swift; sourceTree = "<group>"; };
+		4BD7DC741E15B85E00237385 /* MessageIterator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageIterator.swift; sourceTree = "<group>"; };
 		4BD7DC761E15BAE600237385 /* Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
 		4BF620A51E187D3000C946AC /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -148,17 +148,17 @@
 			isa = PBXGroup;
 			children = (
 				4BA9F3C91E18C296007D1506 /* Hint.entitlements */,
-				4BA9F3B01E189E96007D1506 /* Assets.xcassets */,
 				4BD7DC591E1383E500237385 /* Info.plist */,
 				4BF620A51E187D3000C946AC /* AboutViewController.swift */,
 				4BD7DC521E1383E500237385 /* AppDelegate.swift */,
 				4BA9F3AE1E188A06007D1506 /* Constants.swift */,
-				4BD7DC721E15B82200237385 /* Notifier.swift */,
-				4BD7DC741E15B85E00237385 /* TextSource.swift */,
-				4BD7DC761E15BAE600237385 /* Util.swift */,
-				4BD7DC561E1383E500237385 /* MainMenu.xib */,
-				4B56EDFE1E19E6EC002D0804 /* Scheduler.swift */,
 				4B56EE001E1B0117002D0804 /* Enums.swift */,
+				4BD7DC741E15B85E00237385 /* MessageIterator.swift */,
+				4BD7DC721E15B82200237385 /* Notifier.swift */,
+				4B56EDFE1E19E6EC002D0804 /* Scheduler.swift */,
+				4BD7DC761E15BAE600237385 /* Util.swift */,
+				4BA9F3B01E189E96007D1506 /* Assets.xcassets */,
+				4BD7DC561E1383E500237385 /* MainMenu.xib */,
 			);
 			path = Hint;
 			sourceTree = "<group>";
@@ -339,7 +339,7 @@
 				4B56EDFF1E19E6EC002D0804 /* Scheduler.swift in Sources */,
 				4BD7DC531E1383E500237385 /* AppDelegate.swift in Sources */,
 				4BD7DC731E15B82200237385 /* Notifier.swift in Sources */,
-				4BD7DC751E15B85E00237385 /* TextSource.swift in Sources */,
+				4BD7DC751E15B85E00237385 /* MessageIterator.swift in Sources */,
 				4BD7DC771E15BAE600237385 /* Util.swift in Sources */,
 				4B56EE011E1B0117002D0804 /* Enums.swift in Sources */,
 				4BF620A61E187D3000C946AC /* AboutViewController.swift in Sources */,

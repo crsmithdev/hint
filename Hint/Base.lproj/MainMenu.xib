@@ -16,7 +16,6 @@
         <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="Hint" customModuleProvider="target">
             <connections>
                 <outlet property="aboutPanel" destination="dQ4-5x-eTX" id="uvB-vI-mBr"/>
-                <outlet property="sourceButton" destination="tRY-Db-lQO" id="LJ9-4u-iNg"/>
                 <outlet property="statusMenu" destination="D4b-5A-cF7" id="r1P-su-epZ"/>
             </connections>
         </customObject>
