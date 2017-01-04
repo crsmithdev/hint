@@ -7,7 +7,7 @@ Hint is a simple mindfulness reminder for macOS
 
 ## Requirements
 
-- macOS 10.10 or higher
+- macOS 10.11 or higher
 - XCode 8+ (development)
 
 ## Features
