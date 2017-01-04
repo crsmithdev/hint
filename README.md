@@ -1,7 +1,7 @@
 # Hint
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-Hint is a simple mindfulness reminder for macOS
+Hint is a simple mindfulness reminder for macOS.
 
 **[Download](https://github.com/crsmithdev/hint/releases)**
 
