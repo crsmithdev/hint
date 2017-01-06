@@ -128,6 +128,12 @@
                                     <action selector="actionChangeInterval:" target="Voe-Tx-rLC" id="kjn-kE-539"/>
                                 </connections>
                             </menuItem>
+                            <menuItem title="6 Hours" tag="21600" id="vxL-HS-QBp">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="actionChangeInterval:" target="Voe-Tx-rLC" id="fME-rR-zlt"/>
+                                </connections>
+                            </menuItem>
                             <menuItem title="8 Hours" tag="28800" id="ict-C4-GWF">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <connections>
