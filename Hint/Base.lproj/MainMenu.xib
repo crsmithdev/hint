@@ -86,12 +86,6 @@
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <menu key="submenu" title="Interval" id="er2-Bg-sWo">
                         <items>
-                            <menuItem title="2 Minutes" tag="120" id="MBu-JM-cZF">
-                                <modifierMask key="keyEquivalentModifierMask"/>
-                                <connections>
-                                    <action selector="actionChangeInterval:" target="Voe-Tx-rLC" id="cVQ-Il-aLG"/>
-                                </connections>
-                            </menuItem>
                             <menuItem title="5 Minutes" tag="300" id="c2N-wc-HV8">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <connections>
@@ -120,6 +114,24 @@
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <connections>
                                     <action selector="actionChangeInterval:" target="Voe-Tx-rLC" id="4UV-6D-QVc"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="2 Hours" tag="7200" id="gTk-MY-yh5">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="actionChangeInterval:" target="Voe-Tx-rLC" id="SXo-mx-64w"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="4 Hours" tag="14400" id="wjE-2M-9jW">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="actionChangeInterval:" target="Voe-Tx-rLC" id="kjn-kE-539"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="8 Hours" tag="28800" id="ict-C4-GWF">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="actionChangeInterval:" target="Voe-Tx-rLC" id="R4K-vy-JMF"/>
                                 </connections>
                             </menuItem>
                         </items>
@@ -212,6 +224,12 @@
             </items>
             <point key="canvasLocation" x="-306" y="-315"/>
         </menu>
+        <menuItem title="1 Hour" tag="3600" id="7EE-PC-OuP">
+            <modifierMask key="keyEquivalentModifierMask"/>
+            <connections>
+                <action selector="actionChangeInterval:" target="Voe-Tx-rLC" id="SBv-Or-AmF"/>
+            </connections>
+        </menuItem>
     </objects>
     <resources>
         <image name="Images/About" width="27.145803451538086" height="27.145803451538086"/>
