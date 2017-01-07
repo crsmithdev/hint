@@ -16,6 +16,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     @IBOutlet var aboutPanel: NSPanel!
     @IBOutlet var statusMenu: NSMenu!
+    @IBOutlet var debugMenu: NSMenuItem!
     
     let statusItem = NSStatusBar.system().statusItem(withLength: NSSquareStatusItemLength)
     
@@ -39,6 +40,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         statusItem.button?.image = NSImage(named: "MenuBarIcon")
         statusItem.menu = statusMenu!
         
+        #if DEBUG
+            debugMenu.isHidden = false
+        #endif
+        
         loadSettings()
         loadText(messageType)
         loadSound(soundType)
@@ -48,6 +53,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationWillTerminate(_ aNotification: Notification) { }
     
     /* Actions */
+    
+    @IBAction func actionDebugNotifyNow(_ sender: NSMenuItem) {
+        notify()
+    }
+    
+    @IBAction func actionDebugRapidFire(_ sender: NSMenuItem) {
+        scheduler.schedule(Constants.intervalRapid, block: notify)
+    }
     
     @IBAction func actionAbout(_ sender: NSMenuItem) {
         NSApplication.shared().activate(ignoringOtherApps: true)
@@ -88,7 +101,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     override func validateMenuItem(_ menuItem: NSMenuItem) -> Bool {
         
-        if menuItem.action == #selector(self.actionChangeInterval) {
+        if menuItem.action == #selector(self.actionDebugRapidFire) {
+            menuItem.state = scheduler.interval == Constants.intervalRapid ? 1 : 0
+            
+        } else if menuItem.action == #selector(self.actionChangeInterval) {
             menuItem.state = menuItem.tag == scheduler.interval ? 1 : 0
             
         } else if menuItem.action == #selector(self.actionChangeText) {

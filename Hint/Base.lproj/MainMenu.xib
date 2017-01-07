@@ -16,6 +16,7 @@
         <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="Hint" customModuleProvider="target">
             <connections>
                 <outlet property="aboutPanel" destination="dQ4-5x-eTX" id="uvB-vI-mBr"/>
+                <outlet property="debugMenu" destination="Rcv-D5-uXv" id="Ll2-QV-REM"/>
                 <outlet property="statusMenu" destination="D4b-5A-cF7" id="r1P-su-epZ"/>
             </connections>
         </customObject>
@@ -80,6 +81,25 @@
                     <connections>
                         <action selector="actionAbout:" target="Voe-Tx-rLC" id="ef2-h5-E1o"/>
                     </connections>
+                </menuItem>
+                <menuItem title="Debug" hidden="YES" id="Rcv-D5-uXv">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <menu key="submenu" title="Debug" id="LkN-Wt-TKz">
+                        <items>
+                            <menuItem title="Notify Now" tag="28800" id="vS1-Cy-PUV">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="actionDebugNotifyNow:" target="Voe-Tx-rLC" id="NfF-B5-xRZ"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Rapid Fire" tag="28800" id="82f-ox-MZH">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="actionDebugRapidFire:" target="Voe-Tx-rLC" id="mFA-DH-DAs"/>
+                                </connections>
+                            </menuItem>
+                        </items>
+                    </menu>
                 </menuItem>
                 <menuItem isSeparatorItem="YES" id="Zlo-r9-dsR"/>
                 <menuItem title="Interval" id="cb5-JA-WOr">
@@ -234,6 +254,12 @@
             <modifierMask key="keyEquivalentModifierMask"/>
             <connections>
                 <action selector="actionChangeInterval:" target="Voe-Tx-rLC" id="SBv-Or-AmF"/>
+            </connections>
+        </menuItem>
+        <menuItem title="Notify Now" tag="28800" id="CDF-7C-u1E">
+            <modifierMask key="keyEquivalentModifierMask"/>
+            <connections>
+                <action selector="actionChangeInterval:" target="Voe-Tx-rLC" id="uQW-pn-IvT"/>
             </connections>
         </menuItem>
     </objects>
