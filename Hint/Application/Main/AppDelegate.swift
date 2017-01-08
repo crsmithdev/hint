@@ -42,15 +42,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         statusItem.button?.image = NSImage(named: "MenuBarIcon")
         statusItem.menu = statusMenu!
-        notificationWindowController = NotificationWindowController(windowNibName: "NotificationWindow")
-        //aboutController = AboutWindowController(windowNibName: "AboutWindow")
+
         let sb = NSStoryboard(name: "Main", bundle: nil)
         aboutWindowController = sb.instantiateController(withIdentifier: "AboutWindow") as! NSWindowController
         notificationWindowController = sb.instantiateController(withIdentifier: "NotificationWindow") as! NotificationWindowController
-
-        //win2 = sb.instantiateController(withIdentifier: "window2") as! NSWindowController
-        
-        //notificationWindowController = NotificationWindowController(window: testWindow)
         
         #if DEBUG
             debugMenu.isHidden = false
@@ -59,6 +54,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         loadSettings()
         loadText(messageType)
         loadSound(soundType)
+        
         scheduler.schedule(interval, block: self.notify)
     }
     
@@ -68,7 +64,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     @IBAction func actionDebugNotifyNow(_ sender: NSMenuItem) {
         notify()
-        notificationWindowController.notify2()
     }
     
     @IBAction func actionDebugRapidFire(_ sender: NSMenuItem) {
@@ -189,6 +184,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     func notify() {
-        Notifier.shared.send(messages.next(), sound: sound)
+        notificationWindowController.showWindowWithText(nil, text: messages.next())
     }
 }

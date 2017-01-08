@@ -865,7 +865,7 @@
                     <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" restorable="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="RMF-hT-Xom" customClass="NSPanel">
                         <windowStyleMask key="styleMask" closable="YES" miniaturizable="YES" resizable="YES" utility="YES" HUD="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-                        <rect key="contentRect" x="245" y="301" width="350" height="140"/>
+                        <rect key="contentRect" x="245" y="301" width="350" height="120"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1028"/>
                     </window>
                     <connections>
@@ -874,26 +874,63 @@
                 </windowController>
                 <customObject id="RjP-O0-BQA" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="74" y="576"/>
+            <point key="canvasLocation" x="74" y="540"/>
         </scene>
-        <!--View Controller-->
+        <!--Notification View Controller-->
         <scene sceneID="Jo5-7C-9Lg">
             <objects>
-                <viewController id="zfm-S6-1H3" sceneMemberID="viewController">
-                    <view key="view" id="YzD-jS-fPY">
-                        <rect key="frame" x="0.0" y="0.0" width="350" height="140"/>
+                <viewController id="zfm-S6-1H3" customClass="NotificationViewController" customModule="Hint" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="YzD-jS-fPY" userLabel="Notification View">
+                        <rect key="frame" x="0.0" y="0.0" width="350" height="120"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <scrollView borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EiN-ue-GD3">
+                                <rect key="frame" x="10" y="10" width="329" height="100"/>
+                                <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="ksK-av-5se">
+                                    <rect key="frame" x="0.0" y="0.0" width="329" height="100"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <textView editable="NO" selectable="NO" drawsBackground="NO" importsGraphics="NO" usesFontPanel="YES" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" usesRuler="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" spellingCorrection="YES" smartInsertDelete="YES" id="yYD-7L-Pxc">
+                                            <rect key="frame" x="0.0" y="0.0" width="331" height="100"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <size key="minSize" width="329" height="100"/>
+                                            <size key="maxSize" width="463" height="10000000"/>
+                                            <color key="insertionPointColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                        </textView>
+                                    </subviews>
+                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </clipView>
+                                <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="YES" id="TxZ-so-MYO">
+                                    <rect key="frame" x="-100" y="-100" width="87" height="18"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                                <scroller key="verticalScroller" verticalHuggingPriority="750" horizontal="NO" id="0rU-TD-Jj3">
+                                    <rect key="frame" x="313" y="0.0" width="16" height="100"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                            </scrollView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="EiN-ue-GD3" firstAttribute="leading" secondItem="YzD-jS-fPY" secondAttribute="leading" constant="10" id="CCR-m7-uHf"/>
+                            <constraint firstItem="EiN-ue-GD3" firstAttribute="centerY" secondItem="YzD-jS-fPY" secondAttribute="centerY" id="Cq3-ic-5ka"/>
+                            <constraint firstItem="EiN-ue-GD3" firstAttribute="top" secondItem="YzD-jS-fPY" secondAttribute="top" constant="10" id="RPo-qO-F2r"/>
+                            <constraint firstItem="EiN-ue-GD3" firstAttribute="centerX" secondItem="YzD-jS-fPY" secondAttribute="centerX" id="kPQ-Ua-Inb"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="text" destination="yYD-7L-Pxc" id="GdV-pT-Yo5"/>
+                    </connections>
                 </viewController>
                 <customObject id="WIC-3F-ekQ" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="490" y="570"/>
+            <point key="canvasLocation" x="503" y="546"/>
         </scene>
         <!--About View Controller-->
         <scene sceneID="hIz-AP-VOD">
             <objects>
                 <viewController id="XfG-lQ-9wD" customClass="AboutViewController" customModule="Hint" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" id="aoc-GQ-FNy">
+                    <view key="view" id="aoc-GQ-FNy" userLabel="About View">
                         <rect key="frame" x="0.0" y="0.0" width="275" height="225"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>

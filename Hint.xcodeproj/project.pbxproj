@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		4B1F4E8D1E21D3B800CFB827 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B1F4E8C1E21D3B800CFB827 /* Main.storyboard */; };
-		4B4B16991E21B68800F66F0C /* Test.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4B4B16981E21B68800F66F0C /* Test.xib */; };
 		4B56EDFF1E19E6EC002D0804 /* Scheduler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B56EDFE1E19E6EC002D0804 /* Scheduler.swift */; };
 		4B56EE011E1B0117002D0804 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B56EE001E1B0117002D0804 /* Enums.swift */; };
 		4BA9F3AF1E188A06007D1506 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA9F3AE1E188A06007D1506 /* Constants.swift */; };
@@ -19,15 +18,11 @@
 		4BA9F3C51E18B4C1007D1506 /* HintLauncher.app in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4BA9F3B61E18B34D007D1506 /* HintLauncher.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		4BA9F3C81E18B540007D1506 /* ServiceManagement.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BA9F3C71E18B540007D1506 /* ServiceManagement.framework */; };
 		4BD7DC531E1383E500237385 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD7DC521E1383E500237385 /* AppDelegate.swift */; };
-		4BD7DC581E1383E500237385 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4BD7DC561E1383E500237385 /* MainMenu.xib */; };
 		4BD7DC631E1383E500237385 /* HintTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD7DC621E1383E500237385 /* HintTests.swift */; };
 		4BD7DC711E13847800237385 /* Hints.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4BD7DC6F1E13847800237385 /* Hints.txt */; };
-		4BD7DC731E15B82200237385 /* Notifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD7DC721E15B82200237385 /* Notifier.swift */; };
 		4BD7DC751E15B85E00237385 /* MessageIterator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD7DC741E15B85E00237385 /* MessageIterator.swift */; };
-		4BD7DC771E15BAE600237385 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD7DC761E15BAE600237385 /* Util.swift */; };
+		4BD7DC771E15BAE600237385 /* Logging.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD7DC761E15BAE600237385 /* Logging.swift */; };
 		4BFA68B61E2195A20031DF0C /* NotificationWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BFA68B51E2195A20031DF0C /* NotificationWindowController.swift */; };
-		4BFA68BA1E2199BD0031DF0C /* NotificationWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4BFA68B91E2199BD0031DF0C /* NotificationWindow.xib */; };
-		4BFA68BE1E219FD90031DF0C /* AboutWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4BFA68BD1E219FD90031DF0C /* AboutWindow.xib */; };
 		4BFA68C01E21A0620031DF0C /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BFA68BF1E21A0620031DF0C /* AboutViewController.swift */; };
 		4BFA68C21E21A4560031DF0C /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BFA68C11E21A4560031DF0C /* NotificationViewController.swift */; };
 /* End PBXBuildFile section */
@@ -57,7 +52,6 @@
 
 /* Begin PBXFileReference section */
 		4B1F4E8C1E21D3B800CFB827 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		4B4B16981E21B68800F66F0C /* Test.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Test.xib; sourceTree = "<group>"; };
 		4B56EDFE1E19E6EC002D0804 /* Scheduler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Scheduler.swift; sourceTree = "<group>"; };
 		4B56EE001E1B0117002D0804 /* Enums.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
 		4BA9F3AE1E188A06007D1506 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -72,18 +66,14 @@
 		4BA9F3C91E18C296007D1506 /* Hint.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Hint.entitlements; sourceTree = "<group>"; };
 		4BD7DC4F1E1383E500237385 /* Hint.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hint.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4BD7DC521E1383E500237385 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		4BD7DC571E1383E500237385 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		4BD7DC591E1383E500237385 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4BD7DC5E1E1383E500237385 /* HintTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HintTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4BD7DC621E1383E500237385 /* HintTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HintTests.swift; sourceTree = "<group>"; };
 		4BD7DC641E1383E500237385 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4BD7DC6F1E13847800237385 /* Hints.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Hints.txt; sourceTree = "<group>"; };
-		4BD7DC721E15B82200237385 /* Notifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notifier.swift; sourceTree = "<group>"; };
 		4BD7DC741E15B85E00237385 /* MessageIterator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageIterator.swift; sourceTree = "<group>"; };
-		4BD7DC761E15BAE600237385 /* Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
+		4BD7DC761E15BAE600237385 /* Logging.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logging.swift; sourceTree = "<group>"; };
 		4BFA68B51E2195A20031DF0C /* NotificationWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationWindowController.swift; sourceTree = "<group>"; };
-		4BFA68B91E2199BD0031DF0C /* NotificationWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NotificationWindow.xib; sourceTree = "<group>"; };
-		4BFA68BD1E219FD90031DF0C /* AboutWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AboutWindow.xib; sourceTree = "<group>"; };
 		4BFA68BF1E21A0620031DF0C /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		4BFA68C11E21A4560031DF0C /* NotificationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -161,17 +151,9 @@
 			children = (
 				4BA9F3C91E18C296007D1506 /* Hint.entitlements */,
 				4BD7DC591E1383E500237385 /* Info.plist */,
-				4BD7DC521E1383E500237385 /* AppDelegate.swift */,
-				4BA9F3AE1E188A06007D1506 /* Constants.swift */,
-				4B56EE001E1B0117002D0804 /* Enums.swift */,
-				4BD7DC741E15B85E00237385 /* MessageIterator.swift */,
-				4BD7DC721E15B82200237385 /* Notifier.swift */,
-				4B56EDFE1E19E6EC002D0804 /* Scheduler.swift */,
-				4BD7DC761E15BAE600237385 /* Util.swift */,
+				4BE886231E228BC2003E2DE0 /* Application */,
 				4BA9F3B01E189E96007D1506 /* Assets.xcassets */,
 				4BFA68BC1E219F8E0031DF0C /* Controllers */,
-				4BD7DC561E1383E500237385 /* MainMenu.xib */,
-				4BFA68BB1E219D320031DF0C /* Windows */,
 				4B1F4E8C1E21D3B800CFB827 /* Main.storyboard */,
 			);
 			path = Hint;
@@ -194,22 +176,57 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		4BFA68BB1E219D320031DF0C /* Windows */ = {
+		4BE886231E228BC2003E2DE0 /* Application */ = {
 			isa = PBXGroup;
 			children = (
-				4BFA68B91E2199BD0031DF0C /* NotificationWindow.xib */,
-				4BFA68BD1E219FD90031DF0C /* AboutWindow.xib */,
-				4B4B16981E21B68800F66F0C /* Test.xib */,
+				4BE886281E228CBF003E2DE0 /* Common */,
+				4BE886271E228CB4003E2DE0 /* Notification */,
+				4BE886261E228C70003E2DE0 /* About */,
+				4BE886251E228C6A003E2DE0 /* Main */,
 			);
-			name = Windows;
+			path = Application;
+			sourceTree = "<group>";
+		};
+		4BE886251E228C6A003E2DE0 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				4BD7DC521E1383E500237385 /* AppDelegate.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		4BE886261E228C70003E2DE0 /* About */ = {
+			isa = PBXGroup;
+			children = (
+				4BFA68BF1E21A0620031DF0C /* AboutViewController.swift */,
+			);
+			path = About;
+			sourceTree = "<group>";
+		};
+		4BE886271E228CB4003E2DE0 /* Notification */ = {
+			isa = PBXGroup;
+			children = (
+				4BFA68C11E21A4560031DF0C /* NotificationViewController.swift */,
+				4BFA68B51E2195A20031DF0C /* NotificationWindowController.swift */,
+			);
+			path = Notification;
+			sourceTree = "<group>";
+		};
+		4BE886281E228CBF003E2DE0 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				4B56EDFE1E19E6EC002D0804 /* Scheduler.swift */,
+				4B56EE001E1B0117002D0804 /* Enums.swift */,
+				4BD7DC761E15BAE600237385 /* Logging.swift */,
+				4BD7DC741E15B85E00237385 /* MessageIterator.swift */,
+				4BA9F3AE1E188A06007D1506 /* Constants.swift */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 		4BFA68BC1E219F8E0031DF0C /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				4BFA68BF1E21A0620031DF0C /* AboutViewController.swift */,
-				4BFA68C11E21A4560031DF0C /* NotificationViewController.swift */,
-				4BFA68B51E2195A20031DF0C /* NotificationWindowController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -343,11 +360,7 @@
 			files = (
 				4B1F4E8D1E21D3B800CFB827 /* Main.storyboard in Resources */,
 				4BD7DC711E13847800237385 /* Hints.txt in Resources */,
-				4B4B16991E21B68800F66F0C /* Test.xib in Resources */,
 				4BA9F3B11E189E96007D1506 /* Assets.xcassets in Resources */,
-				4BFA68BE1E219FD90031DF0C /* AboutWindow.xib in Resources */,
-				4BFA68BA1E2199BD0031DF0C /* NotificationWindow.xib in Resources */,
-				4BD7DC581E1383E500237385 /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -378,9 +391,8 @@
 				4BFA68C01E21A0620031DF0C /* AboutViewController.swift in Sources */,
 				4B56EDFF1E19E6EC002D0804 /* Scheduler.swift in Sources */,
 				4BD7DC531E1383E500237385 /* AppDelegate.swift in Sources */,
-				4BD7DC731E15B82200237385 /* Notifier.swift in Sources */,
 				4BD7DC751E15B85E00237385 /* MessageIterator.swift in Sources */,
-				4BD7DC771E15BAE600237385 /* Util.swift in Sources */,
+				4BD7DC771E15BAE600237385 /* Logging.swift in Sources */,
 				4B56EE011E1B0117002D0804 /* Enums.swift in Sources */,
 				4BFA68B61E2195A20031DF0C /* NotificationWindowController.swift in Sources */,
 			);
@@ -409,14 +421,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				4BA9F3BD1E18B34D007D1506 /* Base */,
-			);
-			name = MainMenu.xib;
-			sourceTree = "<group>";
-		};
-		4BD7DC561E1383E500237385 /* MainMenu.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				4BD7DC571E1383E500237385 /* Base */,
 			);
 			name = MainMenu.xib;
 			sourceTree = "<group>";
