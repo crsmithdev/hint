@@ -926,11 +926,11 @@
             </objects>
             <point key="canvasLocation" x="503" y="546"/>
         </scene>
-        <!--About View Controller-->
+        <!--View Controller-->
         <scene sceneID="hIz-AP-VOD">
             <objects>
-                <viewController id="XfG-lQ-9wD" customClass="AboutViewController" customModule="Hint" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" id="aoc-GQ-FNy" userLabel="About View">
+                <viewController id="XfG-lQ-9wD" sceneMemberID="viewController">
+                    <view key="view" id="aoc-GQ-FNy" userLabel="About View" customClass="AboutView" customModule="Hint" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="275" height="225"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
@@ -965,10 +965,13 @@
                                     <font key="font" size="13" name="HelveticaNeue"/>
                                 </buttonCell>
                                 <connections>
-                                    <action selector="actionLinkClick:" target="XfG-lQ-9wD" id="bxK-zX-CE1"/>
+                                    <action selector="actionLinkClick:" target="aoc-GQ-FNy" id="QyJ-K8-ngk"/>
                                 </connections>
                             </button>
                         </subviews>
+                        <connections>
+                            <outlet property="sourceButton" destination="mFr-Xv-BMe" id="zgF-Vm-gjL"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="sourceButton" destination="mFr-Xv-BMe" id="8Qc-4t-STk"/>

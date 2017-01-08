@@ -22,8 +22,9 @@
 		4BD7DC711E13847800237385 /* Hints.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4BD7DC6F1E13847800237385 /* Hints.txt */; };
 		4BD7DC751E15B85E00237385 /* MessageIterator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD7DC741E15B85E00237385 /* MessageIterator.swift */; };
 		4BD7DC771E15BAE600237385 /* Logging.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD7DC761E15BAE600237385 /* Logging.swift */; };
+		4BE8862A1E229088003E2DE0 /* LinkButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE886291E229088003E2DE0 /* LinkButton.swift */; };
 		4BFA68B61E2195A20031DF0C /* NotificationWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BFA68B51E2195A20031DF0C /* NotificationWindowController.swift */; };
-		4BFA68C01E21A0620031DF0C /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BFA68BF1E21A0620031DF0C /* AboutViewController.swift */; };
+		4BFA68C01E21A0620031DF0C /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BFA68BF1E21A0620031DF0C /* AboutView.swift */; };
 		4BFA68C21E21A4560031DF0C /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BFA68C11E21A4560031DF0C /* NotificationViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -73,8 +74,9 @@
 		4BD7DC6F1E13847800237385 /* Hints.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Hints.txt; sourceTree = "<group>"; };
 		4BD7DC741E15B85E00237385 /* MessageIterator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageIterator.swift; sourceTree = "<group>"; };
 		4BD7DC761E15BAE600237385 /* Logging.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logging.swift; sourceTree = "<group>"; };
+		4BE886291E229088003E2DE0 /* LinkButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinkButton.swift; sourceTree = "<group>"; };
 		4BFA68B51E2195A20031DF0C /* NotificationWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationWindowController.swift; sourceTree = "<group>"; };
-		4BFA68BF1E21A0620031DF0C /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
+		4BFA68BF1E21A0620031DF0C /* AboutView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
 		4BFA68C11E21A4560031DF0C /* NotificationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -198,7 +200,8 @@
 		4BE886261E228C70003E2DE0 /* About */ = {
 			isa = PBXGroup;
 			children = (
-				4BFA68BF1E21A0620031DF0C /* AboutViewController.swift */,
+				4BFA68BF1E21A0620031DF0C /* AboutView.swift */,
+				4BE886291E229088003E2DE0 /* LinkButton.swift */,
 			);
 			path = About;
 			sourceTree = "<group>";
@@ -388,11 +391,12 @@
 			files = (
 				4BFA68C21E21A4560031DF0C /* NotificationViewController.swift in Sources */,
 				4BA9F3AF1E188A06007D1506 /* Constants.swift in Sources */,
-				4BFA68C01E21A0620031DF0C /* AboutViewController.swift in Sources */,
+				4BFA68C01E21A0620031DF0C /* AboutView.swift in Sources */,
 				4B56EDFF1E19E6EC002D0804 /* Scheduler.swift in Sources */,
 				4BD7DC531E1383E500237385 /* AppDelegate.swift in Sources */,
 				4BD7DC751E15B85E00237385 /* MessageIterator.swift in Sources */,
 				4BD7DC771E15BAE600237385 /* Logging.swift in Sources */,
+				4BE8862A1E229088003E2DE0 /* LinkButton.swift in Sources */,
 				4B56EE011E1B0117002D0804 /* Enums.swift in Sources */,
 				4BFA68B61E2195A20031DF0C /* NotificationWindowController.swift in Sources */,
 			);
