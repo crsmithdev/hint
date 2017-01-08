@@ -1,4 +1,4 @@
-//
+    //
 //  AppDelegate.swift
 //  Reminder
 //
@@ -14,17 +14,20 @@ import ServiceManagement
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
     
-    @IBOutlet var aboutPanel: NSPanel!
     @IBOutlet var statusMenu: NSMenu!
     @IBOutlet var debugMenu: NSMenuItem!
+    @IBOutlet var testWindow: NSWindow!
+    
+    var aboutWindowController: NSWindowController!
+    var notificationWindowController: NotificationWindowController!
     
     let statusItem = NSStatusBar.system().statusItem(withLength: NSSquareStatusItemLength)
     
     let scheduler = Scheduler()
-
+    
     var messageType = MessageType.hints
     var messages: MessageIterator!
-
+    
     var interval: Int = 300  // TODO no default here
     var pauseInterval: Int = 0 // TODO no default here
     
@@ -39,6 +42,15 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         statusItem.button?.image = NSImage(named: "MenuBarIcon")
         statusItem.menu = statusMenu!
+        notificationWindowController = NotificationWindowController(windowNibName: "NotificationWindow")
+        //aboutController = AboutWindowController(windowNibName: "AboutWindow")
+        let sb = NSStoryboard(name: "Main", bundle: nil)
+        aboutWindowController = sb.instantiateController(withIdentifier: "AboutWindow") as! NSWindowController
+        notificationWindowController = sb.instantiateController(withIdentifier: "NotificationWindow") as! NotificationWindowController
+
+        //win2 = sb.instantiateController(withIdentifier: "window2") as! NSWindowController
+        
+        //notificationWindowController = NotificationWindowController(window: testWindow)
         
         #if DEBUG
             debugMenu.isHidden = false
@@ -56,6 +68,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     @IBAction func actionDebugNotifyNow(_ sender: NSMenuItem) {
         notify()
+        notificationWindowController.notify2()
     }
     
     @IBAction func actionDebugRapidFire(_ sender: NSMenuItem) {
@@ -64,7 +77,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     @IBAction func actionAbout(_ sender: NSMenuItem) {
         NSApplication.shared().activate(ignoringOtherApps: true)
-        aboutPanel.makeKeyAndOrderFront(self)
+        aboutWindowController.showWindow(nil)
     }
     
     @IBAction func actionChangeInterval(_ sender: NSMenuItem) {

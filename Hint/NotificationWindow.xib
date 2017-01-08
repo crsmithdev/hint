@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11762"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="NotificationWindowController" customModule="Hint" customModuleProvider="target">
+            <connections>
+                <outlet property="viewController" destination="tUq-rM-3CR" id="6rz-Uz-ZjQ"/>
+                <outlet property="window" destination="EgD-Vz-Sqb" id="fZj-R6-ad1"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <window title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="EgD-Vz-Sqb" customClass="NSPanel">
+            <windowStyleMask key="styleMask" closable="YES" miniaturizable="YES" resizable="YES" utility="YES" HUD="YES"/>
+            <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+            <rect key="contentRect" x="113" y="157" width="350" height="180"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1028"/>
+            <view key="contentView" id="5a0-Ik-QVu">
+                <rect key="frame" x="0.0" y="0.0" width="350" height="180"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <scrollView horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" hasVerticalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qMT-Gb-GNv">
+                        <rect key="frame" x="10" y="10" width="330" height="160"/>
+                        <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="Qfq-cE-x7c">
+                            <rect key="frame" x="1" y="1" width="328" height="158"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <subviews>
+                                <textView importsGraphics="NO" usesFontPanel="YES" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" usesRuler="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" spellingCorrection="YES" smartInsertDelete="YES" id="1CW-sJ-RHn">
+                                    <rect key="frame" x="0.0" y="0.0" width="330" height="158"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <size key="minSize" width="328" height="158"/>
+                                    <size key="maxSize" width="463" height="10000000"/>
+                                    <color key="insertionPointColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                </textView>
+                            </subviews>
+                        </clipView>
+                        <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="YES" id="K0h-NJ-S1f">
+                            <rect key="frame" x="-100" y="-100" width="87" height="18"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                        </scroller>
+                        <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="zLo-fT-Crt">
+                            <rect key="frame" x="-100" y="-100" width="16" height="158"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                        </scroller>
+                    </scrollView>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="qMT-Gb-GNv" secondAttribute="trailing" constant="10" id="4qW-PH-lZm"/>
+                    <constraint firstItem="qMT-Gb-GNv" firstAttribute="centerX" secondItem="5a0-Ik-QVu" secondAttribute="centerX" id="OIL-L3-FaO"/>
+                    <constraint firstItem="qMT-Gb-GNv" firstAttribute="top" secondItem="5a0-Ik-QVu" secondAttribute="top" constant="10" id="d0R-Uw-9cA"/>
+                    <constraint firstItem="qMT-Gb-GNv" firstAttribute="centerY" secondItem="5a0-Ik-QVu" secondAttribute="centerY" id="znj-yR-xrJ"/>
+                </constraints>
+            </view>
+            <connections>
+                <outlet property="delegate" destination="-2" id="w7c-0m-nf4"/>
+            </connections>
+            <point key="canvasLocation" x="230" y="314"/>
+        </window>
+        <viewController id="tUq-rM-3CR" customClass="NotificationViewController" customModule="Hint" customModuleProvider="target">
+            <connections>
+                <outlet property="text" destination="1CW-sJ-RHn" id="gWU-WF-ghO"/>
+                <outlet property="view" destination="5a0-Ik-QVu" id="wfR-3U-nrR"/>
+            </connections>
+        </viewController>
+    </objects>
+</document>

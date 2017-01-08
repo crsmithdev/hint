@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4B1F4E8D1E21D3B800CFB827 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B1F4E8C1E21D3B800CFB827 /* Main.storyboard */; };
+		4B4B16991E21B68800F66F0C /* Test.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4B4B16981E21B68800F66F0C /* Test.xib */; };
 		4B56EDFF1E19E6EC002D0804 /* Scheduler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B56EDFE1E19E6EC002D0804 /* Scheduler.swift */; };
 		4B56EE011E1B0117002D0804 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B56EE001E1B0117002D0804 /* Enums.swift */; };
 		4BA9F3AF1E188A06007D1506 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA9F3AE1E188A06007D1506 /* Constants.swift */; };
@@ -23,7 +25,11 @@
 		4BD7DC731E15B82200237385 /* Notifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD7DC721E15B82200237385 /* Notifier.swift */; };
 		4BD7DC751E15B85E00237385 /* MessageIterator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD7DC741E15B85E00237385 /* MessageIterator.swift */; };
 		4BD7DC771E15BAE600237385 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD7DC761E15BAE600237385 /* Util.swift */; };
-		4BF620A61E187D3000C946AC /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF620A51E187D3000C946AC /* AboutViewController.swift */; };
+		4BFA68B61E2195A20031DF0C /* NotificationWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BFA68B51E2195A20031DF0C /* NotificationWindowController.swift */; };
+		4BFA68BA1E2199BD0031DF0C /* NotificationWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4BFA68B91E2199BD0031DF0C /* NotificationWindow.xib */; };
+		4BFA68BE1E219FD90031DF0C /* AboutWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4BFA68BD1E219FD90031DF0C /* AboutWindow.xib */; };
+		4BFA68C01E21A0620031DF0C /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BFA68BF1E21A0620031DF0C /* AboutViewController.swift */; };
+		4BFA68C21E21A4560031DF0C /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BFA68C11E21A4560031DF0C /* NotificationViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +56,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		4B1F4E8C1E21D3B800CFB827 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		4B4B16981E21B68800F66F0C /* Test.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Test.xib; sourceTree = "<group>"; };
 		4B56EDFE1E19E6EC002D0804 /* Scheduler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Scheduler.swift; sourceTree = "<group>"; };
 		4B56EE001E1B0117002D0804 /* Enums.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
 		4BA9F3AE1E188A06007D1506 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -73,7 +81,11 @@
 		4BD7DC721E15B82200237385 /* Notifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notifier.swift; sourceTree = "<group>"; };
 		4BD7DC741E15B85E00237385 /* MessageIterator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageIterator.swift; sourceTree = "<group>"; };
 		4BD7DC761E15BAE600237385 /* Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
-		4BF620A51E187D3000C946AC /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
+		4BFA68B51E2195A20031DF0C /* NotificationWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationWindowController.swift; sourceTree = "<group>"; };
+		4BFA68B91E2199BD0031DF0C /* NotificationWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NotificationWindow.xib; sourceTree = "<group>"; };
+		4BFA68BD1E219FD90031DF0C /* AboutWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AboutWindow.xib; sourceTree = "<group>"; };
+		4BFA68BF1E21A0620031DF0C /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
+		4BFA68C11E21A4560031DF0C /* NotificationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,7 +161,6 @@
 			children = (
 				4BA9F3C91E18C296007D1506 /* Hint.entitlements */,
 				4BD7DC591E1383E500237385 /* Info.plist */,
-				4BF620A51E187D3000C946AC /* AboutViewController.swift */,
 				4BD7DC521E1383E500237385 /* AppDelegate.swift */,
 				4BA9F3AE1E188A06007D1506 /* Constants.swift */,
 				4B56EE001E1B0117002D0804 /* Enums.swift */,
@@ -158,7 +169,10 @@
 				4B56EDFE1E19E6EC002D0804 /* Scheduler.swift */,
 				4BD7DC761E15BAE600237385 /* Util.swift */,
 				4BA9F3B01E189E96007D1506 /* Assets.xcassets */,
+				4BFA68BC1E219F8E0031DF0C /* Controllers */,
 				4BD7DC561E1383E500237385 /* MainMenu.xib */,
+				4BFA68BB1E219D320031DF0C /* Windows */,
+				4B1F4E8C1E21D3B800CFB827 /* Main.storyboard */,
 			);
 			path = Hint;
 			sourceTree = "<group>";
@@ -178,6 +192,26 @@
 				4BD7DC6F1E13847800237385 /* Hints.txt */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		4BFA68BB1E219D320031DF0C /* Windows */ = {
+			isa = PBXGroup;
+			children = (
+				4BFA68B91E2199BD0031DF0C /* NotificationWindow.xib */,
+				4BFA68BD1E219FD90031DF0C /* AboutWindow.xib */,
+				4B4B16981E21B68800F66F0C /* Test.xib */,
+			);
+			name = Windows;
+			sourceTree = "<group>";
+		};
+		4BFA68BC1E219F8E0031DF0C /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				4BFA68BF1E21A0620031DF0C /* AboutViewController.swift */,
+				4BFA68C11E21A4560031DF0C /* NotificationViewController.swift */,
+				4BFA68B51E2195A20031DF0C /* NotificationWindowController.swift */,
+			);
+			name = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -307,8 +341,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4B1F4E8D1E21D3B800CFB827 /* Main.storyboard in Resources */,
 				4BD7DC711E13847800237385 /* Hints.txt in Resources */,
+				4B4B16991E21B68800F66F0C /* Test.xib in Resources */,
 				4BA9F3B11E189E96007D1506 /* Assets.xcassets in Resources */,
+				4BFA68BE1E219FD90031DF0C /* AboutWindow.xib in Resources */,
+				4BFA68BA1E2199BD0031DF0C /* NotificationWindow.xib in Resources */,
 				4BD7DC581E1383E500237385 /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -335,14 +373,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4BFA68C21E21A4560031DF0C /* NotificationViewController.swift in Sources */,
 				4BA9F3AF1E188A06007D1506 /* Constants.swift in Sources */,
+				4BFA68C01E21A0620031DF0C /* AboutViewController.swift in Sources */,
 				4B56EDFF1E19E6EC002D0804 /* Scheduler.swift in Sources */,
 				4BD7DC531E1383E500237385 /* AppDelegate.swift in Sources */,
 				4BD7DC731E15B82200237385 /* Notifier.swift in Sources */,
 				4BD7DC751E15B85E00237385 /* MessageIterator.swift in Sources */,
 				4BD7DC771E15BAE600237385 /* Util.swift in Sources */,
 				4B56EE011E1B0117002D0804 /* Enums.swift in Sources */,
-				4BF620A61E187D3000C946AC /* AboutViewController.swift in Sources */,
+				4BFA68B61E2195A20031DF0C /* NotificationWindowController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

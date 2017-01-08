@@ -1,9 +1,9 @@
 //
-//  AboutDelegate.swift
+//  AboutController.swift
 //  Hint
 //
-//  Created by Christopher Smith on 12/31/16.
-//  Copyright © 2016 Chris Smith. All rights reserved.
+//  Created by Christopher Smith on 1/7/17.
+//  Copyright © 2017 Chris Smith. All rights reserved.
 //
 
 import Cocoa

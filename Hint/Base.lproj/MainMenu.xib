@@ -3,7 +3,6 @@
     <dependencies>
         <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11762"/>
-        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="NSApplication">
@@ -15,65 +14,12 @@
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="Hint" customModuleProvider="target">
             <connections>
-                <outlet property="aboutPanel" destination="dQ4-5x-eTX" id="uvB-vI-mBr"/>
                 <outlet property="debugMenu" destination="Rcv-D5-uXv" id="Ll2-QV-REM"/>
                 <outlet property="statusMenu" destination="D4b-5A-cF7" id="r1P-su-epZ"/>
             </connections>
         </customObject>
         <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
-        <viewController id="g6Z-7v-eVZ" customClass="AboutViewController" customModule="Hint" customModuleProvider="target">
-            <connections>
-                <outlet property="sourceButton" destination="tRY-Db-lQO" id="oPm-V3-1gV"/>
-                <outlet property="view" destination="9Jv-Ho-2Pt" id="C8c-yj-pZo"/>
-            </connections>
-        </viewController>
-        <window allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" hidesOnDeactivate="YES" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="dQ4-5x-eTX" customClass="NSPanel">
-            <windowStyleMask key="styleMask" titled="YES" closable="YES"/>
-            <windowPositionMask key="initialPositionMask" topStrut="YES"/>
-            <rect key="contentRect" x="744" y="637" width="276" height="223"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1028"/>
-            <view key="contentView" id="9Jv-Ho-2Pt">
-                <rect key="frame" x="0.0" y="0.0" width="276" height="223"/>
-                <autoresizingMask key="autoresizingMask"/>
-                <subviews>
-                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Fzz-2F-rD6">
-                        <rect key="frame" x="70" y="83" width="137" height="26"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Hint" id="cFN-Wy-8QF">
-                            <font key="font" size="21" name="HelveticaNeue-Bold"/>
-                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                        </textFieldCell>
-                    </textField>
-                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="opy-dK-eEp">
-                        <rect key="frame" x="70" y="56" width="137" height="26"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Version 0.1a" id="MK5-F8-SKl">
-                            <font key="font" size="13" name="HelveticaNeue"/>
-                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                        </textFieldCell>
-                    </textField>
-                    <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HgU-AM-rpQ">
-                        <rect key="frame" x="99" y="125" width="78" height="70"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="Images/About" id="7fM-Sa-dX8"/>
-                    </imageView>
-                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tRY-Db-lQO" customClass="LinkButton" customModule="Hint" customModuleProvider="target">
-                        <rect key="frame" x="57" y="34" width="178" height="32"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="bevel" title="github.com/crsmithdev/hint" bezelStyle="rounded" alignment="center" imageScaling="proportionallyDown" inset="2" id="t8j-PS-KFn">
-                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                            <font key="font" size="13" name="HelveticaNeue"/>
-                        </buttonCell>
-                        <connections>
-                            <action selector="actionLinkClick:" target="g6Z-7v-eVZ" id="zZg-la-OB8"/>
-                        </connections>
-                    </button>
-                </subviews>
-            </view>
-            <point key="canvasLocation" x="-161" y="66.5"/>
-        </window>
+        <viewController id="g6Z-7v-eVZ" customClass="AboutViewController" customModule="Hint" customModuleProvider="target"/>
         <menu id="D4b-5A-cF7">
             <items>
                 <menuItem title="About Hint" id="Sfw-dS-EJy">
@@ -248,22 +194,7 @@
                     </connections>
                 </menuItem>
             </items>
-            <point key="canvasLocation" x="-306" y="-315"/>
+            <point key="canvasLocation" x="-2724" y="-69"/>
         </menu>
-        <menuItem title="1 Hour" tag="3600" id="7EE-PC-OuP">
-            <modifierMask key="keyEquivalentModifierMask"/>
-            <connections>
-                <action selector="actionChangeInterval:" target="Voe-Tx-rLC" id="SBv-Or-AmF"/>
-            </connections>
-        </menuItem>
-        <menuItem title="Notify Now" tag="28800" id="CDF-7C-u1E">
-            <modifierMask key="keyEquivalentModifierMask"/>
-            <connections>
-                <action selector="actionChangeInterval:" target="Voe-Tx-rLC" id="uQW-pn-IvT"/>
-            </connections>
-        </menuItem>
     </objects>
-    <resources>
-        <image name="Images/About" width="27.145803451538086" height="27.145803451538086"/>
-    </resources>
 </document>
