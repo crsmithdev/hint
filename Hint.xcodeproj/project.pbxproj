@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		4B1F4E8D1E21D3B800CFB827 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B1F4E8C1E21D3B800CFB827 /* Main.storyboard */; };
 		4B56EDFF1E19E6EC002D0804 /* Scheduler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B56EDFE1E19E6EC002D0804 /* Scheduler.swift */; };
-		4B56EE011E1B0117002D0804 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B56EE001E1B0117002D0804 /* Enums.swift */; };
 		4BA9F3AF1E188A06007D1506 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA9F3AE1E188A06007D1506 /* Constants.swift */; };
 		4BA9F3B11E189E96007D1506 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4BA9F3B01E189E96007D1506 /* Assets.xcassets */; };
 		4BA9F3B91E18B34D007D1506 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA9F3B81E18B34D007D1506 /* AppDelegate.swift */; };
@@ -20,9 +19,14 @@
 		4BD7DC531E1383E500237385 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD7DC521E1383E500237385 /* AppDelegate.swift */; };
 		4BD7DC631E1383E500237385 /* HintTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD7DC621E1383E500237385 /* HintTests.swift */; };
 		4BD7DC711E13847800237385 /* Hints.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4BD7DC6F1E13847800237385 /* Hints.txt */; };
-		4BD7DC751E15B85E00237385 /* MessageIterator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD7DC741E15B85E00237385 /* MessageIterator.swift */; };
 		4BD7DC771E15BAE600237385 /* Logging.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD7DC761E15BAE600237385 /* Logging.swift */; };
 		4BE8862A1E229088003E2DE0 /* LinkButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE886291E229088003E2DE0 /* LinkButton.swift */; };
+		4BE8862D1E22B64A003E2DE0 /* Sound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE8862C1E22B64A003E2DE0 /* Sound.swift */; };
+		4BE886311E22B909003E2DE0 /* SingingBowlHigh.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4BE8862F1E22B909003E2DE0 /* SingingBowlHigh.wav */; };
+		4BE886321E22B909003E2DE0 /* SingingBowlLow.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4BE886301E22B909003E2DE0 /* SingingBowlLow.wav */; };
+		4BE886341E22C25B003E2DE0 /* QuoteCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE886331E22C25B003E2DE0 /* QuoteCollection.swift */; };
+		4BE886361E22C26B003E2DE0 /* Quote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE886351E22C26B003E2DE0 /* Quote.swift */; };
+		4BE886381E22C473003E2DE0 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE886371E22C473003E2DE0 /* Settings.swift */; };
 		4BFA68B61E2195A20031DF0C /* NotificationWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BFA68B51E2195A20031DF0C /* NotificationWindowController.swift */; };
 		4BFA68C01E21A0620031DF0C /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BFA68BF1E21A0620031DF0C /* AboutView.swift */; };
 		4BFA68C21E21A4560031DF0C /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BFA68C11E21A4560031DF0C /* NotificationViewController.swift */; };
@@ -54,7 +58,6 @@
 /* Begin PBXFileReference section */
 		4B1F4E8C1E21D3B800CFB827 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4B56EDFE1E19E6EC002D0804 /* Scheduler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Scheduler.swift; sourceTree = "<group>"; };
-		4B56EE001E1B0117002D0804 /* Enums.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
 		4BA9F3AE1E188A06007D1506 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		4BA9F3B01E189E96007D1506 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4BA9F3B61E18B34D007D1506 /* HintLauncher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HintLauncher.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -72,9 +75,14 @@
 		4BD7DC621E1383E500237385 /* HintTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HintTests.swift; sourceTree = "<group>"; };
 		4BD7DC641E1383E500237385 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4BD7DC6F1E13847800237385 /* Hints.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Hints.txt; sourceTree = "<group>"; };
-		4BD7DC741E15B85E00237385 /* MessageIterator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageIterator.swift; sourceTree = "<group>"; };
 		4BD7DC761E15BAE600237385 /* Logging.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logging.swift; sourceTree = "<group>"; };
 		4BE886291E229088003E2DE0 /* LinkButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinkButton.swift; sourceTree = "<group>"; };
+		4BE8862C1E22B64A003E2DE0 /* Sound.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sound.swift; sourceTree = "<group>"; };
+		4BE8862F1E22B909003E2DE0 /* SingingBowlHigh.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = SingingBowlHigh.wav; path = Sounds/SingingBowlHigh.wav; sourceTree = "<group>"; };
+		4BE886301E22B909003E2DE0 /* SingingBowlLow.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = SingingBowlLow.wav; path = Sounds/SingingBowlLow.wav; sourceTree = "<group>"; };
+		4BE886331E22C25B003E2DE0 /* QuoteCollection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuoteCollection.swift; sourceTree = "<group>"; };
+		4BE886351E22C26B003E2DE0 /* Quote.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Quote.swift; sourceTree = "<group>"; };
+		4BE886371E22C473003E2DE0 /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		4BFA68B51E2195A20031DF0C /* NotificationWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationWindowController.swift; sourceTree = "<group>"; };
 		4BFA68BF1E21A0620031DF0C /* AboutView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
 		4BFA68C11E21A4560031DF0C /* NotificationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
@@ -153,10 +161,10 @@
 			children = (
 				4BA9F3C91E18C296007D1506 /* Hint.entitlements */,
 				4BD7DC591E1383E500237385 /* Info.plist */,
-				4BE886231E228BC2003E2DE0 /* Application */,
-				4BA9F3B01E189E96007D1506 /* Assets.xcassets */,
-				4BFA68BC1E219F8E0031DF0C /* Controllers */,
 				4B1F4E8C1E21D3B800CFB827 /* Main.storyboard */,
+				4BA9F3B01E189E96007D1506 /* Assets.xcassets */,
+				4BE886231E228BC2003E2DE0 /* Application */,
+				4BE8862B1E22B56E003E2DE0 /* Models */,
 			);
 			path = Hint;
 			sourceTree = "<group>";
@@ -173,6 +181,7 @@
 		4BD7DC6D1E13846400237385 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				4BE8862E1E22B873003E2DE0 /* Sounds */,
 				4BD7DC6F1E13847800237385 /* Hints.txt */,
 			);
 			path = Resources;
@@ -218,20 +227,31 @@
 		4BE886281E228CBF003E2DE0 /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				4B56EDFE1E19E6EC002D0804 /* Scheduler.swift */,
-				4B56EE001E1B0117002D0804 /* Enums.swift */,
-				4BD7DC761E15BAE600237385 /* Logging.swift */,
-				4BD7DC741E15B85E00237385 /* MessageIterator.swift */,
 				4BA9F3AE1E188A06007D1506 /* Constants.swift */,
+				4BD7DC761E15BAE600237385 /* Logging.swift */,
+				4B56EDFE1E19E6EC002D0804 /* Scheduler.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
 		};
-		4BFA68BC1E219F8E0031DF0C /* Controllers */ = {
+		4BE8862B1E22B56E003E2DE0 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				4BE8862C1E22B64A003E2DE0 /* Sound.swift */,
+				4BE886331E22C25B003E2DE0 /* QuoteCollection.swift */,
+				4BE886351E22C26B003E2DE0 /* Quote.swift */,
+				4BE886371E22C473003E2DE0 /* Settings.swift */,
 			);
-			name = Controllers;
+			path = Models;
+			sourceTree = "<group>";
+		};
+		4BE8862E1E22B873003E2DE0 /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				4BE8862F1E22B909003E2DE0 /* SingingBowlHigh.wav */,
+				4BE886301E22B909003E2DE0 /* SingingBowlLow.wav */,
+			);
+			name = Sounds;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -362,7 +382,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				4B1F4E8D1E21D3B800CFB827 /* Main.storyboard in Resources */,
+				4BE886321E22B909003E2DE0 /* SingingBowlLow.wav in Resources */,
 				4BD7DC711E13847800237385 /* Hints.txt in Resources */,
+				4BE886311E22B909003E2DE0 /* SingingBowlHigh.wav in Resources */,
 				4BA9F3B11E189E96007D1506 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -390,14 +412,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				4BFA68C21E21A4560031DF0C /* NotificationViewController.swift in Sources */,
+				4BE8862D1E22B64A003E2DE0 /* Sound.swift in Sources */,
+				4BE886341E22C25B003E2DE0 /* QuoteCollection.swift in Sources */,
 				4BA9F3AF1E188A06007D1506 /* Constants.swift in Sources */,
 				4BFA68C01E21A0620031DF0C /* AboutView.swift in Sources */,
+				4BE886361E22C26B003E2DE0 /* Quote.swift in Sources */,
+				4BE886381E22C473003E2DE0 /* Settings.swift in Sources */,
 				4B56EDFF1E19E6EC002D0804 /* Scheduler.swift in Sources */,
 				4BD7DC531E1383E500237385 /* AppDelegate.swift in Sources */,
-				4BD7DC751E15B85E00237385 /* MessageIterator.swift in Sources */,
 				4BD7DC771E15BAE600237385 /* Logging.swift in Sources */,
 				4BE8862A1E229088003E2DE0 /* LinkButton.swift in Sources */,
-				4B56EE011E1B0117002D0804 /* Enums.swift in Sources */,
 				4BFA68B61E2195A20031DF0C /* NotificationWindowController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -442,7 +466,7 @@
 				DEVELOPMENT_TEAM = TP9ZH34C5J;
 				INFOPLIST_FILE = HintLauncher/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_BUNDLE_IDENTIFIER = com.crsmithdev.HintLauncher;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -460,7 +484,7 @@
 				DEVELOPMENT_TEAM = TP9ZH34C5J;
 				INFOPLIST_FILE = HintLauncher/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_BUNDLE_IDENTIFIER = com.crsmithdev.HintLauncher;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -569,7 +593,7 @@
 				DEVELOPMENT_TEAM = TP9ZH34C5J;
 				INFOPLIST_FILE = Hint/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				OTHER_SWIFT_FLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.crsmithdev.Hint;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -590,7 +614,7 @@
 				DEVELOPMENT_TEAM = TP9ZH34C5J;
 				INFOPLIST_FILE = Hint/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_BUNDLE_IDENTIFIER = com.crsmithdev.Hint;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;

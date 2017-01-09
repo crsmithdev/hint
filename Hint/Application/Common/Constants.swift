@@ -17,7 +17,7 @@ class Constants {
     static let intervalDefault = 300
     static let intervalRapid = 20
 
-    static let messageTypeKey = "NotificationText"
-    static let soundTypeKey = "NotificationSound"
+    static let quoteTypeKey = "QuoteType"
+    static let soundTypeKey = "SoundType"
     static let autoLaunchKey = "AutoLaunch"
 }

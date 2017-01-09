@@ -11,9 +11,9 @@ import Foundation
 
 class NotificationWindowController: NSWindowController {
     
-    func showWindowWithText(_ sender: Any?, text: String) {
+    func showWindowWithText(_ sender: Any?, quote: Quote) {
         let viewController = self.contentViewController as! NotificationViewController
-        viewController.setText(text: text)
+        viewController.setQuote(quote)
         notify2()
     }
     

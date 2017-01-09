@@ -16,25 +16,16 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     @IBOutlet var statusMenu: NSMenu!
     @IBOutlet var debugMenu: NSMenuItem!
-    @IBOutlet var testWindow: NSWindow!
     
     var aboutWindowController: NSWindowController!
     var notificationWindowController: NotificationWindowController!
     
     let statusItem = NSStatusBar.system().statusItem(withLength: NSSquareStatusItemLength)
-    
+    let settings = Settings(UserDefaults())
     let scheduler = Scheduler()
     
-    var messageType = MessageType.hints
-    var messages: MessageIterator!
-    
-    var interval: Int = 300  // TODO no default here
-    var pauseInterval: Int = 0 // TODO no default here
-    
-    var soundType = SoundType.silent
-    var sound: NSSound?
-    
-    var autoLaunch: Bool = false
+    var messages: QuoteCollection!
+    var sound: Sound?
     
     /* Lifecycle */
     
@@ -51,11 +42,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             debugMenu.isHidden = false
         #endif
         
-        loadSettings()
-        loadText(messageType)
-        loadSound(soundType)
+        loadText(settings.messageType)
+        loadSound(settings.soundType)
         
-        scheduler.schedule(interval, block: self.notify)
+        scheduler.schedule(settings.interval, block: self.notify)
     }
     
     func applicationWillTerminate(_ aNotification: Notification) { }
@@ -80,17 +70,17 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     @IBAction func actionPause(_ sender: NSMenuItem) {
-        pauseInterval = sender.tag
+        settings.pauseInterval = sender.tag
         scheduler.pause(sender.tag)
     }
     
     @IBAction func actionResume(_ sender: NSMenuItem) {
-        pauseInterval = 0
+        settings.pauseInterval = 0
         scheduler.resume()
     }
     
     @IBAction func actionChangeText(_ sender: NSMenuItem) {
-        loadText(MessageType(tag: sender.tag)!)  // TODO error handling
+        loadText(QuoteType(tag: sender.tag)!)  // TODO error handling
     }
     
     @IBAction func actionChangeSound(_ sender: NSMenuItem) {
@@ -113,19 +103,19 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             menuItem.state = scheduler.interval == Constants.intervalRapid ? 1 : 0
             
         } else if menuItem.action == #selector(self.actionChangeInterval) {
-            menuItem.state = menuItem.tag == scheduler.interval ? 1 : 0
+            menuItem.state = menuItem.tag == settings.interval ? 1 : 0
             
         } else if menuItem.action == #selector(self.actionChangeText) {
-            menuItem.state = messageType.tag() == menuItem.tag ? 1 : 0
+            menuItem.state = settings.messageType.tag() == menuItem.tag ? 1 : 0
             
         } else if menuItem.action == #selector(self.actionChangeSound) {
-            menuItem.state = soundType.tag() == menuItem.tag ? 1 : 0
+            menuItem.state = settings.soundType.tag() == menuItem.tag ? 1 : 0
             
         } else if menuItem.action == #selector(self.actionChangeAutoLaunch) {
-            menuItem.state = autoLaunch ? 1 : 0
+            menuItem.state = settings.autoLaunch ? 1 : 0
             
         } else if menuItem.action == #selector(self.actionPause) {
-            menuItem.state = scheduler.paused && menuItem.tag == pauseInterval ? 1 : 0
+            menuItem.state = scheduler.paused && menuItem.tag == settings.pauseInterval ? 1 : 0
             
         } else if menuItem.action == #selector(self.actionResume) {
             return scheduler.paused
@@ -133,57 +123,43 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         return true
     }
+
     
     /* Logic */
-    
-    func loadSettings() {
-        
-        let defaults = UserDefaults()
-        
-        let intervalValue = defaults.integer(forKey: Constants.intervalKey)
-        interval = intervalValue > 0 ? intervalValue : Constants.intervalDefault
-        
-        messageType = MessageType(saved: defaults.string(forKey: Constants.messageTypeKey))
-        soundType = SoundType(saved: defaults.string(forKey: Constants.soundTypeKey))
-        autoLaunch = UserDefaults().bool(forKey: Constants.autoLaunchKey)
-    }
-    
+
     func changeInterval(_ seconds: Int) {
-        interval = seconds
-        UserDefaults().set(interval, forKey: Constants.intervalKey)
-        scheduler.schedule(interval, block: self.notify)
+        settings.interval = seconds
+        scheduler.schedule(settings.interval, block: self.notify)
     }
     
     func toggleAutoLaunch() {
-        autoLaunch = !autoLaunch
-        SMLoginItemSetEnabled(Constants.launcherBundleIdentifier as CFString, autoLaunch)
-        UserDefaults().set(autoLaunch, forKey: Constants.autoLaunchKey)
-        DLog("set autolaunch: \(autoLaunch)")
+        settings.autoLaunch = !settings.autoLaunch
+        SMLoginItemSetEnabled(Constants.launcherBundleIdentifier as CFString, settings.autoLaunch)
     }
     
-    func loadText(_ type: MessageType) {
-        messageType = type
-        UserDefaults().set(messageType.rawValue, forKey: Constants.messageTypeKey)
-        messages = try? MessageIterator.fromFile(name: messageType.rawValue) // TODO error handling
+    func loadText(_ type: QuoteType) {
+        
+        if let loaded = QuoteCollection(type: type) {
+            settings.messageType = type
+            self.messages = loaded
+        } else {
+            // TODO
+        }
     }
     
     func loadSound(_ type: SoundType) {
-        soundType = type
-        UserDefaults().set(soundType.rawValue, forKey: Constants.soundTypeKey)
-        
-        switch soundType {
-        case .silent:
-            sound = nil
-        default:
-            // TODO error handling
-            let data = NSDataAsset(name: "Sounds/\(soundType.rawValue)")!
-            self.sound = NSSound(data: data.data)
+
+        if let loaded = Sound(type: type) {
+            settings.soundType = type
+            self.sound = loaded
+            DLog("loaded type: \(type), sound: \(sound)")
+        } else {
+            // TODO
         }
-        
-        DLog("loaded type: \(type), sound: \(sound)")
     }
     
     func notify() {
-        notificationWindowController.showWindowWithText(nil, text: messages.next())
+        notificationWindowController.showWindowWithText(nil, quote: messages.next())
+        self.sound?.play()
     }
 }
