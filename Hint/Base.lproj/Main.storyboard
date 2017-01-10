@@ -883,64 +883,25 @@
                         <rect key="frame" x="0.0" y="0.0" width="350" height="120"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <scrollView fixedFrame="YES" borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EiN-ue-GD3">
-                                <rect key="frame" x="23" y="35" width="301" height="76"/>
+                            <scrollView fixedFrame="YES" borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" hasVerticalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EiN-ue-GD3">
+                                <rect key="frame" x="23" y="33" width="305" height="80"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <clipView key="contentView" ambiguous="YES" drawsBackground="NO" copiesOnScroll="NO" id="ksK-av-5se">
-                                    <rect key="frame" x="0.0" y="0.0" width="301" height="76"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="305" height="80"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <textView ambiguous="YES" editable="NO" selectable="NO" drawsBackground="NO" importsGraphics="NO" baseWritingDirection="leftToRight" usesFontPanel="YES" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" usesRuler="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" spellingCorrection="YES" smartInsertDelete="YES" id="yYD-7L-Pxc">
-                                            <rect key="frame" x="0.0" y="0.0" width="303" height="78"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="307" height="80"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <size key="minSize" width="301" height="76"/>
+                                            <size key="minSize" width="305" height="80"/>
                                             <size key="maxSize" width="463" height="10000000"/>
                                             <attributedString key="textStorage">
                                                 <fragment content="Lorem ipsum dolor sit amet, consectetur adipisici elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.">
                                                     <attributes>
                                                         <real key="NSBaselineOffset" value="-0.5"/>
-                                                        <font key="NSFont" size="16" name="Georgia"/>
-                                                        <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
-                                                            <tabStops>
-                                                                <textTab alignment="left" location="28">
-                                                                    <options/>
-                                                                </textTab>
-                                                                <textTab alignment="left" location="56">
-                                                                    <options/>
-                                                                </textTab>
-                                                                <textTab alignment="left" location="84">
-                                                                    <options/>
-                                                                </textTab>
-                                                                <textTab alignment="left" location="112">
-                                                                    <options/>
-                                                                </textTab>
-                                                                <textTab alignment="left" location="140">
-                                                                    <options/>
-                                                                </textTab>
-                                                                <textTab alignment="left" location="168">
-                                                                    <options/>
-                                                                </textTab>
-                                                                <textTab alignment="left" location="196">
-                                                                    <options/>
-                                                                </textTab>
-                                                                <textTab alignment="left" location="224">
-                                                                    <options/>
-                                                                </textTab>
-                                                                <textTab alignment="left" location="252">
-                                                                    <options/>
-                                                                </textTab>
-                                                                <textTab alignment="left" location="280">
-                                                                    <options/>
-                                                                </textTab>
-                                                                <textTab alignment="left" location="308">
-                                                                    <options/>
-                                                                </textTab>
-                                                                <textTab alignment="left" location="336">
-                                                                    <options/>
-                                                                </textTab>
-                                                            </tabStops>
-                                                        </paragraphStyle>
+                                                        <font key="NSFont" size="15" name="Georgia"/>
+                                                        <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
                                                     </attributes>
                                                 </fragment>
                                             </attributedString>
@@ -953,12 +914,12 @@
                                     <rect key="frame" x="-100" y="-100" width="87" height="18"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
-                                <scroller key="verticalScroller" verticalHuggingPriority="750" horizontal="NO" id="0rU-TD-Jj3">
-                                    <rect key="frame" x="285" y="0.0" width="16" height="76"/>
+                                <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="0rU-TD-Jj3">
+                                    <rect key="frame" x="-100" y="-100" width="15" height="74"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                             </scrollView>
-                            <scrollView fixedFrame="YES" borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bkj-aH-Qbf">
+                            <scrollView fixedFrame="YES" borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" hasVerticalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bkj-aH-Qbf">
                                 <rect key="frame" x="0.0" y="87" width="31" height="33"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <clipView key="contentView" ambiguous="YES" drawsBackground="NO" copiesOnScroll="NO" id="h2A-Lt-zyj">
@@ -990,26 +951,26 @@
                                     <rect key="frame" x="-100" y="-100" width="87" height="18"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
-                                <scroller key="verticalScroller" verticalHuggingPriority="750" horizontal="NO" id="aof-SX-qV4">
-                                    <rect key="frame" x="15" y="0.0" width="16" height="33"/>
+                                <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="aof-SX-qV4">
+                                    <rect key="frame" x="-100" y="-100" width="16" height="33"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                             </scrollView>
-                            <scrollView wantsLayer="YES" fixedFrame="YES" borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ql1-qi-B3N">
-                                <rect key="frame" x="23" y="2" width="301" height="25"/>
+                            <scrollView wantsLayer="YES" fixedFrame="YES" borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" hasVerticalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ql1-qi-B3N">
+                                <rect key="frame" x="23" y="5" width="277" height="25"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <clipView key="contentView" ambiguous="YES" drawsBackground="NO" copiesOnScroll="NO" id="5z1-K4-lmn">
-                                    <rect key="frame" x="0.0" y="0.0" width="301" height="25"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="277" height="25"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <textView ambiguous="YES" drawsBackground="NO" importsGraphics="NO" usesFontPanel="YES" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" usesRuler="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" spellingCorrection="YES" smartInsertDelete="YES" id="TCy-gS-WS8">
-                                            <rect key="frame" x="0.0" y="-0.5" width="291" height="25"/>
+                                            <rect key="frame" x="0.0" y="-0.5" width="267" height="25"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <size key="minSize" width="301" height="25"/>
+                                            <size key="minSize" width="277" height="25"/>
                                             <size key="maxSize" width="463" height="10000000"/>
                                             <attributedString key="textStorage">
-                                                <fragment content="-- Author">
+                                                <fragment content="--Source">
                                                     <attributes>
                                                         <font key="NSFont" size="16" name="Georgia-Italic"/>
                                                         <paragraphStyle key="NSParagraphStyle" alignment="right" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
@@ -1025,12 +986,12 @@
                                     <rect key="frame" x="-100" y="-100" width="87" height="18"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
-                                <scroller key="verticalScroller" verticalHuggingPriority="750" horizontal="NO" id="T5e-Qi-H96">
-                                    <rect key="frame" x="285" y="0.0" width="16" height="25"/>
+                                <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="T5e-Qi-H96">
+                                    <rect key="frame" x="-100" y="-100" width="16" height="23"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                             </scrollView>
-                            <scrollView fixedFrame="YES" borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S5T-X2-gmf">
+                            <scrollView fixedFrame="YES" borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" hasVerticalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S5T-X2-gmf">
                                 <rect key="frame" x="308" y="81" width="31" height="33"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <clipView key="contentView" ambiguous="YES" drawsBackground="NO" copiesOnScroll="NO" id="Xnd-i1-L0b">
@@ -1062,18 +1023,19 @@
                                     <rect key="frame" x="-100" y="-100" width="87" height="18"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
-                                <scroller key="verticalScroller" verticalHuggingPriority="750" horizontal="NO" id="dC1-kS-k4x">
-                                    <rect key="frame" x="15" y="0.0" width="16" height="33"/>
+                                <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="dC1-kS-k4x">
+                                    <rect key="frame" x="-100" y="-100" width="16" height="33"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                             </scrollView>
                         </subviews>
                     </view>
                     <connections>
-                        <outlet property="rightQuote" destination="w2I-Nw-5mV" id="Gcr-cb-TUJ"/>
-                        <outlet property="rightScrollView" destination="S5T-X2-gmf" id="Oax-ZU-y1S"/>
-                        <outlet property="source" destination="TCy-gS-WS8" id="hMO-aJ-JSd"/>
-                        <outlet property="text" destination="yYD-7L-Pxc" id="GdV-pT-Yo5"/>
+                        <outlet property="rightQuoteView" destination="S5T-X2-gmf" id="7yB-C2-O8Y"/>
+                        <outlet property="sourceScrollView" destination="ql1-qi-B3N" id="xGL-Zb-aFk"/>
+                        <outlet property="sourceView" destination="TCy-gS-WS8" id="mbL-qf-nVF"/>
+                        <outlet property="textScrollView" destination="EiN-ue-GD3" id="LAi-sL-JaZ"/>
+                        <outlet property="textView" destination="yYD-7L-Pxc" id="KeC-ED-8UF"/>
                     </connections>
                 </viewController>
                 <customObject id="WIC-3F-ekQ" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
@@ -1119,7 +1081,7 @@
                                     <font key="font" size="13" name="HelveticaNeue"/>
                                 </buttonCell>
                                 <connections>
-                                    <action selector="actionLinkClick:" target="aoc-GQ-FNy" id="QyJ-K8-ngk"/>
+                                    <action selector="actionClickLink:" target="aoc-GQ-FNy" id="0vt-DN-9nT"/>
                                 </connections>
                             </button>
                         </subviews>

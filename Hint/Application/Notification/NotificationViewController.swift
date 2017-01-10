@@ -11,66 +11,105 @@ import Cocoa
 
 class NotificationViewController: NSViewController {
     
-    @IBOutlet var text: NSTextView!
-    @IBOutlet var source: NSTextView!
-    @IBOutlet var rightQuote: NSTextView!
-    @IBOutlet var rightScrollView: NSScrollView!
+    @IBOutlet var textView: NSTextView!
+    @IBOutlet var textScrollView: NSScrollView!
+    
+    @IBOutlet var sourceView: NSTextView!
+    @IBOutlet var sourceScrollView: NSScrollView!
+    @IBOutlet var rightQuoteView: NSScrollView!
     
     func setQuote(_ quote: Quote) {
-        
-        let attr = NSMutableAttributedString(string: quote.text)
-        let range = NSMakeRange(0, attr.length)
-        attr.beginEditing()
-        attr.addAttribute(NSForegroundColorAttributeName, value: NSColor.white, range: range)
-        attr.addAttribute(NSFontAttributeName, value: NSFont(name: "Georgia", size: 16)!, range: range)
-        attr.endEditing()
-        self.text.textStorage?.mutableString.setString("")
-        self.text.textStorage?.append(attr)
-        
-        //let source = "-" + quote.source
-        let paragraphStyle = NSMutableParagraphStyle()
-        paragraphStyle.alignment = .right
-        let attr2 = NSMutableAttributedString(string: "-" + quote.source)
-        let range2 = NSMakeRange(0, attr2.length)
-        attr2.addAttribute(NSParagraphStyleAttributeName, value: paragraphStyle, range: range2)
-
-        attr2.beginEditing()
-        attr2.addAttribute(NSForegroundColorAttributeName, value: NSColor.white, range: range2)
-        attr2.addAttribute(NSFontAttributeName, value: NSFont(name: "Georgia Italic", size: 16)!, range: range2)
-        attr2.endEditing()
-        
-        self.source.textStorage?.mutableString.setString("")
-        self.source.textStorage?.append(attr2)
-        temp()
+        setQuoteText(quote.text)
+        setQuoteSource(quote.source)
+        positionQuote()
+        positionRightQuote()
     }
     
-    func temp() {
-        let layoutManager = text.layoutManager
-        let numberOfGlyphs = layoutManager?.numberOfGlyphs
-        var numberOfLines = 0
-        var index = 0
-        var range2 = NSRange()
-        var lastRect: NSRect = NSRect()
+    func setQuoteText(_ string: String) {
         
-        while index < numberOfGlyphs! {
-            var rect = layoutManager?.lineFragmentUsedRect(forGlyphAt: index, effectiveRange: &range2)
-            index = NSMaxRange(range2)
-            numberOfLines += 1
-            NSLog("\(numberOfLines), \(rect)")
-            lastRect = rect!
-        }
+        let font = NSFont(name: "Georgia Italic", size: 15)!
+        let attr = NSMutableAttributedString(string: string)
+        let range = NSMakeRange(0, attr.length)
+        let style = NSMutableParagraphStyle()
+        style.minimumLineHeight = 21.0
+        style.maximumLineHeight = 21.0
         
-        NSLog("last rect: \(lastRect.origin.y) \(lastRect.width)")
-        let frame = rightQuote.frame
-        let newRect = NSRect(x: lastRect.width, y: lastRect.origin.y, width: frame.width, height: frame.height)
-        //rightQuote.setFrameOrigin(newRect.origin)
-        //rightQuote.needsDisplay = true
-        //rightQuote.needsLayout = true
-        NSLog("frame: \(rightScrollView.frame)")
-        let p = NSPoint(x: lastRect.width + 13, y: 120-lastRect.origin.y-rightScrollView.frame.height-5)
-        rightScrollView.setFrameOrigin(p)
-        //rightScrollView.setIsF .isFlipped = true
-        NSLog("frame: \(rightScrollView.frame)")
-        //NSLog("\(numberOfLines)")
+        attr.beginEditing()
+        attr.addAttribute(NSForegroundColorAttributeName, value: NSColor.white, range: range)
+        attr.addAttribute(NSFontAttributeName, value: font, range: range)
+        attr.addAttribute(NSParagraphStyleAttributeName, value: style, range: range)
+        attr.endEditing()
+        
+        textView.textStorage?.mutableString.setString("")
+        textView.textStorage?.append(attr)
+    }
+    
+    func setQuoteSource(_ string: String) {
+
+        let font = NSFont(name: "Georgia Italic", size: 16)!
+        let attr = NSMutableAttributedString(string: "—" + string)
+        let range = NSMakeRange(0, attr.length)
+        let style = NSMutableParagraphStyle()
+        style.alignment = .right
+        
+        attr.beginEditing()
+        attr.addAttribute(NSForegroundColorAttributeName, value: NSColor.white, range: range)
+        attr.addAttribute(NSFontAttributeName, value: font, range: range)
+        attr.addAttribute(NSParagraphStyleAttributeName, value: style, range: range)
+        attr.endEditing()
+        
+        self.sourceView.textStorage?.mutableString.setString("")
+        self.sourceView.textStorage?.append(attr)
+    }
+    
+    func positionRightQuote() {
+        
+        let layoutManager = textView.layoutManager!
+        let lastUsedRect = layoutManager.lineFragmentUsedRect(
+            forGlyphAt: layoutManager.numberOfGlyphs - 1,
+            effectiveRange: nil
+        )
+        let point = NSPoint(
+            x: lastUsedRect.width + 13,
+            y: 120 - lastUsedRect.origin.y-rightQuoteView.frame.height - 8
+        )
+        
+        rightQuoteView.setFrameOrigin(point)
+    }
+    
+    func positionQuote() {
+        
+        textView.layoutManager?.ensureLayout(for: textView.textContainer!)
+        sourceView.layoutManager?.ensureLayout(for: sourceView.textContainer!)
+        let textRect = textView.layoutManager!.usedRect(for: textView.textContainer!)
+        let textHeight = textRect.height
+        
+        let sourceRect = sourceView.layoutManager!.usedRect(for: sourceView.textContainer!)
+        let sourceHeight = sourceRect.height
+        let totalHeight = textHeight + sourceHeight
+        let viewHeight = view.frame.height
+        //textScrollView.setFrameOrigin(textRect.origin)
+        //textScrollView.setFrameSize(textRect.size)
+        let origin = NSPoint(
+            x: sourceScrollView.frame.origin.x,
+            y: viewHeight - textHeight - sourceHeight - 20
+        )
+        sourceScrollView.setFrameOrigin(origin)
+        
+        NSLog("text height: \(textHeight), sourceHeight: \(sourceHeight), total: \(totalHeight), view: \(viewHeight)")
+        NSLog("\(origin)")
+        
+        /*
+        let y = lastRect.origin.y + lastRect.height
+        let y2 = layoutManager?.usedRect(for: textView.textContainer!)
+        let totalHeight = view.frame.height
+        NSLog("frame: \(rightQuoteView.frame), \(y), \(y2), \(totalHeight)")
+        
+        let layoutManager2 = sourceView.layoutManager!
+        let textContainer2 = sourceView.textContainer!
+        let y3 = layoutManager2.usedRect(for: textContainer2)
+        NSLog("frame2: \(y3)")
+        return p
+        */
     }
 }

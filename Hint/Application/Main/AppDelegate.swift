@@ -1,165 +1,164 @@
     //
-//  AppDelegate.swift
-//  Reminder
-//
-//  Created by Christopher Smith on 12/18/16.
-//  Copyright © 2016 Chris Smith. All rights reserved.
-//
-
-import Foundation
-import Cocoa
-import ServiceManagement
-
-
-@NSApplicationMain
-class AppDelegate: NSObject, NSApplicationDelegate {
+    //  AppDelegate.swift
+    //  Reminder
+    //
+    //  Created by Christopher Smith on 12/18/16.
+    //  Copyright © 2016 Chris Smith. All rights reserved.
+    //
     
-    @IBOutlet var statusMenu: NSMenu!
-    @IBOutlet var debugMenu: NSMenuItem!
+    import Foundation
+    import Cocoa
+    import ServiceManagement
     
-    var aboutWindowController: NSWindowController!
-    var notificationWindowController: NotificationWindowController!
     
-    let statusItem = NSStatusBar.system().statusItem(withLength: NSSquareStatusItemLength)
-    let settings = Settings(UserDefaults())
-    let scheduler = Scheduler()
-    
-    var messages: QuoteCollection!
-    var sound: Sound?
-    
-    /* Lifecycle */
-    
-    func applicationDidFinishLaunching(_ aNotification: Notification) {
+    @NSApplicationMain
+    class AppDelegate: NSObject, NSApplicationDelegate {
         
-        statusItem.button?.image = NSImage(named: "MenuBarIcon")
-        statusItem.menu = statusMenu!
-
-        let sb = NSStoryboard(name: "Main", bundle: nil)
-        aboutWindowController = sb.instantiateController(withIdentifier: "AboutWindow") as! NSWindowController
-        notificationWindowController = sb.instantiateController(withIdentifier: "NotificationWindow") as! NotificationWindowController
+        @IBOutlet var statusMenu: NSMenu!
+        @IBOutlet var debugMenu: NSMenuItem!
         
-        #if DEBUG
-            debugMenu.isHidden = false
-        #endif
+        var aboutWindowController: NSWindowController!
+        var notificationWindowController: NotificationWindowController!
         
-        loadText(settings.messageType)
-        loadSound(settings.soundType)
+        let statusItem = NSStatusBar.system().statusItem(withLength: NSSquareStatusItemLength)
+        let settings = Settings(UserDefaults())
+        let scheduler = Scheduler()
         
-        scheduler.schedule(settings.interval, block: self.notify)
-    }
-    
-    func applicationWillTerminate(_ aNotification: Notification) { }
-    
-    /* Actions */
-    
-    @IBAction func actionDebugNotifyNow(_ sender: NSMenuItem) {
-        notify()
-    }
-    
-    @IBAction func actionDebugRapidFire(_ sender: NSMenuItem) {
-        scheduler.schedule(Constants.intervalRapid, block: notify)
-    }
-    
-    @IBAction func actionAbout(_ sender: NSMenuItem) {
-        NSApplication.shared().activate(ignoringOtherApps: true)
-        aboutWindowController.showWindow(nil)
-    }
-    
-    @IBAction func actionChangeInterval(_ sender: NSMenuItem) {
-        changeInterval(sender.tag)
-    }
-    
-    @IBAction func actionPause(_ sender: NSMenuItem) {
-        settings.pauseInterval = sender.tag
-        scheduler.pause(sender.tag)
-    }
-    
-    @IBAction func actionResume(_ sender: NSMenuItem) {
-        settings.pauseInterval = 0
-        scheduler.resume()
-    }
-    
-    @IBAction func actionChangeText(_ sender: NSMenuItem) {
-        loadText(QuoteType(tag: sender.tag)!)  // TODO error handling
-    }
-    
-    @IBAction func actionChangeSound(_ sender: NSMenuItem) {
-        loadSound(SoundType(tag: sender.tag)!)  // TODO error handling
-    }
-    
-    @IBAction func actionChangeAutoLaunch(_ sender: NSMenuItem) {
-        toggleAutoLaunch()
-    }
-    
-    @IBAction func actionQuit(_ sender: AnyObject) {
-        NSApplication.shared().terminate(self)
-    }
-    
-    /* Menu */
-    
-    override func validateMenuItem(_ menuItem: NSMenuItem) -> Bool {
+        var messages: QuoteCollection!
+        var sound: Sound?
         
-        if menuItem.action == #selector(self.actionDebugRapidFire) {
-            menuItem.state = scheduler.interval == Constants.intervalRapid ? 1 : 0
+        /* Lifecycle */
+        
+        func applicationDidFinishLaunching(_ aNotification: Notification) {
             
-        } else if menuItem.action == #selector(self.actionChangeInterval) {
-            menuItem.state = menuItem.tag == settings.interval ? 1 : 0
+            statusItem.button?.image = NSImage(named: "MenuBarIcon")
+            statusItem.menu = statusMenu!
             
-        } else if menuItem.action == #selector(self.actionChangeText) {
-            menuItem.state = settings.messageType.tag() == menuItem.tag ? 1 : 0
+            let sb = NSStoryboard(name: "Main", bundle: nil)
+            aboutWindowController = sb.instantiateController(withIdentifier: "AboutWindow") as! NSWindowController
+            notificationWindowController = sb.instantiateController(withIdentifier: "NotificationWindow") as! NotificationWindowController
             
-        } else if menuItem.action == #selector(self.actionChangeSound) {
-            menuItem.state = settings.soundType.tag() == menuItem.tag ? 1 : 0
+            #if DEBUG
+                debugMenu.isHidden = false
+            #endif
             
-        } else if menuItem.action == #selector(self.actionChangeAutoLaunch) {
-            menuItem.state = settings.autoLaunch ? 1 : 0
+            loadText(settings.messageType)
+            loadSound(settings.soundType)
             
-        } else if menuItem.action == #selector(self.actionPause) {
-            menuItem.state = scheduler.paused && menuItem.tag == settings.pauseInterval ? 1 : 0
-            
-        } else if menuItem.action == #selector(self.actionResume) {
-            return scheduler.paused
+            scheduler.schedule(settings.interval, block: self.notify)
         }
         
-        return true
-    }
-
-    
-    /* Logic */
-
-    func changeInterval(_ seconds: Int) {
-        settings.interval = seconds
-        scheduler.schedule(settings.interval, block: self.notify)
-    }
-    
-    func toggleAutoLaunch() {
-        settings.autoLaunch = !settings.autoLaunch
-        SMLoginItemSetEnabled(Constants.launcherBundleIdentifier as CFString, settings.autoLaunch)
-    }
-    
-    func loadText(_ type: QuoteType) {
+        func applicationWillTerminate(_ aNotification: Notification) { }
         
-        if let loaded = QuoteCollection(type: type) {
-            settings.messageType = type
-            self.messages = loaded
-        } else {
-            // TODO
+        /* Actions */
+        
+        @IBAction func actionDebugNotifyNow(_ sender: NSMenuItem) {
+            notify()
         }
-    }
-    
-    func loadSound(_ type: SoundType) {
-
-        if let loaded = Sound(type: type) {
+        
+        @IBAction func actionDebugRapidFire(_ sender: NSMenuItem) {
+            scheduler.schedule(Constants.intervalRapid, block: notify)
+        }
+        
+        @IBAction func actionAbout(_ sender: NSMenuItem) {
+            NSApplication.shared().activate(ignoringOtherApps: true)
+            aboutWindowController.showWindow(nil)
+        }
+        
+        @IBAction func actionChangeInterval(_ sender: NSMenuItem) {
+            changeInterval(sender.tag)
+        }
+        
+        @IBAction func actionPause(_ sender: NSMenuItem) {
+            settings.pauseInterval = sender.tag
+            scheduler.pause(sender.tag)
+        }
+        
+        @IBAction func actionResume(_ sender: NSMenuItem) {
+            settings.pauseInterval = 0
+            scheduler.resume()
+        }
+        
+        @IBAction func actionChangeText(_ sender: NSMenuItem) {
+            loadText(QuoteType(tag: sender.tag)!)  // TODO error handling
+        }
+        
+        @IBAction func actionChangeSound(_ sender: NSMenuItem) {
+            loadSound(SoundType(tag: sender.tag)!)  // TODO error handling
+        }
+        
+        @IBAction func actionChangeAutoLaunch(_ sender: NSMenuItem) {
+            toggleAutoLaunch()
+        }
+        
+        @IBAction func actionQuit(_ sender: AnyObject) {
+            NSApplication.shared().terminate(self)
+        }
+        
+        /* Menu */
+        
+        override func validateMenuItem(_ menuItem: NSMenuItem) -> Bool {
+            
+            if menuItem.action == #selector(self.actionDebugRapidFire) {
+                menuItem.state = scheduler.interval == Constants.intervalRapid ? 1 : 0
+                
+            } else if menuItem.action == #selector(self.actionChangeInterval) {
+                menuItem.state = menuItem.tag == settings.interval ? 1 : 0
+                
+            } else if menuItem.action == #selector(self.actionChangeText) {
+                menuItem.state = settings.messageType.tag() == menuItem.tag ? 1 : 0
+                
+            } else if menuItem.action == #selector(self.actionChangeSound) {
+                menuItem.state = settings.soundType.tag() == menuItem.tag ? 1 : 0
+                
+            } else if menuItem.action == #selector(self.actionChangeAutoLaunch) {
+                menuItem.state = settings.autoLaunch ? 1 : 0
+                
+            } else if menuItem.action == #selector(self.actionPause) {
+                menuItem.state = scheduler.paused && menuItem.tag == settings.pauseInterval ? 1 : 0
+                
+            } else if menuItem.action == #selector(self.actionResume) {
+                return scheduler.paused
+            }
+            
+            return true
+        }
+        
+        
+        /* Logic */
+        
+        func changeInterval(_ seconds: Int) {
+            settings.interval = seconds
+            scheduler.schedule(settings.interval, block: self.notify)
+        }
+        
+        func toggleAutoLaunch() {
+            settings.autoLaunch = !settings.autoLaunch
+            SMLoginItemSetEnabled(Constants.launcherBundleIdentifier as CFString, settings.autoLaunch)
+        }
+        
+        func loadText(_ type: QuoteType) {
+            
+            if let loaded = QuoteCollection(type: type) {
+                settings.messageType = type
+                self.messages = loaded
+            } else {
+                // TODO
+            }
+        }
+        
+        func loadSound(_ type: SoundType) {
+            
+            guard let loaded = Sound(type: type) else {
+                // TODO
+                return
+            }
             settings.soundType = type
             self.sound = loaded
-            DLog("loaded type: \(type), sound: \(sound)")
-        } else {
-            // TODO
+        }
+        
+        func notify() {
+            notificationWindowController.showWindowWithText(nil, quote: messages.next())
+            self.sound?.play()
         }
     }
-    
-    func notify() {
-        notificationWindowController.showWindowWithText(nil, quote: messages.next())
-        self.sound?.play()
-    }
-}

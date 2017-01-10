@@ -12,9 +12,7 @@ class AboutView: NSView {
     
     @IBOutlet var sourceButton: NSButton!
     
-    @IBAction func actionLinkClick(_ sender: NSButton) {
+    @IBAction func actionClickLink(_ sender: NSButton) {
         NSWorkspace.shared().open(Constants.sourceURL)
     }
 }
-
-
