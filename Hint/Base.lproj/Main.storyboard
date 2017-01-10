@@ -963,7 +963,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="260" height="25"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <textView ambiguous="YES" drawsBackground="NO" importsGraphics="NO" usesFontPanel="YES" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" usesRuler="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" spellingCorrection="YES" smartInsertDelete="YES" id="TCy-gS-WS8">
+                                        <textView ambiguous="YES" editable="NO" selectable="NO" drawsBackground="NO" importsGraphics="NO" usesFontPanel="YES" findStyle="panel" allowsUndo="YES" usesRuler="YES" allowsNonContiguousLayout="YES" smartInsertDelete="YES" id="TCy-gS-WS8">
                                             <rect key="frame" x="0.0" y="-0.5" width="250" height="25"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1031,8 +1031,8 @@
                         </subviews>
                     </view>
                     <connections>
-                        <outlet property="leftQuoteView" destination="bkj-aH-Qbf" id="vFW-gI-JAn"/>
-                        <outlet property="rightQuoteView" destination="S5T-X2-gmf" id="7yB-C2-O8Y"/>
+                        <outlet property="leftQuoteScrollView" destination="bkj-aH-Qbf" id="GEI-WP-0vr"/>
+                        <outlet property="rightQuoteScrollView" destination="S5T-X2-gmf" id="uif-fv-ZPq"/>
                         <outlet property="sourceScrollView" destination="ql1-qi-B3N" id="xGL-Zb-aFk"/>
                         <outlet property="sourceView" destination="TCy-gS-WS8" id="mbL-qf-nVF"/>
                         <outlet property="textScrollView" destination="EiN-ue-GD3" id="LAi-sL-JaZ"/>

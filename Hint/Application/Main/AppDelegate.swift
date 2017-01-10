@@ -42,8 +42,8 @@
                 debugMenu.isHidden = false
             #endif
             
-            //loadText(settings.messageType)
-            loadText(QuoteType.debug)
+            loadText(settings.messageType)
+            //loadText(QuoteType.debug)
             loadSound(settings.soundType)
             
             scheduler.schedule(settings.interval, block: self.notify)
