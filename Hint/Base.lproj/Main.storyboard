@@ -883,18 +883,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="350" height="120"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <scrollView fixedFrame="YES" borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" hasVerticalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EiN-ue-GD3">
-                                <rect key="frame" x="23" y="33" width="305" height="80"/>
+                            <scrollView fixedFrame="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" hasVerticalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EiN-ue-GD3">
+                                <rect key="frame" x="23" y="35" width="305" height="80"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <clipView key="contentView" ambiguous="YES" drawsBackground="NO" copiesOnScroll="NO" id="ksK-av-5se">
-                                    <rect key="frame" x="0.0" y="0.0" width="305" height="80"/>
+                                    <rect key="frame" x="1" y="1" width="303" height="78"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <textView ambiguous="YES" editable="NO" selectable="NO" drawsBackground="NO" importsGraphics="NO" baseWritingDirection="leftToRight" usesFontPanel="YES" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" usesRuler="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" spellingCorrection="YES" smartInsertDelete="YES" id="yYD-7L-Pxc">
-                                            <rect key="frame" x="0.0" y="0.0" width="307" height="80"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="305" height="78"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <size key="minSize" width="305" height="80"/>
+                                            <size key="minSize" width="303" height="78"/>
                                             <size key="maxSize" width="463" height="10000000"/>
                                             <attributedString key="textStorage">
                                                 <fragment content="Lorem ipsum dolor sit amet, consectetur adipisici elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.">
@@ -967,7 +967,7 @@
                                             <rect key="frame" x="0.0" y="-0.5" width="267" height="25"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <size key="minSize" width="277" height="25"/>
+                                            <size key="minSize" width="267" height="25"/>
                                             <size key="maxSize" width="463" height="10000000"/>
                                             <attributedString key="textStorage">
                                                 <fragment content="--Source">
@@ -1086,7 +1086,8 @@
                             </button>
                         </subviews>
                         <connections>
-                            <outlet property="sourceButton" destination="mFr-Xv-BMe" id="zgF-Vm-gjL"/>
+                            <outlet property="sourceButton" destination="mFr-Xv-BMe" id="TFE-tg-1PN"/>
+                            <outlet property="versionField" destination="Xkk-yR-nBP" id="cpE-Qv-2du"/>
                         </connections>
                     </view>
                     <connections>

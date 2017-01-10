@@ -68,8 +68,7 @@ class NotificationWindowController: NSWindowController {
             Timer.scheduledTimer(
                 timeInterval: self.visibleDuration,
                 target: self,
-                selector:
-                #selector(self.animateOut),
+                selector: #selector(self.animateOut),
                 userInfo: nil,
                 repeats: false
             )
