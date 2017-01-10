@@ -11,6 +11,7 @@ import Foundation
 enum QuoteType: String {
     
     case hints = "Hints"
+    case debug = "Debug"
     
     init(saved: String?) {
         switch saved {
@@ -27,6 +28,7 @@ enum QuoteType: String {
     init?(tag: Int) {
         switch tag {
         case 0: self = .hints
+        case 99: self = .debug
         default: return nil
         }
     }
@@ -34,6 +36,7 @@ enum QuoteType: String {
     func tag() -> Int {
         switch self {
         case .hints: return 0
+        case .debug: return 99
         }
     }
 }

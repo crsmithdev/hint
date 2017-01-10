@@ -17,6 +17,7 @@ class NotificationViewController: NSViewController {
     @IBOutlet var sourceView: NSTextView!
     @IBOutlet var sourceScrollView: NSScrollView!
     @IBOutlet var rightQuoteView: NSScrollView!
+    @IBOutlet var leftQuoteView: NSScrollView!
     
     func setQuote(_ quote: Quote) {
         setQuoteText(quote.text)
@@ -30,12 +31,13 @@ class NotificationViewController: NSViewController {
         let font = NSFont(name: "Georgia Italic", size: 15)!
         let attr = NSMutableAttributedString(string: string)
         let range = NSMakeRange(0, attr.length)
+        let color = NSColor(red: 246/255, green: 246/255, blue: 246/255, alpha: 1.0)
         let style = NSMutableParagraphStyle()
         style.minimumLineHeight = 20.0
         style.maximumLineHeight = 20.0
         
         attr.beginEditing()
-        attr.addAttribute(NSForegroundColorAttributeName, value: NSColor.white, range: range)
+        attr.addAttribute(NSForegroundColorAttributeName, value: color, range: range)
         attr.addAttribute(NSFontAttributeName, value: font, range: range)
         attr.addAttribute(NSParagraphStyleAttributeName, value: style, range: range)
         attr.endEditing()
@@ -49,11 +51,12 @@ class NotificationViewController: NSViewController {
         let font = NSFont(name: "Georgia Italic", size: 15)!
         let attr = NSMutableAttributedString(string: "—" + string)
         let range = NSMakeRange(0, attr.length)
+        let color = NSColor(red: 228/255, green: 228/255, blue: 228/255, alpha: 1.0)
         let style = NSMutableParagraphStyle()
         style.alignment = .right
         
         attr.beginEditing()
-        attr.addAttribute(NSForegroundColorAttributeName, value: NSColor.white, range: range)
+        attr.addAttribute(NSForegroundColorAttributeName, value: color, range: range)
         attr.addAttribute(NSFontAttributeName, value: font, range: range)
         attr.addAttribute(NSParagraphStyleAttributeName, value: style, range: range)
         attr.endEditing()
@@ -63,18 +66,27 @@ class NotificationViewController: NSViewController {
     }
     
     func positionRightQuote() {
-        
+        textView.layoutManager?.ensureLayout(for: textView.textContainer!)
         let layoutManager = textView.layoutManager!
         let lastUsedRect = layoutManager.lineFragmentUsedRect(
             forGlyphAt: layoutManager.numberOfGlyphs - 1,
             effectiveRange: nil
         )
         let point = NSPoint(
-            x: lastUsedRect.width + 13,
-            y: 120 - lastUsedRect.origin.y-rightQuoteView.frame.height - 8
+            x: lastUsedRect.width + 15,
+            //y: 120 - lastUsedRect.origin.y-rightQuoteView.frame.height - 8
+            y: textScrollView.frame.origin.y - 8
         )
+        NSLog("tvFrameO: \(textScrollView.frame.origin), height: \(rightQuoteView.frame.height), quote point: \(point)")
         
         rightQuoteView.setFrameOrigin(point)
+        
+        let point2 = NSPoint(
+            x: leftQuoteView.frame.origin.x,
+            y: textScrollView.frame.origin.y + textScrollView.frame.height - 26
+        )
+        NSLog("\(leftQuoteView.frame.height)")
+        leftQuoteView.setFrameOrigin(point2)
     }
     
     func positionQuote() {
@@ -93,41 +105,19 @@ class NotificationViewController: NSViewController {
             x: textScrollView.frame.origin.x,
             y: (view.frame.height - textScrollViewSize.height + sourceScrollView.frame.height) / 2
         )
-        //let textHeight = textRect.height
-        //let sourceHeight = sourceRect.height
-        //let totalHeight = textHeight + sourceHeight
-        //let viewHeight = view.frame.height
-        //let margin = (viewHeight - totalHeight) / 2
-        //textScrollView.setFrameOrigin(textRect.origin)
-        //textScrollView.setFrameSize(textRect.size)
 
         textScrollView.setFrameSize(textScrollViewSize)
         textScrollView.setFrameOrigin(textScrollVieWOrigin)
-        //textScrollView.setFrameOrigin(textOrigin)
-        /*
-        let origin = NSPoint(
-            x: sourceScrollView.frame.origin.x,
-            y: viewHeight - textHeight - sourceHeight - 20
+        
+        let sourceScrollViewSize = NSSize(
+            width: sourceScrollView.frame.width,
+            height: sourceUsedRect.height + 5
         )
-        */
-        //sourceScrollView.setFrameOrigin(origin)
-        //NSLog("margin: \(margin)")
-        //NSLog("textScrollView.origin: \(textOrigin)")
-        
-        //NSLog("text height: \(textHeight), sourceHeight: \(sourceHeight), total: \(totalHeight), view: \(viewHeight)")
-        //NSLog("\(origin)")
-        
-        /*
-        let y = lastRect.origin.y + lastRect.height
-        let y2 = layoutManager?.usedRect(for: textView.textContainer!)
-        let totalHeight = view.frame.height
-        NSLog("frame: \(rightQuoteView.frame), \(y), \(y2), \(totalHeight)")
-        
-        let layoutManager2 = sourceView.layoutManager!
-        let textContainer2 = sourceView.textContainer!
-        let y3 = layoutManager2.usedRect(for: textContainer2)
-        NSLog("frame2: \(y3)")
-        return p
-        */
+        let sourceScrollViewOrigin = NSPoint(
+            x: sourceScrollView.frame.origin.x,
+            y: textScrollView.frame.origin.y - sourceScrollView.frame.height
+        )
+        sourceScrollView.setFrameSize(sourceScrollViewSize)
+        sourceScrollView.setFrameOrigin(sourceScrollViewOrigin)
     }
 }
