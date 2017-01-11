@@ -34,15 +34,11 @@ Hint is a simple mindfulness reminder for macOS.
 
 ## To Do
 
-- Better, larger (non-notification) reminder display, if possible
-- Additional quotes
 - Additional, differently-focused quote collections
 - User-loaded quote sets & custom messages
 - User-defined interval option
-- Quote shuffle
 - Higher-quality sounds
 - Additional sounds
 - Proper settings window
 - Travis CI
-- Target earlier version of macOS
 - Tests
