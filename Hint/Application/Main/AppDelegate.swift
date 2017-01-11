@@ -73,6 +73,10 @@
             scheduler.resume()
         }
         
+        @IBAction func actionShuffle(_ sender: NSMenuItem) {
+            toggleShuffle()
+        }
+        
         @IBAction func actionChangeText(_ sender: NSMenuItem) {
             loadText(QuoteType(tag: sender.tag)!)  // TODO error handling
         }
@@ -95,6 +99,9 @@
             
             if menuItem.action == #selector(self.actionChangeInterval) {
                 menuItem.state = menuItem.tag == settings.interval ? 1 : 0
+                
+            } else if menuItem.action == #selector(self.actionShuffle) {
+                menuItem.state = settings.shuffle ? 1 : 0
                 
             } else if menuItem.action == #selector(self.actionChangeText) {
                 menuItem.state = settings.quoteType.tag() == menuItem.tag ? 1 : 0
@@ -128,11 +135,25 @@
             SMLoginItemSetEnabled(Constants.launcherBundleIdentifier as CFString, settings.autoLaunch)
         }
         
+        func toggleShuffle() {
+            settings.shuffle = !settings.shuffle
+            
+            if settings.shuffle {
+                quotes.shuffle()
+            } else {
+                quotes.unShuffle()
+            }
+        }
+        
         func loadText(_ type: QuoteType) {
             
             guard let loaded = QuoteCollection(type: type) else {
                 // TODO
                 return
+            }
+            
+            if settings.shuffle {
+                loaded.shuffle()
             }
             
             settings.quoteType = type

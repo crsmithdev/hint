@@ -15,6 +15,7 @@ class Settings {
         static let quoteTypeKey = "QuoteType"
         static let soundTypeKey = "SoundType"
         static let autoLaunchKey = "AutoLaunch"
+        static let shuffleKey = "Shuffle"
     }
     
     private struct Defaults {
@@ -41,6 +42,11 @@ class Settings {
     var autoLaunch: Bool {
         get { return defaults.bool(forKey: Keys.autoLaunchKey) }
         set (value) { defaults.set(value, forKey: Keys.autoLaunchKey) }
+    }
+    
+    var shuffle: Bool {
+        get { return defaults.bool(forKey: Keys.shuffleKey) }
+        set (value) { defaults.set(value, forKey: Keys.shuffleKey) }
     }
     
     var pauseInterval: Int = 0

@@ -9,8 +9,10 @@
 class Quote {
     let text: String
     let source: String
+    let id: Int
     
-    init(text: String, source: String) {
+    init(id: Int, text: String, source: String) {
+        self.id = id
         self.text = text
         self.source = source
     }

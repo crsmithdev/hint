@@ -754,6 +754,13 @@
                                             <action selector="actionChangeText:" target="Voe-Tx-rLC" id="uca-kj-f94"/>
                                         </connections>
                                     </menuItem>
+                                    <menuItem isSeparatorItem="YES" id="Cwc-qb-q08"/>
+                                    <menuItem title="Shuffle" id="G5L-OZ-Rns">
+                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                        <connections>
+                                            <action selector="actionShuffle:" target="Voe-Tx-rLC" id="P9C-k9-Bsy"/>
+                                        </connections>
+                                    </menuItem>
                                 </items>
                             </menu>
                         </menuItem>
@@ -961,7 +968,7 @@
                                             <rect key="frame" x="0.0" y="-0.5" width="250" height="25"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <size key="minSize" width="260" height="25"/>
+                                            <size key="minSize" width="250" height="25"/>
                                             <size key="maxSize" width="463" height="10000000"/>
                                             <attributedString key="textStorage">
                                                 <fragment content="--Source">
