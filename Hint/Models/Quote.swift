@@ -6,8 +6,6 @@
 //  Copyright © 2017 Chris Smith. All rights reserved.
 //
 
-import Foundation
-
 class Quote {
     let text: String
     let source: String

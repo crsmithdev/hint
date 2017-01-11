@@ -679,12 +679,6 @@
                                             <action selector="actionDebugNotifyNow:" target="Voe-Tx-rLC" id="M6X-iR-8Wz"/>
                                         </connections>
                                     </menuItem>
-                                    <menuItem title="Rapid Fire" tag="28800" id="gGl-Yh-uZn">
-                                        <modifierMask key="keyEquivalentModifierMask"/>
-                                        <connections>
-                                            <action selector="actionDebugRapidFire:" target="Voe-Tx-rLC" id="0ao-d6-7JU"/>
-                                        </connections>
-                                    </menuItem>
                                 </items>
                             </menu>
                         </menuItem>
@@ -1031,8 +1025,8 @@
                         </subviews>
                     </view>
                     <connections>
-                        <outlet property="leftQuoteScrollView" destination="bkj-aH-Qbf" id="GEI-WP-0vr"/>
-                        <outlet property="rightQuoteScrollView" destination="S5T-X2-gmf" id="uif-fv-ZPq"/>
+                        <outlet property="leftQuoteScrollView" destination="bkj-aH-Qbf" id="3nC-hN-5lE"/>
+                        <outlet property="rightQuoteScrollView" destination="S5T-X2-gmf" id="3iQ-iP-paT"/>
                         <outlet property="sourceScrollView" destination="ql1-qi-B3N" id="xGL-Zb-aFk"/>
                         <outlet property="sourceView" destination="TCy-gS-WS8" id="mbL-qf-nVF"/>
                         <outlet property="textScrollView" destination="EiN-ue-GD3" id="LAi-sL-JaZ"/>
@@ -1091,9 +1085,6 @@
                             <outlet property="versionField" destination="Xkk-yR-nBP" id="cpE-Qv-2du"/>
                         </connections>
                     </view>
-                    <connections>
-                        <outlet property="sourceButton" destination="mFr-Xv-BMe" id="8Qc-4t-STk"/>
-                    </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>

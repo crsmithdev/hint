@@ -23,6 +23,7 @@ enum SoundType: String {
                 self = new
             } else {
                 self = .silent
+                NSLog("failed loading sound from saved value: \(saved), defaulting to \(self)")
             }
         }
     }
@@ -54,21 +55,20 @@ class Sound {
         
         self.type = type
         
-        if type != .silent {
-            let path = Bundle.main.path(forResource: type.rawValue, ofType: "wav")
-            
-            if path == nil {
-                return nil
-            }
-            
-            let sound = NSSound(contentsOfFile: path!, byReference: false)
-            
-            if sound == nil {
-                return nil
-            }
-            
-            self.sound = sound!
+        if self.type == .silent {
+            self.sound = nil
+            return
         }
+        
+        guard let path = Bundle.main.path(forResource: self.type.rawValue, ofType: "wav"),
+            let sound = NSSound(contentsOfFile: path, byReference: false) else {
+                NSLog("failed loading sound, type: \(type)")
+                return nil
+        }
+        
+        self.sound = sound
+        
+        DLog("loaded sound, type: \(type), path: \(path), sound: \(sound)")
     }
     
     func play() {

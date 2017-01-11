@@ -24,7 +24,7 @@
         let settings = Settings(UserDefaults())
         let scheduler = Scheduler()
         
-        var messages: QuoteCollection!
+        var quotes: QuoteCollection!
         var sound: Sound?
         
         /* Lifecycle */
@@ -42,23 +42,16 @@
                 debugMenu.isHidden = false
             #endif
             
-            loadText(settings.messageType)
-            //loadText(QuoteType.debug)
+            loadText(settings.quoteType)
             loadSound(settings.soundType)
             
             scheduler.schedule(settings.interval, block: self.notify)
         }
-        
-        func applicationWillTerminate(_ aNotification: Notification) { }
-        
+                
         /* Actions */
         
         @IBAction func actionDebugNotifyNow(_ sender: NSMenuItem) {
             notify()
-        }
-        
-        @IBAction func actionDebugRapidFire(_ sender: NSMenuItem) {
-            scheduler.schedule(Constants.intervalRapid, block: notify)
         }
         
         @IBAction func actionAbout(_ sender: NSMenuItem) {
@@ -100,14 +93,11 @@
         
         override func validateMenuItem(_ menuItem: NSMenuItem) -> Bool {
             
-            if menuItem.action == #selector(self.actionDebugRapidFire) {
-                menuItem.state = scheduler.interval == Constants.intervalRapid ? 1 : 0
-                
-            } else if menuItem.action == #selector(self.actionChangeInterval) {
+            if menuItem.action == #selector(self.actionChangeInterval) {
                 menuItem.state = menuItem.tag == settings.interval ? 1 : 0
                 
             } else if menuItem.action == #selector(self.actionChangeText) {
-                menuItem.state = settings.messageType.tag() == menuItem.tag ? 1 : 0
+                menuItem.state = settings.quoteType.tag() == menuItem.tag ? 1 : 0
                 
             } else if menuItem.action == #selector(self.actionChangeSound) {
                 menuItem.state = settings.soundType.tag() == menuItem.tag ? 1 : 0
@@ -140,12 +130,13 @@
         
         func loadText(_ type: QuoteType) {
             
-            if let loaded = QuoteCollection(type: type) {
-                settings.messageType = type
-                self.messages = loaded
-            } else {
+            guard let loaded = QuoteCollection(type: type) else {
                 // TODO
+                return
             }
+            
+            settings.quoteType = type
+            self.quotes = loaded
         }
         
         func loadSound(_ type: SoundType) {
@@ -154,12 +145,13 @@
                 // TODO
                 return
             }
+            
             settings.soundType = type
             self.sound = loaded
         }
         
         func notify() {
-            notificationWindowController.showWindowWithText(nil, quote: messages.next())
+            notificationWindowController.showWindowWithText(nil, quote: quotes.next())
             self.sound?.play()
         }
     }

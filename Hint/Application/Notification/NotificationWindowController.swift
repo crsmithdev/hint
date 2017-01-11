@@ -7,7 +7,6 @@
 //
 
 import Cocoa
-import Foundation
 
 class NotificationWindowController: NSWindowController {
     
@@ -16,11 +15,21 @@ class NotificationWindowController: NSWindowController {
     let animationDuration: Double = 0.5
     let visibleDuration: Double = 8.0
     
+    var animating = false
+    
     func showWindowWithText(_ sender: Any?, quote: Quote) {
         
+        // refuse to do anything if animating, or visible.
+        if animating {
+            return
+        }
+        
+        animating = true
+        
+        // set contents of quote view.
         let viewController = self.contentViewController as! NotificationViewController
         viewController.setQuote(quote)
-        
+
         prepare()
         animateIn()
     }
@@ -96,6 +105,7 @@ class NotificationWindowController: NSWindowController {
 
         }, completionHandler: {() -> Void in
             window.orderOut(nil)
+            self.animating = false
         })
     }
 }

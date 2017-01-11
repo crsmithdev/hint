@@ -12,12 +12,4 @@ class Constants {
     
     static let sourceURL = URL(string: "https://github.com/crsmithdev/hint")!
     static let launcherBundleIdentifier = "com.crsmithdev.HintLauncher"
-    
-    static let intervalKey = "NotificationInterval"
-    static let intervalDefault = 300
-    static let intervalRapid = 20
-
-    static let quoteTypeKey = "QuoteType"
-    static let soundTypeKey = "SoundType"
-    static let autoLaunchKey = "AutoLaunch"
 }

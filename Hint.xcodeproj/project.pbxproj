@@ -16,10 +16,10 @@
 		4BA9F3BE1E18B34D007D1506 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4BA9F3BC1E18B34D007D1506 /* MainMenu.xib */; };
 		4BA9F3C51E18B4C1007D1506 /* HintLauncher.app in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4BA9F3B61E18B34D007D1506 /* HintLauncher.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		4BA9F3C81E18B540007D1506 /* ServiceManagement.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BA9F3C71E18B540007D1506 /* ServiceManagement.framework */; };
-		4BB687A31E2561F400414325 /* Debug.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4BB687A21E2561F400414325 /* Debug.txt */; };
+		4BB687A31E2561F400414325 /* Debug.csv in Resources */ = {isa = PBXBuildFile; fileRef = 4BB687A21E2561F400414325 /* Debug.csv */; };
 		4BD7DC531E1383E500237385 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD7DC521E1383E500237385 /* AppDelegate.swift */; };
 		4BD7DC631E1383E500237385 /* HintTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD7DC621E1383E500237385 /* HintTests.swift */; };
-		4BD7DC711E13847800237385 /* Hints.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4BD7DC6F1E13847800237385 /* Hints.txt */; };
+		4BD7DC711E13847800237385 /* Hints.csv in Resources */ = {isa = PBXBuildFile; fileRef = 4BD7DC6F1E13847800237385 /* Hints.csv */; };
 		4BD7DC771E15BAE600237385 /* Logging.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD7DC761E15BAE600237385 /* Logging.swift */; };
 		4BE8862A1E229088003E2DE0 /* LinkButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE886291E229088003E2DE0 /* LinkButton.swift */; };
 		4BE8862D1E22B64A003E2DE0 /* Sound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE8862C1E22B64A003E2DE0 /* Sound.swift */; };
@@ -69,14 +69,14 @@
 		4BA9F3C31E18B3A2007D1506 /* HintLauncher.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HintLauncher.entitlements; sourceTree = "<group>"; };
 		4BA9F3C71E18B540007D1506 /* ServiceManagement.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ServiceManagement.framework; path = System/Library/Frameworks/ServiceManagement.framework; sourceTree = SDKROOT; };
 		4BA9F3C91E18C296007D1506 /* Hint.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Hint.entitlements; sourceTree = "<group>"; };
-		4BB687A21E2561F400414325 /* Debug.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Debug.txt; path = Text/Debug.txt; sourceTree = "<group>"; };
+		4BB687A21E2561F400414325 /* Debug.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Debug.csv; path = Text/Debug.csv; sourceTree = "<group>"; };
 		4BD7DC4F1E1383E500237385 /* Hint.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hint.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4BD7DC521E1383E500237385 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4BD7DC591E1383E500237385 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4BD7DC5E1E1383E500237385 /* HintTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HintTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4BD7DC621E1383E500237385 /* HintTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HintTests.swift; sourceTree = "<group>"; };
 		4BD7DC641E1383E500237385 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4BD7DC6F1E13847800237385 /* Hints.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Hints.txt; path = Text/Hints.txt; sourceTree = "<group>"; };
+		4BD7DC6F1E13847800237385 /* Hints.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Hints.csv; path = Text/Hints.csv; sourceTree = "<group>"; };
 		4BD7DC761E15BAE600237385 /* Logging.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logging.swift; sourceTree = "<group>"; };
 		4BE886291E229088003E2DE0 /* LinkButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinkButton.swift; sourceTree = "<group>"; };
 		4BE8862C1E22B64A003E2DE0 /* Sound.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sound.swift; sourceTree = "<group>"; };
@@ -139,8 +139,8 @@
 		4BB687A11E2561B300414325 /* Text */ = {
 			isa = PBXGroup;
 			children = (
-				4BB687A21E2561F400414325 /* Debug.txt */,
-				4BD7DC6F1E13847800237385 /* Hints.txt */,
+				4BB687A21E2561F400414325 /* Debug.csv */,
+				4BD7DC6F1E13847800237385 /* Hints.csv */,
 			);
 			name = Text;
 			sourceTree = "<group>";
@@ -394,8 +394,8 @@
 			files = (
 				4B1F4E8D1E21D3B800CFB827 /* Main.storyboard in Resources */,
 				4BE886321E22B909003E2DE0 /* SingingBowlLow.wav in Resources */,
-				4BB687A31E2561F400414325 /* Debug.txt in Resources */,
-				4BD7DC711E13847800237385 /* Hints.txt in Resources */,
+				4BB687A31E2561F400414325 /* Debug.csv in Resources */,
+				4BD7DC711E13847800237385 /* Hints.csv in Resources */,
 				4BE886311E22B909003E2DE0 /* SingingBowlHigh.wav in Resources */,
 				4BA9F3B11E189E96007D1506 /* Assets.xcassets in Resources */,
 			);

@@ -15,6 +15,7 @@ class Scheduler: NSObject {
     var scheduledFunc: ScheduledFunc?
     var timer: Timer?
     var pauseTimer: Timer?
+    
     private(set) var paused: Bool = false
     private(set) var interval: Int?
     

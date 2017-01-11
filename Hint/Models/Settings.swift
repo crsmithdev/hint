@@ -10,26 +10,37 @@ import Foundation
 
 class Settings {
     
+    private struct Keys {
+        static let intervalKey = "NotificationInterval"
+        static let quoteTypeKey = "QuoteType"
+        static let soundTypeKey = "SoundType"
+        static let autoLaunchKey = "AutoLaunch"
+    }
+    
+    private struct Defaults {
+        static let interval = 300
+    }
+
     private let defaults: UserDefaults
     
     var interval: Int {
-        get { return defaults.integer(forKey: Constants.intervalKey) }
-        set (value) { defaults.set(value, forKey: Constants.intervalKey) }
+        get { return defaults.integer(forKey: Keys.intervalKey) }
+        set (value) { defaults.set(value, forKey: Keys.intervalKey) }
     }
     
     var soundType: SoundType {
-        get { return SoundType(saved: defaults.string(forKey: Constants.soundTypeKey)) }
-        set (value) { defaults.set(value.rawValue, forKey: Constants.soundTypeKey) }
+        get { return SoundType(saved: defaults.string(forKey: Keys.soundTypeKey)) }
+        set (value) { defaults.set(value.rawValue, forKey: Keys.soundTypeKey) }
     }
     
-    var messageType: QuoteType {
-        get { return QuoteType(saved: defaults.string(forKey: Constants.quoteTypeKey)) }
-        set (value) { defaults.set(value.rawValue, forKey: Constants.quoteTypeKey) }
+    var quoteType: QuoteType {
+        get { return QuoteType(saved: defaults.string(forKey: Keys.quoteTypeKey)) }
+        set (value) { defaults.set(value.rawValue, forKey: Keys.quoteTypeKey) }
     }
     
     var autoLaunch: Bool {
-        get { return defaults.bool(forKey: Constants.autoLaunchKey) }
-        set (value) { defaults.set(value, forKey: Constants.autoLaunchKey) }
+        get { return defaults.bool(forKey: Keys.autoLaunchKey) }
+        set (value) { defaults.set(value, forKey: Keys.autoLaunchKey) }
     }
     
     var pauseInterval: Int = 0
@@ -39,7 +50,7 @@ class Settings {
         self.defaults = defaults
         
         if self.interval == 0 {
-            self.interval = Constants.intervalDefault
+            self.interval = Defaults.interval
         }
     }
 }
