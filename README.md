@@ -7,13 +7,13 @@ Hint is a simple mindfulness reminder for macOS.
 
 ## Requirements
 
-- macOS 10.11 or higher
+- macOS 10.10 or higher
 - XCode 8+ (development)
 
 ## Features
 
-- 10 mindfulness-focused quotes delivered by notification
-- Configurable notification intervals from 2 minutes to 1 hour
+- 25 mindfulness-focused quotes delivered by notification
+- Configurable notification intervals from 10 minutes to 8 hours
 - Configurable notification sounds
 - Pause for preset intervals, or until resumed
 - Auto-launch on startup
