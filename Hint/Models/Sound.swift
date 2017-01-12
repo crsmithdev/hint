@@ -72,8 +72,10 @@ class Sound {
     }
     
     func play() {
-        if type != .silent {
-            self.sound?.play()
-        }
+        self.sound?.play()
+    }
+    
+    func stop() {
+        self.sound?.stop()
     }
 }

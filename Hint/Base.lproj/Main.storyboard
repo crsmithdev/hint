@@ -687,12 +687,6 @@
                             <modifierMask key="keyEquivalentModifierMask"/>
                             <menu key="submenu" title="Interval" id="ZzP-bf-IyA">
                                 <items>
-                                    <menuItem title="5 Minutes" tag="300" id="9c1-Eq-39m">
-                                        <modifierMask key="keyEquivalentModifierMask"/>
-                                        <connections>
-                                            <action selector="actionChangeInterval:" target="Voe-Tx-rLC" id="uSF-VH-1kA"/>
-                                        </connections>
-                                    </menuItem>
                                     <menuItem title="10 Minutes" tag="600" id="dz0-Pc-rF4">
                                         <modifierMask key="keyEquivalentModifierMask"/>
                                         <connections>
@@ -927,7 +921,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="31" height="33"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <textView ambiguous="YES" importsGraphics="NO" usesFontPanel="YES" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" usesRuler="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" spellingCorrection="YES" smartInsertDelete="YES" id="dqd-5d-hen">
+                                        <textView ambiguous="YES" editable="NO" selectable="NO" importsGraphics="NO" usesFontPanel="YES" findStyle="panel" continuousSpellChecking="YES" usesRuler="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" spellingCorrection="YES" smartInsertDelete="YES" id="dqd-5d-hen">
                                             <rect key="frame" x="0.0" y="0.0" width="31" height="59"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <color key="textColor" red="0.6588235294117647" green="0.6588235294117647" blue="0.6588235294117647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -999,7 +993,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="31" height="33"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <textView ambiguous="YES" importsGraphics="NO" usesFontPanel="YES" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" usesRuler="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" spellingCorrection="YES" smartInsertDelete="YES" id="w2I-Nw-5mV">
+                                        <textView ambiguous="YES" editable="NO" selectable="NO" importsGraphics="NO" usesFontPanel="YES" findStyle="panel" continuousSpellChecking="YES" usesRuler="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" spellingCorrection="YES" smartInsertDelete="YES" id="w2I-Nw-5mV">
                                             <rect key="frame" x="0.0" y="26" width="31" height="59"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <color key="textColor" red="0.6588235294117647" green="0.6588235294117647" blue="0.6588235294117647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

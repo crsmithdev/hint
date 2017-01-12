@@ -30,7 +30,7 @@ class NotificationViewController: NSViewController {
     
     let rightQuotationMarkXOffset: CGFloat = 14
     let rightQuotationMarkYOffset: CGFloat = -7
-    let leftQuotationMarkYOffset: CGFloat = 26
+    let leftQuotationMarkYOffset: CGFloat = -25
     
     func setQuote(_ quote: Quote) {
         
@@ -121,7 +121,7 @@ class NotificationViewController: NSViewController {
         // position left quotation mark against vertically-centered quote text.
         let leftOrigin = NSPoint(
             x: leftQuoteScrollView.frame.origin.x,
-            y: textScrollView.frame.origin.y + textScrollView.frame.height - leftQuotationMarkYOffset
+            y: textScrollView.frame.origin.y + textScrollView.frame.height + leftQuotationMarkYOffset
         )
         leftQuoteScrollView.setFrameOrigin(leftOrigin)
     
