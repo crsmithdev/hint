@@ -42,3 +42,4 @@ Hint is a simple mindfulness reminder for macOS.
 - Proper settings window
 - Travis CI
 - Tests
+- v1.0 release & publication on App Store
