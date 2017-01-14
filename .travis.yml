@@ -10,4 +10,4 @@ osx_image: xcode8.2
 xcode_sdk: macosx10.12
 
 script:
-- xcodebuild clean build test -project Hint.xcodeproj -scheme HintTests CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
+- xcodebuild clean build test -project Hint.xcodeproj -scheme Hint CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
