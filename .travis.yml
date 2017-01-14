@@ -11,3 +11,4 @@ xcode_sdk: macosx10.12
 
 script:
 - xcodebuild clean build test -project Hint.xcodeproj -scheme HintTests
+after_script: set +e
