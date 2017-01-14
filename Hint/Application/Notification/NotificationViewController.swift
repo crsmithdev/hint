@@ -8,6 +8,7 @@
 
 import Cocoa
 
+
 class NotificationViewController: NSViewController {
     
     @IBOutlet var textView: NSTextView!
@@ -19,17 +20,18 @@ class NotificationViewController: NSViewController {
     @IBOutlet var rightQuoteScrollView: NSScrollView!
     @IBOutlet var leftQuoteScrollView: NSScrollView!
     
-    let quoteTextFont = NSFont(name: "Georgia", size: 15)!
+    let quoteTextFont = NSFont(name: "Georgia", size: 14)!
     let quoteTextColor = NSColor(red: 246/255, green: 246/255, blue: 246/255, alpha: 1.0)
-    let quoteTextLineHeight: CGFloat = 19.0
-    let quoteTextHeightPadding: CGFloat = 5
+    let quoteTextLineHeight: CGFloat = 19
+    let quoteTextHeightPadding: CGFloat = 7
     
-    let quoteSourceFont = NSFont(name: "Georgia Italic", size: 15)!
+    let quoteSourceFont = NSFont(name: "Georgia Italic", size: 14)!
     let quoteSourceColor = NSColor(red: 228/255, green: 228/255, blue: 228/255, alpha: 1.0)
     let quoteSourceHeightPadding: CGFloat = 5
     
-    let rightQuotationMarkXOffset: CGFloat = 14
-    let rightQuotationMarkYOffset: CGFloat = -7
+    let rightQuotationMarkXOffset: CGFloat = -8
+    let rightQuotationMarkYOffset: CGFloat = -6
+    let leftQuotationMarkXOffset: CGFloat = 0
     let leftQuotationMarkYOffset: CGFloat = -25
     
     func setQuote(_ quote: Quote) {
@@ -74,21 +76,34 @@ class NotificationViewController: NSViewController {
     
     func positionQuote() {
         
+        let textLayoutManager = textView.layoutManager!
+        let sourceLayoutManager = sourceView.layoutManager!
+        
         // force layout.
-        textView.layoutManager?.ensureLayout(for: textView.textContainer!)
-        sourceView.layoutManager?.ensureLayout(for: sourceView.textContainer!)
+        textLayoutManager.ensureLayout(for: textView.textContainer!)
+        sourceLayoutManager.ensureLayout(for: sourceView.textContainer!)
         
         // get used rect for both parts.
-        let textUsedRect = textView.layoutManager!.usedRect(for: textView.textContainer!)
-        let sourceUsedRect = sourceView.layoutManager!.usedRect(for: sourceView.textContainer!)
+        let textUsedRect = textLayoutManager.usedRect(for: textView.textContainer!)
+        let sourceUsedRect = sourceLayoutManager.usedRect(for: sourceView.textContainer!)
         
+        // find width of the longest line of quote text.
+        var i = 0
+        var width = 0
+        while i < textLayoutManager.numberOfGlyphs {
+            var range = NSRange()
+            let rect = textLayoutManager.lineFragmentUsedRect(forGlyphAt: i, effectiveRange: &range)
+            width = max(width, Int(rect.width))
+            i = NSMaxRange(range)
+        }
+ 
         // size and position quote text to center vertically, factoring in source.
         let textSize = NSSize(
             width: textScrollView.frame.width,
             height: textUsedRect.height + quoteTextHeightPadding
         )
         let textOrigin = NSPoint(
-            x: textScrollView.frame.origin.x,
+            x: (view.frame.width - CGFloat(width)) / 2,
             y: (view.frame.height - textSize.height + sourceScrollView.frame.height) / 2
         )
         
@@ -111,6 +126,8 @@ class NotificationViewController: NSViewController {
     
     func positionQuotationMarks() {
 
+        textView.layoutManager?.ensureLayout(for: textView.textContainer!)
+
         // get the used rect for the last displayed line of quote text.
         let layoutManager = textView.layoutManager!
         let lastUsedRect = layoutManager.lineFragmentUsedRect(
@@ -120,14 +137,14 @@ class NotificationViewController: NSViewController {
         
         // position left quotation mark against vertically-centered quote text.
         let leftOrigin = NSPoint(
-            x: leftQuoteScrollView.frame.origin.x,
+            x: textScrollView.frame.origin.x - leftQuoteScrollView.frame.width + leftQuotationMarkXOffset,
             y: textScrollView.frame.origin.y + textScrollView.frame.height + leftQuotationMarkYOffset
         )
         leftQuoteScrollView.setFrameOrigin(leftOrigin)
     
         // position right quotation mark at end of last displayed character.
         let rightOrigin = NSPoint(
-            x: lastUsedRect.width + rightQuotationMarkXOffset,
+            x: textScrollView.frame.origin.x + lastUsedRect.width + rightQuotationMarkXOffset,
             y: textScrollView.frame.origin.y + rightQuotationMarkYOffset
         )
         rightQuoteScrollView.setFrameOrigin(rightOrigin)

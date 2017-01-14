@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		4B1F4E8D1E21D3B800CFB827 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B1F4E8C1E21D3B800CFB827 /* Main.storyboard */; };
 		4B56EDFF1E19E6EC002D0804 /* Scheduler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B56EDFE1E19E6EC002D0804 /* Scheduler.swift */; };
+		4B5B85EB1E2A8B5600FE04FA /* OverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5B85EA1E2A8B5600FE04FA /* OverlayView.swift */; };
 		4BA9F3AF1E188A06007D1506 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA9F3AE1E188A06007D1506 /* Constants.swift */; };
 		4BA9F3B11E189E96007D1506 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4BA9F3B01E189E96007D1506 /* Assets.xcassets */; };
 		4BA9F3B91E18B34D007D1506 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA9F3B81E18B34D007D1506 /* AppDelegate.swift */; };
@@ -59,6 +60,7 @@
 /* Begin PBXFileReference section */
 		4B1F4E8C1E21D3B800CFB827 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4B56EDFE1E19E6EC002D0804 /* Scheduler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Scheduler.swift; sourceTree = "<group>"; };
+		4B5B85EA1E2A8B5600FE04FA /* OverlayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverlayView.swift; sourceTree = "<group>"; };
 		4BA9F3AE1E188A06007D1506 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		4BA9F3B01E189E96007D1506 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4BA9F3B61E18B34D007D1506 /* HintLauncher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HintLauncher.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -231,6 +233,7 @@
 			children = (
 				4BFA68C11E21A4560031DF0C /* NotificationViewController.swift */,
 				4BFA68B51E2195A20031DF0C /* NotificationWindowController.swift */,
+				4B5B85EA1E2A8B5600FE04FA /* OverlayView.swift */,
 			);
 			path = Notification;
 			sourceTree = "<group>";
@@ -432,6 +435,7 @@
 				4BE886381E22C473003E2DE0 /* Settings.swift in Sources */,
 				4B56EDFF1E19E6EC002D0804 /* Scheduler.swift in Sources */,
 				4BD7DC531E1383E500237385 /* AppDelegate.swift in Sources */,
+				4B5B85EB1E2A8B5600FE04FA /* OverlayView.swift in Sources */,
 				4BD7DC771E15BAE600237385 /* Logging.swift in Sources */,
 				4BE8862A1E229088003E2DE0 /* LinkButton.swift in Sources */,
 				4BFA68B61E2195A20031DF0C /* NotificationWindowController.swift in Sources */,

@@ -16,6 +16,11 @@ class NotificationWindowController: NSWindowController {
     let visibleDuration: Double = 8.0
     
     var animating = false
+    var timer: Timer? = nil
+    
+    override func windowDidLoad() {
+        window?.isMovable = false
+    }
     
     func showWindowWithText(_ sender: Any?, quote: Quote) {
         
@@ -74,7 +79,7 @@ class NotificationWindowController: NSWindowController {
         }, completionHandler: {() -> Void in
             
             // hold visible, then animate out.
-            Timer.scheduledTimer(
+            self.timer = Timer.scheduledTimer(
                 timeInterval: self.visibleDuration,
                 target: self,
                 selector: #selector(self.animateOut),
@@ -107,5 +112,12 @@ class NotificationWindowController: NSWindowController {
             window.orderOut(nil)
             self.animating = false
         })
+    }
+    
+    func dismiss() {
+        if animating {
+            timer?.invalidate()
+            animateOut()
+        }
     }
 }
