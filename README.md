@@ -1,4 +1,5 @@
 # Hint
+[![TravisCI](https://api.travis-ci.org/crsmithdev/hint.svg?branch=master)](https://travis-ci.org/crsmithdev/hint)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 Hint is a simple mindfulness reminder for macOS.
