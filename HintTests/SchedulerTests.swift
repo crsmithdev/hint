@@ -1,5 +1,5 @@
 //
-//  HintTests.swift
+//  SchedulerTests.swift
 //  HintTests
 //
 //  Created by Christopher Smith on 12/27/16.
@@ -9,7 +9,7 @@
 import XCTest
 @testable import Hint
 
-class HintTests: XCTestCase {
+class SchedulerTests: XCTestCase {
     
     var scheduler: Scheduler!
     
@@ -30,7 +30,25 @@ class HintTests: XCTestCase {
             expect.fulfill()
         })
         
-        waitForExpectations(timeout: 5) { error in
+        XCTAssert(scheduler.interval == 1)
+        
+        waitForExpectations(timeout: 2) { error in
+            XCTAssertNil(error)
+        }
+    }
+    
+    func testPauseResume() {
+        
+        let expect = expectation(description: "schedule")
+        scheduler.schedule(1, block: { () -> Void in
+            expect.fulfill()
+        })
+        scheduler.pause()
+        XCTAssert(scheduler.paused)
+        scheduler.resume()
+        XCTAssert(!scheduler.paused)
+
+        waitForExpectations(timeout: 2) { error in
             XCTAssertNil(error)
         }
     }

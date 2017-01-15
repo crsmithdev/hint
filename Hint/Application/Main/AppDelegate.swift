@@ -25,7 +25,7 @@
         let scheduler = Scheduler()
         
         var quotes: QuoteCollection!
-        var sound: Sound?
+        var sound: NSSound?
         
         /* Lifecycle */
         
@@ -162,7 +162,8 @@
         
         func loadSound(_ type: SoundType) {
             
-            guard let loaded = Sound(type: type) else {
+            guard let loaded = NSSound(soundType: type) else {
+            //guard let loaded = Sound(type: type) else {
                 // TODO
                 return
             }
@@ -173,6 +174,7 @@
         
         func notify() {
             notificationWindowController.showWindowWithText(nil, quote: quotes.next())
+            self.sound?.stop()
             self.sound?.play()
         }
     }

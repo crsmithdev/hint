@@ -7,6 +7,7 @@
 //
 
 class Quote {
+    
     let text: String
     let source: String
     let id: Int

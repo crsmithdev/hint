@@ -46,36 +46,18 @@ enum SoundType: String {
     }
 }
 
-class Sound {
+extension NSSound {
     
-    let type: SoundType
-    private var sound: NSSound?
-    
-    init?(type: SoundType) {
+    convenience init?(soundType: SoundType) {
         
-        self.type = type
-        
-        if self.type == .silent {
-            self.sound = nil
-            return
+        if soundType == .silent {
+            return nil
         }
         
-        guard let path = Bundle.main.path(forResource: self.type.rawValue, ofType: "wav"),
-            let sound = NSSound(contentsOfFile: path, byReference: false) else {
-                NSLog("failed loading sound, type: \(type)")
-                return nil
+        guard let file = Bundle.main.path(forResource: soundType.rawValue, ofType: "wav") else {
+            return nil
         }
         
-        self.sound = sound
-        
-        DLog("loaded sound, type: \(type), path: \(path), sound: \(sound)")
-    }
-    
-    func play() {
-        self.sound?.play()
-    }
-    
-    func stop() {
-        self.sound?.stop()
+        self.init(contentsOfFile: file, byReference: false)
     }
 }

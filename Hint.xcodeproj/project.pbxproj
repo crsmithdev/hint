@@ -10,6 +10,7 @@
 		4B1F4E8D1E21D3B800CFB827 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B1F4E8C1E21D3B800CFB827 /* Main.storyboard */; };
 		4B56EDFF1E19E6EC002D0804 /* Scheduler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B56EDFE1E19E6EC002D0804 /* Scheduler.swift */; };
 		4B5B85EB1E2A8B5600FE04FA /* OverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5B85EA1E2A8B5600FE04FA /* OverlayView.swift */; };
+		4B8AC5151E2AF9C900C99405 /* SoundTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8AC5141E2AF9C900C99405 /* SoundTests.swift */; };
 		4BA9F3AF1E188A06007D1506 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA9F3AE1E188A06007D1506 /* Constants.swift */; };
 		4BA9F3B11E189E96007D1506 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4BA9F3B01E189E96007D1506 /* Assets.xcassets */; };
 		4BA9F3B91E18B34D007D1506 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA9F3B81E18B34D007D1506 /* AppDelegate.swift */; };
@@ -19,7 +20,7 @@
 		4BA9F3C81E18B540007D1506 /* ServiceManagement.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BA9F3C71E18B540007D1506 /* ServiceManagement.framework */; };
 		4BB687A31E2561F400414325 /* Debug.csv in Resources */ = {isa = PBXBuildFile; fileRef = 4BB687A21E2561F400414325 /* Debug.csv */; };
 		4BD7DC531E1383E500237385 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD7DC521E1383E500237385 /* AppDelegate.swift */; };
-		4BD7DC631E1383E500237385 /* HintTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD7DC621E1383E500237385 /* HintTests.swift */; };
+		4BD7DC631E1383E500237385 /* SchedulerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD7DC621E1383E500237385 /* SchedulerTests.swift */; };
 		4BD7DC711E13847800237385 /* Hints.csv in Resources */ = {isa = PBXBuildFile; fileRef = 4BD7DC6F1E13847800237385 /* Hints.csv */; };
 		4BD7DC771E15BAE600237385 /* Logging.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD7DC761E15BAE600237385 /* Logging.swift */; };
 		4BE8862A1E229088003E2DE0 /* LinkButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE886291E229088003E2DE0 /* LinkButton.swift */; };
@@ -61,6 +62,7 @@
 		4B1F4E8C1E21D3B800CFB827 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4B56EDFE1E19E6EC002D0804 /* Scheduler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Scheduler.swift; sourceTree = "<group>"; };
 		4B5B85EA1E2A8B5600FE04FA /* OverlayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverlayView.swift; sourceTree = "<group>"; };
+		4B8AC5141E2AF9C900C99405 /* SoundTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundTests.swift; sourceTree = "<group>"; };
 		4BA9F3AE1E188A06007D1506 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		4BA9F3B01E189E96007D1506 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4BA9F3B61E18B34D007D1506 /* HintLauncher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HintLauncher.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -76,12 +78,12 @@
 		4BD7DC521E1383E500237385 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4BD7DC591E1383E500237385 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4BD7DC5E1E1383E500237385 /* HintTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HintTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		4BD7DC621E1383E500237385 /* HintTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HintTests.swift; sourceTree = "<group>"; };
+		4BD7DC621E1383E500237385 /* SchedulerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchedulerTests.swift; sourceTree = "<group>"; };
 		4BD7DC641E1383E500237385 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4BD7DC6F1E13847800237385 /* Hints.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Hints.csv; path = Text/Hints.csv; sourceTree = "<group>"; };
 		4BD7DC761E15BAE600237385 /* Logging.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logging.swift; sourceTree = "<group>"; };
 		4BE886291E229088003E2DE0 /* LinkButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinkButton.swift; sourceTree = "<group>"; };
-		4BE8862C1E22B64A003E2DE0 /* Sound.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sound.swift; sourceTree = "<group>"; };
+		4BE8862C1E22B64A003E2DE0 /* Sound.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Sound.swift; path = ../../Models/Sound.swift; sourceTree = "<group>"; };
 		4BE8862F1E22B909003E2DE0 /* SingingBowlHigh.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = SingingBowlHigh.wav; path = Sounds/SingingBowlHigh.wav; sourceTree = "<group>"; };
 		4BE886301E22B909003E2DE0 /* SingingBowlLow.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = SingingBowlLow.wav; path = Sounds/SingingBowlLow.wav; sourceTree = "<group>"; };
 		4BE886331E22C25B003E2DE0 /* QuoteCollection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuoteCollection.swift; sourceTree = "<group>"; };
@@ -185,8 +187,9 @@
 		4BD7DC611E1383E500237385 /* HintTests */ = {
 			isa = PBXGroup;
 			children = (
-				4BD7DC621E1383E500237385 /* HintTests.swift */,
 				4BD7DC641E1383E500237385 /* Info.plist */,
+				4BD7DC621E1383E500237385 /* SchedulerTests.swift */,
+				4B8AC5141E2AF9C900C99405 /* SoundTests.swift */,
 			);
 			path = HintTests;
 			sourceTree = "<group>";
@@ -241,6 +244,7 @@
 		4BE886281E228CBF003E2DE0 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				4BE8862C1E22B64A003E2DE0 /* Sound.swift */,
 				4BA9F3AE1E188A06007D1506 /* Constants.swift */,
 				4BD7DC761E15BAE600237385 /* Logging.swift */,
 				4B56EDFE1E19E6EC002D0804 /* Scheduler.swift */,
@@ -251,7 +255,6 @@
 		4BE8862B1E22B56E003E2DE0 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				4BE8862C1E22B64A003E2DE0 /* Sound.swift */,
 				4BE886331E22C25B003E2DE0 /* QuoteCollection.swift */,
 				4BE886351E22C26B003E2DE0 /* Quote.swift */,
 				4BE886371E22C473003E2DE0 /* Settings.swift */,
@@ -446,7 +449,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4BD7DC631E1383E500237385 /* HintTests.swift in Sources */,
+				4BD7DC631E1383E500237385 /* SchedulerTests.swift in Sources */,
+				4B8AC5151E2AF9C900C99405 /* SoundTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
