@@ -16,6 +16,7 @@ Hint is a simple mindfulness reminder for macOS.
 - 25 mindfulness-focused quotes delivered by notification
 - Configurable notification intervals from 10 minutes to 8 hours
 - Configurable notification sounds
+- Quote shuffle
 - Pause for preset intervals, or until resumed
 - Auto-launch on startup
 
@@ -35,11 +36,10 @@ Hint is a simple mindfulness reminder for macOS.
 
 ## To Do
 
-- Additional, differently-focused quote collections
-- User-loaded quote sets & custom messages
+- Additional, specifically-focused quote collections
+- User-defined quote collections & custom messages
 - User-defined interval option
-- Higher-quality sounds
 - Additional sounds
-- Proper settings window
-- Tests
-- v1.0 release & publication on App Store
+- Settings window
+- v1.0 release
+- App store publication
