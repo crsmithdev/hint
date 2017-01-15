@@ -18,6 +18,7 @@
 		4BA9F3BE1E18B34D007D1506 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4BA9F3BC1E18B34D007D1506 /* MainMenu.xib */; };
 		4BA9F3C51E18B4C1007D1506 /* HintLauncher.app in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4BA9F3B61E18B34D007D1506 /* HintLauncher.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		4BA9F3C81E18B540007D1506 /* ServiceManagement.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BA9F3C71E18B540007D1506 /* ServiceManagement.framework */; };
+		4BB276671E2BEE9A00801992 /* QuoteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB276661E2BEE9A00801992 /* QuoteTests.swift */; };
 		4BB687A31E2561F400414325 /* Debug.csv in Resources */ = {isa = PBXBuildFile; fileRef = 4BB687A21E2561F400414325 /* Debug.csv */; };
 		4BD7DC531E1383E500237385 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD7DC521E1383E500237385 /* AppDelegate.swift */; };
 		4BD7DC631E1383E500237385 /* SchedulerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD7DC621E1383E500237385 /* SchedulerTests.swift */; };
@@ -73,6 +74,7 @@
 		4BA9F3C31E18B3A2007D1506 /* HintLauncher.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HintLauncher.entitlements; sourceTree = "<group>"; };
 		4BA9F3C71E18B540007D1506 /* ServiceManagement.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ServiceManagement.framework; path = System/Library/Frameworks/ServiceManagement.framework; sourceTree = SDKROOT; };
 		4BA9F3C91E18C296007D1506 /* Hint.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Hint.entitlements; sourceTree = "<group>"; };
+		4BB276661E2BEE9A00801992 /* QuoteTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuoteTests.swift; sourceTree = "<group>"; };
 		4BB687A21E2561F400414325 /* Debug.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Debug.csv; path = Text/Debug.csv; sourceTree = "<group>"; };
 		4BD7DC4F1E1383E500237385 /* Hint.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hint.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4BD7DC521E1383E500237385 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -190,6 +192,7 @@
 				4BD7DC641E1383E500237385 /* Info.plist */,
 				4BD7DC621E1383E500237385 /* SchedulerTests.swift */,
 				4B8AC5141E2AF9C900C99405 /* SoundTests.swift */,
+				4BB276661E2BEE9A00801992 /* QuoteTests.swift */,
 			);
 			path = HintTests;
 			sourceTree = "<group>";
@@ -449,6 +452,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4BB276671E2BEE9A00801992 /* QuoteTests.swift in Sources */,
 				4BD7DC631E1383E500237385 /* SchedulerTests.swift in Sources */,
 				4B8AC5151E2AF9C900C99405 /* SoundTests.swift in Sources */,
 			);

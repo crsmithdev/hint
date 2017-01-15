@@ -11,16 +11,7 @@ import XCTest
 
 class SoundTypeTests: XCTestCase {
     
-    override func setUp() {
-        super.setUp()
-    }
-    
-    override func tearDown() {
-        super.tearDown()
-    }
-    
     func testSaved() {
-        
         XCTAssertEqual(SoundType(saved: SoundType.singingBowlLow.rawValue), SoundType.singingBowlLow)
         XCTAssertEqual(SoundType(saved: nil), SoundType.silent)
         XCTAssertEqual(SoundType(saved: "error"), SoundType.silent)
