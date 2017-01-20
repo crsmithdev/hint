@@ -162,14 +162,19 @@
         
         func loadSound(_ type: SoundType) {
             
-            guard let loaded = NSSound(soundType: type) else {
-            //guard let loaded = Sound(type: type) else {
-                // TODO
-                return
-            }
-            
             settings.soundType = type
-            self.sound = loaded
+            
+            if type == .silent {
+                self.sound = nil
+            } else {
+            
+                guard let loaded = NSSound(soundType: type) else {
+                    // TODO
+                    return
+                }
+
+                self.sound = loaded
+            }
         }
         
         func notify() {
