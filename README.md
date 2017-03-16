@@ -27,6 +27,12 @@ Hint is a simple mindfulness reminder for macOS.
 
 ## Installation
 
+### Homebrew
+```shell
+brew cask install hint
+```
+
+### Manual
 1. Download `Hint.zip` from the latest [release](https://github.com/crsmithdev/hint/releases)
 2. Extract `Hint.zip`
 3. Open the `Hint` folder
